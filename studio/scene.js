@@ -1,7 +1,12 @@
 import * as THREE from './vendor/three.module.min.js';
 import {OrbitControls} from './vendor/OrbitControls.js';
 export async function createTwin(container, data, onSelect, options) {
- const renderer=new THREE.WebGLRenderer({antialias:true,alpha:false});renderer.setPixelRatio(Math.min(devicePixelRatio,1.75));renderer.setClearColor('#edf1e8');renderer.outputColorSpace=THREE.SRGBColorSpace;container.append(renderer.domElement);
+ let renderer;
+ const canvas=document.createElement('canvas');
+ let context=null;try{context=canvas.getContext('webgl2',{antialias:true});}catch{}
+ if(context){renderer=new THREE.WebGLRenderer({canvas,context,antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,1.75));}
+ else{const {SVGRenderer}=await import('./vendor/SVGRenderer.js');renderer=new SVGRenderer();renderer.setQuality('high');}
+ renderer.setClearColor(new THREE.Color('#edf1e8'));renderer.outputColorSpace=THREE.SRGBColorSpace;container.append(renderer.domElement);
  renderer.domElement.setAttribute('aria-label','Interactive 3D studio layout preview');renderer.domElement.setAttribute('role','img');
  const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(38,1,.1,150);camera.position.set(26,24,15);
  const controls=new OrbitControls(camera,renderer.domElement);controls.target.set(7.5,0,-8.5);controls.minDistance=8;controls.maxDistance=65;controls.maxPolarAngle=Math.PI/2.03;controls.enableDamping=false;
