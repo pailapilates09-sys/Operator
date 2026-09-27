@@ -1,0 +1,2029 @@
+{
+  "schema": "paila-studio-geometry/1.0",
+  "artifact_id": "ART-PAILA-STUDIO-GEOMETRY-001",
+  "geometry_version": "0.1.0-preview.1",
+  "generated_at": "2026-09-26",
+  "status": "SOURCE_DERIVED_PREVIEW",
+  "units": "mm",
+  "coordinate_precision_mm": 1,
+  "accuracy": "Raster trace, typically several pixels (about 100\u2013200 mm). 1 mm storage precision is not survey accuracy.",
+  "north": {
+    "status": "NORTH_TBD",
+    "source_marker": "Marker visible at lower right, points approximately page-up. True North bearing not certified; no compass invented."
+  },
+  "bounds": {
+    "min_x": -400,
+    "min_y": -100,
+    "max_x": 15655,
+    "max_y": 17500
+  },
+  "grid": {
+    "cell_mm": 100,
+    "medium_mm": 500,
+    "major_mm": 1000,
+    "margin_mm": 2000
+  },
+  "area_schedule_sqft": {
+    "rental": 2334.27,
+    "carpet": 1966.1,
+    "balcony": 109.25,
+    "toilet": 258.81
+  },
+  "area_reconciliation": {
+    "sum_parts_sqft": 2334.16,
+    "rental_sqft": 2334.27,
+    "difference_sqft": 0.11,
+    "status": "SOURCE_LABEL_ROUNDING_DIFFERENCE",
+    "note": "Area labels confirmed visually. Not computed from trace; separate from gross building/core footprint."
+  },
+  "dimensions": [
+    {
+      "id": "DIM-X-OVERALL",
+      "label": "Overall dimension",
+      "value_mm": 15655,
+      "status": "LEGIBLE_SOURCE_LABEL",
+      "a": [
+        0,
+        -1000
+      ],
+      "b": [
+        15655,
+        -1000
+      ],
+      "reference": "Top and bottom overall dimension line; includes right projection."
+    },
+    {
+      "id": "DIM-TOP-CHAIN",
+      "values_mm": [
+        3310,
+        3450,
+        3230,
+        3835
+      ],
+      "sum_mm": 13825,
+      "status": "PARTIAL_CHAIN",
+      "note": "Does not span full overall extent; do not force sum to 15655."
+    },
+    {
+      "id": "DIM-BOTTOM-CHAIN",
+      "values_mm": [
+        4935,
+        4955,
+        2920,
+        1990
+      ],
+      "sum_mm": 14800,
+      "status": "PARTIAL_CHAIN",
+      "note": "Column/reference chain has different endpoints to overall line."
+    },
+    {
+      "id": "DIM-LEFT-OVERALL",
+      "value_mm": null,
+      "reading_candidates_mm": [
+        17030,
+        17230
+      ],
+      "status": "UNRESOLVED_RASTER_LABEL",
+      "note": "Small rotated digits are ambiguous. Y uses uniform X calibration, not this label."
+    },
+    {
+      "id": "DIM-RIGHT-OVERALL",
+      "value_mm": 17400,
+      "status": "LEGIBLE_SOURCE_LABEL_CONFLICT",
+      "note": "Right overall label 17400; start/end datums differ or raster is distorted. Do not rescale Y silently."
+    },
+    {
+      "id": "DIM-LEFT-CENTRE-CHAIN",
+      "values_mm": [
+        5075,
+        3990,
+        3990,
+        3585
+      ],
+      "sum_mm": 16640,
+      "status": "PROVISIONAL_READ",
+      "note": "Chain endpoints differ from outside-face overall."
+    },
+    {
+      "id": "DIM-BALCONY-WIDTH",
+      "value_mm": 1330,
+      "status": "LEGIBLE_SOURCE_LABEL",
+      "note": "Clear-width label. Traced outer width includes wall/edge."
+    },
+    {
+      "id": "DIM-LIFT-01",
+      "values_mm": [
+        1810,
+        1950
+      ],
+      "status": "LEGIBLE_SOURCE_LABEL",
+      "note": "Recorded independently of traced polygon; raster proportions are not forced."
+    },
+    {
+      "id": "DIM-LIFT-02",
+      "values_mm": [
+        2680,
+        1950
+      ],
+      "status": "LEGIBLE_SOURCE_LABEL",
+      "note": "Recorded independently of traced polygon; raster proportions are not forced."
+    }
+  ],
+  "objects": [
+    {
+      "id": "ZONE-MAIN",
+      "kind": "zone",
+      "label": "Main open floor",
+      "points": [
+        [
+          0,
+          17036
+        ],
+        [
+          10236,
+          17036
+        ],
+        [
+          10236,
+          16434
+        ],
+        [
+          14132,
+          16434
+        ],
+        [
+          14132,
+          11263
+        ],
+        [
+          10236,
+          11263
+        ],
+        [
+          10236,
+          9528
+        ],
+        [
+          9492,
+          9528
+        ],
+        [
+          9492,
+          5419
+        ],
+        [
+          8713,
+          5419
+        ],
+        [
+          8713,
+          3896
+        ],
+        [
+          15301,
+          3896
+        ],
+        [
+          15301,
+          2904
+        ],
+        [
+          8713,
+          2904
+        ],
+        [
+          8713,
+          177
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "customer": true,
+      "color": "#cbded0",
+      "note": "Open floor shown on plan and corroborated by walkthrough. No equipment layout approved."
+    },
+    {
+      "id": "ZONE-BALCONY",
+      "kind": "zone",
+      "label": "Balcony",
+      "points": [
+        [
+          14132,
+          16434
+        ],
+        [
+          15655,
+          16434
+        ],
+        [
+          15655,
+          11263
+        ],
+        [
+          14132,
+          11263
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "customer": true,
+      "color": "#e8d4b9",
+      "note": "Balcony outline traced; access and edge details need confirmation."
+    },
+    {
+      "id": "ZONE-CORE",
+      "kind": "zone",
+      "label": "Stair and lift core",
+      "points": [
+        [
+          10236,
+          11263
+        ],
+        [
+          15301,
+          11263
+        ],
+        [
+          15301,
+          3896
+        ],
+        [
+          8713,
+          3896
+        ],
+        [
+          8713,
+          5419
+        ],
+        [
+          9492,
+          5419
+        ],
+        [
+          9492,
+          9528
+        ],
+        [
+          10236,
+          9528
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "customer": true,
+      "color": "#deded5",
+      "note": "Core outline only. This preview does not certify an accessible or emergency route."
+    },
+    {
+      "id": "ZONE-TOILET",
+      "kind": "zone",
+      "label": "Toilet area",
+      "points": [
+        [
+          8713,
+          2904
+        ],
+        [
+          15301,
+          2904
+        ],
+        [
+          15301,
+          177
+        ],
+        [
+          8713,
+          177
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "customer": true,
+      "color": "#d5e2e7",
+      "note": "Area inferred from lower partitions and area schedule; precise allocation needs confirmation."
+    },
+    {
+      "id": "LIFT-01",
+      "kind": "lift",
+      "label": "Lift 1",
+      "points": [
+        [
+          13140,
+          11051
+        ],
+        [
+          15088,
+          11051
+        ],
+        [
+          15088,
+          9103
+        ],
+        [
+          13140,
+          9103
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#afb8af",
+      "drawing_label": "1810 \u00d7 1950",
+      "nominal_size_mm": [
+        1810,
+        1950
+      ]
+    },
+    {
+      "id": "LIFT-02",
+      "kind": "lift",
+      "label": "Lift 2",
+      "points": [
+        [
+          12149,
+          8855
+        ],
+        [
+          15088,
+          8855
+        ],
+        [
+          15088,
+          6977
+        ],
+        [
+          12149,
+          6977
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#afb8af",
+      "drawing_label": "2680 \u00d7 1950",
+      "nominal_size_mm": [
+        2680,
+        1950
+      ]
+    },
+    {
+      "id": "STAIR-01",
+      "kind": "stair",
+      "label": "Stair zone",
+      "points": [
+        [
+          11653,
+          6730
+        ],
+        [
+          15088,
+          6730
+        ],
+        [
+          15088,
+          4073
+        ],
+        [
+          11653,
+          4073
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#c1c7bd",
+      "note": "Plan footprint only; risers, levels and flight geometry unresolved. Not extruded as a fabricated staircase."
+    },
+    {
+      "id": "COL-001",
+      "kind": "column",
+      "label": "Column 1",
+      "points": [
+        [
+          0,
+          17036
+        ],
+        [
+          567,
+          17036
+        ],
+        [
+          567,
+          16611
+        ],
+        [
+          0,
+          16611
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#365849"
+    },
+    {
+      "id": "COL-002",
+      "kind": "column",
+      "label": "Column 2",
+      "points": [
+        [
+          3259,
+          17072
+        ],
+        [
+          3861,
+          17072
+        ],
+        [
+          3861,
+          16611
+        ],
+        [
+          3259,
+          16611
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#365849"
+    },
+    {
+      "id": "COL-003",
+      "kind": "column",
+      "label": "Column 3",
+      "points": [
+        [
+          6694,
+          17072
+        ],
+        [
+          7332,
+          17072
+        ],
+        [
+          7332,
+          16611
+        ],
+        [
+          6694,
+          16611
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#365849"
+    },
+    {
+      "id": "COL-004",
+      "kind": "column",
+      "label": "Column 4",
+      "points": [
+        [
+          10059,
+          17036
+        ],
+        [
+          10484,
+          17036
+        ],
+        [
+          10484,
+          15868
+        ],
+        [
+          10059,
+          15868
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#365849"
+    },
+    {
+      "id": "COL-005",
+      "kind": "column",
+      "label": "Column 5",
+      "points": [
+        [
+          13884,
+          16470
+        ],
+        [
+          14309,
+          16470
+        ],
+        [
+          14309,
+          15797
+        ],
+        [
+          13884,
+          15797
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#365849"
+    },
+    {
+      "id": "COL-006",
+      "kind": "column",
+      "label": "Column 6",
+      "points": [
+        [
+          0,
+          12078
+        ],
+        [
+          354,
+          12078
+        ],
+        [
+          354,
+          11440
+        ],
+        [
+          0,
+          11440
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#365849"
+    },
+    {
+      "id": "COL-007",
+      "kind": "column",
+      "label": "Column 7",
+      "points": [
+        [
+          4923,
+          12078
+        ],
+        [
+          5525,
+          12078
+        ],
+        [
+          5525,
+          11653
+        ],
+        [
+          4923,
+          11653
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#365849"
+    },
+    {
+      "id": "COL-008",
+      "kind": "column",
+      "label": "Column 8",
+      "points": [
+        [
+          10059,
+          12078
+        ],
+        [
+          10484,
+          12078
+        ],
+        [
+          10484,
+          10838
+        ],
+        [
+          10059,
+          10838
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#365849"
+    },
+    {
+      "id": "COL-009",
+      "kind": "column",
+      "label": "Column 9",
+      "points": [
+        [
+          14876,
+          11299
+        ],
+        [
+          15301,
+          11299
+        ],
+        [
+          15301,
+          10696
+        ],
+        [
+          14876,
+          10696
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#365849"
+    },
+    {
+      "id": "COL-010",
+      "kind": "column",
+      "label": "Column 10",
+      "points": [
+        [
+          0,
+          8075
+        ],
+        [
+          390,
+          8075
+        ],
+        [
+          390,
+          7402
+        ],
+        [
+          0,
+          7402
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#365849"
+    },
+    {
+      "id": "COL-011",
+      "kind": "column",
+      "label": "Column 11",
+      "points": [
+        [
+          4923,
+          8075
+        ],
+        [
+          5525,
+          8075
+        ],
+        [
+          5525,
+          7650
+        ],
+        [
+          4923,
+          7650
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#365849"
+    },
+    {
+      "id": "COL-012",
+      "kind": "column",
+      "label": "Column 12",
+      "points": [
+        [
+          9846,
+          8075
+        ],
+        [
+          10484,
+          8075
+        ],
+        [
+          10484,
+          7650
+        ],
+        [
+          9846,
+          7650
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#365849"
+    },
+    {
+      "id": "COL-013",
+      "kind": "column",
+      "label": "Column 13",
+      "points": [
+        [
+          14876,
+          7332
+        ],
+        [
+          15301,
+          7332
+        ],
+        [
+          15301,
+          6765
+        ],
+        [
+          14876,
+          6765
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#365849"
+    },
+    {
+      "id": "COL-014",
+      "kind": "column",
+      "label": "Column 14",
+      "points": [
+        [
+          0,
+          4534
+        ],
+        [
+          390,
+          4534
+        ],
+        [
+          390,
+          3471
+        ],
+        [
+          0,
+          3471
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#365849"
+    },
+    {
+      "id": "COL-015",
+      "kind": "column",
+      "label": "Column 15",
+      "points": [
+        [
+          4923,
+          4038
+        ],
+        [
+          5525,
+          4038
+        ],
+        [
+          5525,
+          3613
+        ],
+        [
+          4923,
+          3613
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#365849"
+    },
+    {
+      "id": "COL-016",
+      "kind": "column",
+      "label": "Column 16",
+      "points": [
+        [
+          9846,
+          4038
+        ],
+        [
+          10484,
+          4038
+        ],
+        [
+          10484,
+          3613
+        ],
+        [
+          9846,
+          3613
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#365849"
+    },
+    {
+      "id": "COL-017",
+      "kind": "column",
+      "label": "Column 17",
+      "points": [
+        [
+          14876,
+          4356
+        ],
+        [
+          15301,
+          4356
+        ],
+        [
+          15301,
+          3719
+        ],
+        [
+          14876,
+          3719
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#365849"
+    },
+    {
+      "id": "COL-018",
+      "kind": "column",
+      "label": "Column 18",
+      "points": [
+        [
+          0,
+          390
+        ],
+        [
+          567,
+          390
+        ],
+        [
+          567,
+          -35
+        ],
+        [
+          0,
+          -35
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#365849"
+    },
+    {
+      "id": "COL-019",
+      "kind": "column",
+      "label": "Column 19",
+      "points": [
+        [
+          4923,
+          390
+        ],
+        [
+          5525,
+          390
+        ],
+        [
+          5525,
+          -35
+        ],
+        [
+          4923,
+          -35
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#365849"
+    },
+    {
+      "id": "COL-020",
+      "kind": "column",
+      "label": "Column 20",
+      "points": [
+        [
+          9846,
+          390
+        ],
+        [
+          10484,
+          390
+        ],
+        [
+          10484,
+          -35
+        ],
+        [
+          9846,
+          -35
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#365849"
+    },
+    {
+      "id": "COL-021",
+      "kind": "column",
+      "label": "Column 21",
+      "points": [
+        [
+          12822,
+          390
+        ],
+        [
+          13459,
+          390
+        ],
+        [
+          13459,
+          -35
+        ],
+        [
+          12822,
+          -35
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#365849"
+    },
+    {
+      "id": "WALL-001",
+      "kind": "wall",
+      "label": "Wall segment 1",
+      "points": [
+        [
+          0,
+          16647
+        ],
+        [
+          213,
+          16647
+        ],
+        [
+          213,
+          15053
+        ],
+        [
+          0,
+          15053
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#597465",
+      "thickness_mm": null,
+      "note": "Wall faces traced from raster; thickness is not surveyed."
+    },
+    {
+      "id": "WALL-002",
+      "kind": "wall",
+      "label": "Wall segment 2",
+      "points": [
+        [
+          0,
+          12928
+        ],
+        [
+          213,
+          12928
+        ],
+        [
+          213,
+          12078
+        ],
+        [
+          0,
+          12078
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#597465",
+      "thickness_mm": null,
+      "note": "Wall faces traced from raster; thickness is not surveyed."
+    },
+    {
+      "id": "WALL-003",
+      "kind": "wall",
+      "label": "Wall segment 3",
+      "points": [
+        [
+          0,
+          11440
+        ],
+        [
+          213,
+          11440
+        ],
+        [
+          213,
+          11157
+        ],
+        [
+          0,
+          11157
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#597465",
+      "thickness_mm": null,
+      "note": "Wall faces traced from raster; thickness is not surveyed."
+    },
+    {
+      "id": "WALL-004",
+      "kind": "wall",
+      "label": "Wall segment 4",
+      "points": [
+        [
+          0,
+          9032
+        ],
+        [
+          213,
+          9032
+        ],
+        [
+          213,
+          8075
+        ],
+        [
+          0,
+          8075
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#597465",
+      "thickness_mm": null,
+      "note": "Wall faces traced from raster; thickness is not surveyed."
+    },
+    {
+      "id": "WALL-005",
+      "kind": "wall",
+      "label": "Wall segment 5",
+      "points": [
+        [
+          0,
+          7402
+        ],
+        [
+          213,
+          7402
+        ],
+        [
+          213,
+          7155
+        ],
+        [
+          0,
+          7155
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#597465",
+      "thickness_mm": null,
+      "note": "Wall faces traced from raster; thickness is not surveyed."
+    },
+    {
+      "id": "WALL-006",
+      "kind": "wall",
+      "label": "Wall segment 6",
+      "points": [
+        [
+          0,
+          5029
+        ],
+        [
+          213,
+          5029
+        ],
+        [
+          213,
+          4356
+        ],
+        [
+          0,
+          4356
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#597465",
+      "thickness_mm": null,
+      "note": "Wall faces traced from raster; thickness is not surveyed."
+    },
+    {
+      "id": "WALL-007",
+      "kind": "wall",
+      "label": "Wall segment 7",
+      "points": [
+        [
+          0,
+          1381
+        ],
+        [
+          213,
+          1381
+        ],
+        [
+          213,
+          390
+        ],
+        [
+          0,
+          390
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#597465",
+      "thickness_mm": null,
+      "note": "Wall faces traced from raster; thickness is not surveyed."
+    },
+    {
+      "id": "WALL-008",
+      "kind": "wall",
+      "label": "Wall segment 8",
+      "points": [
+        [
+          567,
+          177
+        ],
+        [
+          8713,
+          177
+        ],
+        [
+          8713,
+          -35
+        ],
+        [
+          567,
+          -35
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#597465",
+      "thickness_mm": null,
+      "note": "Wall faces traced from raster; thickness is not surveyed."
+    },
+    {
+      "id": "WALL-009",
+      "kind": "wall",
+      "label": "Wall segment 9",
+      "points": [
+        [
+          3861,
+          17036
+        ],
+        [
+          6694,
+          17036
+        ],
+        [
+          6694,
+          16824
+        ],
+        [
+          3861,
+          16824
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#597465",
+      "thickness_mm": null,
+      "note": "Wall faces traced from raster; thickness is not surveyed."
+    },
+    {
+      "id": "WALL-010",
+      "kind": "wall",
+      "label": "Wall segment 10",
+      "points": [
+        [
+          7332,
+          17036
+        ],
+        [
+          7792,
+          17036
+        ],
+        [
+          7792,
+          16824
+        ],
+        [
+          7332,
+          16824
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#597465",
+      "thickness_mm": null,
+      "note": "Wall faces traced from raster; thickness is not surveyed."
+    },
+    {
+      "id": "WALL-011",
+      "kind": "wall",
+      "label": "Wall segment 11",
+      "points": [
+        [
+          7792,
+          17036
+        ],
+        [
+          8005,
+          17036
+        ],
+        [
+          8005,
+          16824
+        ],
+        [
+          7792,
+          16824
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#597465",
+      "thickness_mm": null,
+      "note": "Wall faces traced from raster; thickness is not surveyed."
+    },
+    {
+      "id": "WALL-012",
+      "kind": "wall",
+      "label": "Wall segment 12",
+      "points": [
+        [
+          9669,
+          17036
+        ],
+        [
+          10059,
+          17036
+        ],
+        [
+          10059,
+          16824
+        ],
+        [
+          9669,
+          16824
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#597465",
+      "thickness_mm": null,
+      "note": "Wall faces traced from raster; thickness is not surveyed."
+    },
+    {
+      "id": "WALL-013",
+      "kind": "wall",
+      "label": "Wall segment 13",
+      "points": [
+        [
+          10484,
+          16470
+        ],
+        [
+          10909,
+          16470
+        ],
+        [
+          10909,
+          16257
+        ],
+        [
+          10484,
+          16257
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#597465",
+      "thickness_mm": null,
+      "note": "Wall faces traced from raster; thickness is not surveyed."
+    },
+    {
+      "id": "WALL-014",
+      "kind": "wall",
+      "label": "Wall segment 14",
+      "points": [
+        [
+          12503,
+          16470
+        ],
+        [
+          13884,
+          16470
+        ],
+        [
+          13884,
+          16257
+        ],
+        [
+          12503,
+          16257
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#597465",
+      "thickness_mm": null,
+      "note": "Wall faces traced from raster; thickness is not surveyed."
+    },
+    {
+      "id": "WALL-015",
+      "kind": "wall",
+      "label": "Wall segment 15",
+      "points": [
+        [
+          14132,
+          15797
+        ],
+        [
+          14345,
+          15797
+        ],
+        [
+          14345,
+          14522
+        ],
+        [
+          14132,
+          14522
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#597465",
+      "thickness_mm": null,
+      "note": "Wall faces traced from raster; thickness is not surveyed."
+    },
+    {
+      "id": "WALL-016",
+      "kind": "wall",
+      "label": "Wall segment 16",
+      "points": [
+        [
+          14132,
+          12892
+        ],
+        [
+          14345,
+          12892
+        ],
+        [
+          14345,
+          11299
+        ],
+        [
+          14132,
+          11299
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#597465",
+      "thickness_mm": null,
+      "note": "Wall faces traced from raster; thickness is not surveyed."
+    },
+    {
+      "id": "WALL-017",
+      "kind": "wall",
+      "label": "Wall segment 17",
+      "points": [
+        [
+          13034,
+          11299
+        ],
+        [
+          14876,
+          11299
+        ],
+        [
+          14876,
+          11051
+        ],
+        [
+          13034,
+          11051
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#597465",
+      "thickness_mm": null,
+      "note": "Wall faces traced from raster; thickness is not surveyed."
+    },
+    {
+      "id": "WALL-018",
+      "kind": "wall",
+      "label": "Wall segment 18",
+      "points": [
+        [
+          12113,
+          9103
+        ],
+        [
+          15301,
+          9103
+        ],
+        [
+          15301,
+          8855
+        ],
+        [
+          12113,
+          8855
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#597465",
+      "thickness_mm": null,
+      "note": "Wall faces traced from raster; thickness is not surveyed."
+    },
+    {
+      "id": "WALL-019",
+      "kind": "wall",
+      "label": "Wall segment 19",
+      "points": [
+        [
+          12113,
+          6977
+        ],
+        [
+          15301,
+          6977
+        ],
+        [
+          15301,
+          6730
+        ],
+        [
+          12113,
+          6730
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#597465",
+      "thickness_mm": null,
+      "note": "Wall faces traced from raster; thickness is not surveyed."
+    },
+    {
+      "id": "WALL-020",
+      "kind": "wall",
+      "label": "Wall segment 20",
+      "points": [
+        [
+          15088,
+          10696
+        ],
+        [
+          15301,
+          10696
+        ],
+        [
+          15301,
+          9103
+        ],
+        [
+          15088,
+          9103
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#597465",
+      "thickness_mm": null,
+      "note": "Wall faces traced from raster; thickness is not surveyed."
+    },
+    {
+      "id": "WALL-021",
+      "kind": "wall",
+      "label": "Wall segment 21",
+      "points": [
+        [
+          15088,
+          8855
+        ],
+        [
+          15301,
+          8855
+        ],
+        [
+          15301,
+          7332
+        ],
+        [
+          15088,
+          7332
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#597465",
+      "thickness_mm": null,
+      "note": "Wall faces traced from raster; thickness is not surveyed."
+    },
+    {
+      "id": "WALL-022",
+      "kind": "wall",
+      "label": "Wall segment 22",
+      "points": [
+        [
+          15088,
+          6730
+        ],
+        [
+          15301,
+          6730
+        ],
+        [
+          15301,
+          4356
+        ],
+        [
+          15088,
+          4356
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#597465",
+      "thickness_mm": null,
+      "note": "Wall faces traced from raster; thickness is not surveyed."
+    },
+    {
+      "id": "WALL-023",
+      "kind": "wall",
+      "label": "Wall segment 23",
+      "points": [
+        [
+          15088,
+          3719
+        ],
+        [
+          15301,
+          3719
+        ],
+        [
+          15301,
+          177
+        ],
+        [
+          15088,
+          177
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#597465",
+      "thickness_mm": null,
+      "note": "Wall faces traced from raster; thickness is not surveyed."
+    },
+    {
+      "id": "WALL-024",
+      "kind": "wall",
+      "label": "Wall segment 24",
+      "points": [
+        [
+          8713,
+          177
+        ],
+        [
+          15088,
+          177
+        ],
+        [
+          15088,
+          -35
+        ],
+        [
+          8713,
+          -35
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#597465",
+      "thickness_mm": null,
+      "note": "Wall faces traced from raster; thickness is not surveyed."
+    },
+    {
+      "id": "WALL-025",
+      "kind": "wall",
+      "label": "Wall segment 25",
+      "points": [
+        [
+          8713,
+          2904
+        ],
+        [
+          11901,
+          2904
+        ],
+        [
+          11901,
+          2763
+        ],
+        [
+          8713,
+          2763
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#597465",
+      "thickness_mm": null,
+      "note": "Wall faces traced from raster; thickness is not surveyed."
+    },
+    {
+      "id": "WALL-026",
+      "kind": "wall",
+      "label": "Wall segment 26",
+      "points": [
+        [
+          8571,
+          2904
+        ],
+        [
+          8784,
+          2904
+        ],
+        [
+          8784,
+          177
+        ],
+        [
+          8571,
+          177
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#597465",
+      "thickness_mm": null,
+      "note": "Wall faces traced from raster; thickness is not surveyed."
+    },
+    {
+      "id": "WALL-027",
+      "kind": "wall",
+      "label": "Wall segment 27",
+      "points": [
+        [
+          12786,
+          2869
+        ],
+        [
+          12928,
+          2869
+        ],
+        [
+          12928,
+          177
+        ],
+        [
+          12786,
+          177
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#597465",
+      "thickness_mm": null,
+      "note": "Wall faces traced from raster; thickness is not surveyed."
+    },
+    {
+      "id": "WALL-028",
+      "kind": "wall",
+      "label": "Wall segment 28",
+      "points": [
+        [
+          9846,
+          1381
+        ],
+        [
+          9988,
+          1381
+        ],
+        [
+          9988,
+          177
+        ],
+        [
+          9846,
+          177
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#597465",
+      "thickness_mm": null,
+      "note": "Wall faces traced from raster; thickness is not surveyed."
+    },
+    {
+      "id": "WALL-029",
+      "kind": "wall",
+      "label": "Wall segment 29",
+      "points": [
+        [
+          11263,
+          1381
+        ],
+        [
+          11405,
+          1381
+        ],
+        [
+          11405,
+          177
+        ],
+        [
+          11263,
+          177
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#597465",
+      "thickness_mm": null,
+      "note": "Wall faces traced from raster; thickness is not surveyed."
+    },
+    {
+      "id": "PARTITION-CORE",
+      "kind": "wall",
+      "label": "Core partition",
+      "points": [
+        [
+          10236,
+          10838
+        ],
+        [
+          10448,
+          10838
+        ],
+        [
+          10448,
+          9315
+        ],
+        [
+          9705,
+          9315
+        ],
+        [
+          9705,
+          5207
+        ],
+        [
+          8925,
+          5207
+        ],
+        [
+          8925,
+          4073
+        ],
+        [
+          15088,
+          4073
+        ],
+        [
+          15088,
+          3861
+        ],
+        [
+          8713,
+          3861
+        ],
+        [
+          8713,
+          5419
+        ],
+        [
+          9492,
+          5419
+        ],
+        [
+          9492,
+          9528
+        ],
+        [
+          10236,
+          9528
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#597465",
+      "thickness_mm": null
+    },
+    {
+      "id": "WINDOW-001",
+      "kind": "window",
+      "label": "Window 1",
+      "points": [
+        [
+          567,
+          16895
+        ],
+        [
+          3259,
+          16895
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#578caa",
+      "note": "Plan symbol; sill and head heights unresolved."
+    },
+    {
+      "id": "WINDOW-002",
+      "kind": "window",
+      "label": "Window 2",
+      "points": [
+        [
+          8005,
+          16895
+        ],
+        [
+          9669,
+          16895
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#578caa",
+      "note": "Plan symbol; sill and head heights unresolved."
+    },
+    {
+      "id": "WINDOW-003",
+      "kind": "window",
+      "label": "Window 3",
+      "points": [
+        [
+          10909,
+          16434
+        ],
+        [
+          12503,
+          16434
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#578caa",
+      "note": "Plan symbol; sill and head heights unresolved."
+    },
+    {
+      "id": "WINDOW-004",
+      "kind": "window",
+      "label": "Window 4",
+      "points": [
+        [
+          106,
+          15053
+        ],
+        [
+          106,
+          12928
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#578caa",
+      "note": "Plan symbol; sill and head heights unresolved."
+    },
+    {
+      "id": "WINDOW-005",
+      "kind": "window",
+      "label": "Window 5",
+      "points": [
+        [
+          -177,
+          11157
+        ],
+        [
+          -177,
+          9032
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#578caa",
+      "note": "Plan symbol; sill and head heights unresolved."
+    },
+    {
+      "id": "WINDOW-006",
+      "kind": "window",
+      "label": "Window 6",
+      "points": [
+        [
+          -177,
+          7155
+        ],
+        [
+          -177,
+          5029
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#578caa",
+      "note": "Plan symbol; sill and head heights unresolved."
+    },
+    {
+      "id": "WINDOW-007",
+      "kind": "window",
+      "label": "Window 7",
+      "points": [
+        [
+          -177,
+          3294
+        ],
+        [
+          -177,
+          1381
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#578caa",
+      "note": "Plan symbol; sill and head heights unresolved."
+    },
+    {
+      "id": "OPENING-CORE",
+      "kind": "opening",
+      "label": "Core doorway",
+      "points": [
+        [
+          10696,
+          11263
+        ],
+        [
+          12149,
+          11263
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#c18854",
+      "note": "Double-door symbol on source. Exact clear width and swing need confirmation."
+    },
+    {
+      "id": "OPENING-BALCONY",
+      "kind": "opening",
+      "label": "Balcony opening",
+      "points": [
+        [
+          14238,
+          14522
+        ],
+        [
+          14238,
+          12892
+        ]
+      ],
+      "status": "PROVISIONAL_FROM_SOURCE_TRACE",
+      "source": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "color": "#c18854",
+      "note": "Source SD symbol; no accessibility claim."
+    }
+  ],
+  "preview_3d": {
+    "height_mm": 2800,
+    "status": "DISPLAY_ASSUMPTION_ONLY",
+    "wall_mode": "cutaway",
+    "note": "Height is a visualization slider default, not an extracted ceiling height. No equipment, finishes, stair risers or opening heights are asserted."
+  },
+  "unresolved": [
+    "Conflicting/ambiguous overall Y dimension datums",
+    "True North bearing",
+    "Exact wall thickness and opening sizes",
+    "Core and toilet allocation details",
+    "Ceiling height, sill/head heights and stair levels",
+    "As-built deviations and final approved fit-out"
+  ],
+  "coordinate_system": {
+    "origin": "Left outside face at bottom overall reference line of source",
+    "x": "source page right",
+    "y": "source page up"
+  },
+  "canonical_geometry_sha256": "30970b5390ff28e189c59edf5a12b29cbc8ec23b94e80e49e8ad6ed7dfa9a7f6",
+  "source_lineage": [
+    {
+      "artifact_id": "ART-PAILA-STUDIO-SRC-PLAN-001",
+      "sha256": "9457e8c681d6a63f7bef1f4e6b02972054c1213d6daaa6db966ca525155b54eb",
+      "role": "GEOMETRY_AUTHORITY",
+      "bytes": 52187
+    },
+    {
+      "artifact_id": "ART-PAILA-STUDIO-SRC-VIDEO-001",
+      "sha256": "519d0dcfdad4c8a599e6ba4450cd4893e226e069011dfdbb9ec0f1aeaf9e7e0d",
+      "role": "VISUAL_CORROBORATION_ONLY",
+      "bytes": 7098315
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "geometry_version": "0.1.0-preview.1",
+  "canonical_geometry_sha256": "30970b5390ff28e189c59edf5a12b29cbc8ec23b94e80e49e8ad6ed7dfa9a7f6",
+  "derived_role": "client",
+  "source_geometry_artifact_id": "ART-PAILA-STUDIO-GEOMETRY-001",
+  "status": "LIVE_REVIEW_CANDIDATE",
+  "dependencies": {
+    "three": "0.170.0 vendored MIT",
+    "OrbitControls": "0.170.0 local import adapted"
+  },
+  "source_evidence": "Restricted source evidence retained outside public repository",
+  "files": {
+    "index.html": "dc85dab1835250e882a33f391e530b8ddf69428033d0b5bd3f55e93747a3bbd6",
+    "geometry.json": "81846cd5ccb8323d4309023b8449d236a3d20945228445518b6ca343de48ab33",
+    "plan.svg": "bb75b55c93b3cc1009887542a2f13c2a4cf13bdf9a469f6c1a60ff964822be06",
+    "viewer.js": "24b1595d8b9de72eecded1fb0da4f784bdae186a23169f138c253615ba39892a",
+    "viewer.css": "6b6475bd6324b0f4651626ec649e17ea8b5ee8249339f48d6a2ec80884c0b58c",
+    "scene.js": "ac0a1748d4526585954471d2679ca9a012a266d58f860483893fec709152ba12",
+    "vendor/three.module.min.js": "08fd7545d13d2c7fb65ab691530a802dafefd638596501854f267d0fb13c39e7",
+    "vendor/LICENSE-three.txt": "4c40a1ef62450b857c3b2aaf294936304cd552d965fbcd9d32d4c5bcf4ba4454",
+    "vendor/OrbitControls.js": "e9c4f26866d39a36c8c9e8215e7d2a90a8a0b50ea6d44a005906e3d1fc726b8f"
+  }
+}

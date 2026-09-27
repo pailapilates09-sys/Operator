@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-1000 -18400 18000 19500" role="img" aria-label="Paila studio plan preview"><rect x="-1000" y="-18400" width="18000" height="19500" fill="#f7f7f0"/>
+<polygon points="0,-17036 10236,-17036 10236,-16434 14132,-16434 14132,-11263 10236,-11263 10236,-9528 9492,-9528 9492,-5419 8713,-5419 8713,-3896 15301,-3896 15301,-2904 8713,-2904 8713,-177 0,0" fill="#cbded0" stroke="#526b58" stroke-width="25"><title>Main open floor</title></polygon>
+<polygon points="14132,-16434 15655,-16434 15655,-11263 14132,-11263" fill="#e8d4b9" stroke="#526b58" stroke-width="25"><title>Balcony</title></polygon>
+<polygon points="10236,-11263 15301,-11263 15301,-3896 8713,-3896 8713,-5419 9492,-5419 9492,-9528 10236,-9528" fill="#deded5" stroke="#526b58" stroke-width="25"><title>Stair and lift core</title></polygon>
+<polygon points="8713,-2904 15301,-2904 15301,-177 8713,-177" fill="#d5e2e7" stroke="#526b58" stroke-width="25"><title>Toilet area</title></polygon>
+<polygon points="13140,-11051 15088,-11051 15088,-9103 13140,-9103" fill="#afb8af" stroke="#526b58" stroke-width="25"><title>Lift 1</title></polygon>
+<polygon points="12149,-8855 15088,-8855 15088,-6977 12149,-6977" fill="#afb8af" stroke="#526b58" stroke-width="25"><title>Lift 2</title></polygon>
+<polygon points="11653,-6730 15088,-6730 15088,-4073 11653,-4073" fill="#c1c7bd" stroke="#526b58" stroke-width="25"><title>Stair zone</title></polygon>
+<polygon points="0,-17036 567,-17036 567,-16611 0,-16611" fill="#365849" stroke="#526b58" stroke-width="25"><title>Column 1</title></polygon>
+<polygon points="3259,-17072 3861,-17072 3861,-16611 3259,-16611" fill="#365849" stroke="#526b58" stroke-width="25"><title>Column 2</title></polygon>
+<polygon points="6694,-17072 7332,-17072 7332,-16611 6694,-16611" fill="#365849" stroke="#526b58" stroke-width="25"><title>Column 3</title></polygon>
+<polygon points="10059,-17036 10484,-17036 10484,-15868 10059,-15868" fill="#365849" stroke="#526b58" stroke-width="25"><title>Column 4</title></polygon>
+<polygon points="13884,-16470 14309,-16470 14309,-15797 13884,-15797" fill="#365849" stroke="#526b58" stroke-width="25"><title>Column 5</title></polygon>
+<polygon points="0,-12078 354,-12078 354,-11440 0,-11440" fill="#365849" stroke="#526b58" stroke-width="25"><title>Column 6</title></polygon>
+<polygon points="4923,-12078 5525,-12078 5525,-11653 4923,-11653" fill="#365849" stroke="#526b58" stroke-width="25"><title>Column 7</title></polygon>
+<polygon points="10059,-12078 10484,-12078 10484,-10838 10059,-10838" fill="#365849" stroke="#526b58" stroke-width="25"><title>Column 8</title></polygon>
+<polygon points="14876,-11299 15301,-11299 15301,-10696 14876,-10696" fill="#365849" stroke="#526b58" stroke-width="25"><title>Column 9</title></polygon>
+<polygon points="0,-8075 390,-8075 390,-7402 0,-7402" fill="#365849" stroke="#526b58" stroke-width="25"><title>Column 10</title></polygon>
+<polygon points="4923,-8075 5525,-8075 5525,-7650 4923,-7650" fill="#365849" stroke="#526b58" stroke-width="25"><title>Column 11</title></polygon>
+<polygon points="9846,-8075 10484,-8075 10484,-7650 9846,-7650" fill="#365849" stroke="#526b58" stroke-width="25"><title>Column 12</title></polygon>
+<polygon points="14876,-7332 15301,-7332 15301,-6765 14876,-6765" fill="#365849" stroke="#526b58" stroke-width="25"><title>Column 13</title></polygon>
+<polygon points="0,-4534 390,-4534 390,-3471 0,-3471" fill="#365849" stroke="#526b58" stroke-width="25"><title>Column 14</title></polygon>
+<polygon points="4923,-4038 5525,-4038 5525,-3613 4923,-3613" fill="#365849" stroke="#526b58" stroke-width="25"><title>Column 15</title></polygon>
+<polygon points="9846,-4038 10484,-4038 10484,-3613 9846,-3613" fill="#365849" stroke="#526b58" stroke-width="25"><title>Column 16</title></polygon>
+<polygon points="14876,-4356 15301,-4356 15301,-3719 14876,-3719" fill="#365849" stroke="#526b58" stroke-width="25"><title>Column 17</title></polygon>
+<polygon points="0,-390 567,-390 567,35 0,35" fill="#365849" stroke="#526b58" stroke-width="25"><title>Column 18</title></polygon>
+<polygon points="4923,-390 5525,-390 5525,35 4923,35" fill="#365849" stroke="#526b58" stroke-width="25"><title>Column 19</title></polygon>
+<polygon points="9846,-390 10484,-390 10484,35 9846,35" fill="#365849" stroke="#526b58" stroke-width="25"><title>Column 20</title></polygon>
+<polygon points="12822,-390 13459,-390 13459,35 12822,35" fill="#365849" stroke="#526b58" stroke-width="25"><title>Column 21</title></polygon>
+<polygon points="0,-16647 213,-16647 213,-15053 0,-15053" fill="#597465" stroke="#526b58" stroke-width="25"><title>Wall segment 1</title></polygon>
+<polygon points="0,-12928 213,-12928 213,-12078 0,-12078" fill="#597465" stroke="#526b58" stroke-width="25"><title>Wall segment 2</title></polygon>
+<polygon points="0,-11440 213,-11440 213,-11157 0,-11157" fill="#597465" stroke="#526b58" stroke-width="25"><title>Wall segment 3</title></polygon>
+<polygon points="0,-9032 213,-9032 213,-8075 0,-8075" fill="#597465" stroke="#526b58" stroke-width="25"><title>Wall segment 4</title></polygon>
+<polygon points="0,-7402 213,-7402 213,-7155 0,-7155" fill="#597465" stroke="#526b58" stroke-width="25"><title>Wall segment 5</title></polygon>
+<polygon points="0,-5029 213,-5029 213,-4356 0,-4356" fill="#597465" stroke="#526b58" stroke-width="25"><title>Wall segment 6</title></polygon>
+<polygon points="0,-1381 213,-1381 213,-390 0,-390" fill="#597465" stroke="#526b58" stroke-width="25"><title>Wall segment 7</title></polygon>
+<polygon points="567,-177 8713,-177 8713,35 567,35" fill="#597465" stroke="#526b58" stroke-width="25"><title>Wall segment 8</title></polygon>
+<polygon points="3861,-17036 6694,-17036 6694,-16824 3861,-16824" fill="#597465" stroke="#526b58" stroke-width="25"><title>Wall segment 9</title></polygon>
+<polygon points="7332,-17036 7792,-17036 7792,-16824 7332,-16824" fill="#597465" stroke="#526b58" stroke-width="25"><title>Wall segment 10</title></polygon>
+<polygon points="7792,-17036 8005,-17036 8005,-16824 7792,-16824" fill="#597465" stroke="#526b58" stroke-width="25"><title>Wall segment 11</title></polygon>
+<polygon points="9669,-17036 10059,-17036 10059,-16824 9669,-16824" fill="#597465" stroke="#526b58" stroke-width="25"><title>Wall segment 12</title></polygon>
+<polygon points="10484,-16470 10909,-16470 10909,-16257 10484,-16257" fill="#597465" stroke="#526b58" stroke-width="25"><title>Wall segment 13</title></polygon>
+<polygon points="12503,-16470 13884,-16470 13884,-16257 12503,-16257" fill="#597465" stroke="#526b58" stroke-width="25"><title>Wall segment 14</title></polygon>
+<polygon points="14132,-15797 14345,-15797 14345,-14522 14132,-14522" fill="#597465" stroke="#526b58" stroke-width="25"><title>Wall segment 15</title></polygon>
+<polygon points="14132,-12892 14345,-12892 14345,-11299 14132,-11299" fill="#597465" stroke="#526b58" stroke-width="25"><title>Wall segment 16</title></polygon>
+<polygon points="13034,-11299 14876,-11299 14876,-11051 13034,-11051" fill="#597465" stroke="#526b58" stroke-width="25"><title>Wall segment 17</title></polygon>
+<polygon points="12113,-9103 15301,-9103 15301,-8855 12113,-8855" fill="#597465" stroke="#526b58" stroke-width="25"><title>Wall segment 18</title></polygon>
+<polygon points="12113,-6977 15301,-6977 15301,-6730 12113,-6730" fill="#597465" stroke="#526b58" stroke-width="25"><title>Wall segment 19</title></polygon>
+<polygon points="15088,-10696 15301,-10696 15301,-9103 15088,-9103" fill="#597465" stroke="#526b58" stroke-width="25"><title>Wall segment 20</title></polygon>
+<polygon points="15088,-8855 15301,-8855 15301,-7332 15088,-7332" fill="#597465" stroke="#526b58" stroke-width="25"><title>Wall segment 21</title></polygon>
+<polygon points="15088,-6730 15301,-6730 15301,-4356 15088,-4356" fill="#597465" stroke="#526b58" stroke-width="25"><title>Wall segment 22</title></polygon>
+<polygon points="15088,-3719 15301,-3719 15301,-177 15088,-177" fill="#597465" stroke="#526b58" stroke-width="25"><title>Wall segment 23</title></polygon>
+<polygon points="8713,-177 15088,-177 15088,35 8713,35" fill="#597465" stroke="#526b58" stroke-width="25"><title>Wall segment 24</title></polygon>
+<polygon points="8713,-2904 11901,-2904 11901,-2763 8713,-2763" fill="#597465" stroke="#526b58" stroke-width="25"><title>Wall segment 25</title></polygon>
+<polygon points="8571,-2904 8784,-2904 8784,-177 8571,-177" fill="#597465" stroke="#526b58" stroke-width="25"><title>Wall segment 26</title></polygon>
+<polygon points="12786,-2869 12928,-2869 12928,-177 12786,-177" fill="#597465" stroke="#526b58" stroke-width="25"><title>Wall segment 27</title></polygon>
+<polygon points="9846,-1381 9988,-1381 9988,-177 9846,-177" fill="#597465" stroke="#526b58" stroke-width="25"><title>Wall segment 28</title></polygon>
+<polygon points="11263,-1381 11405,-1381 11405,-177 11263,-177" fill="#597465" stroke="#526b58" stroke-width="25"><title>Wall segment 29</title></polygon>
+<polygon points="10236,-10838 10448,-10838 10448,-9315 9705,-9315 9705,-5207 8925,-5207 8925,-4073 15088,-4073 15088,-3861 8713,-3861 8713,-5419 9492,-5419 9492,-9528 10236,-9528" fill="#597465" stroke="#526b58" stroke-width="25"><title>Core partition</title></polygon>
+<polyline points="567,-16895 3259,-16895" fill="none" stroke="#578caa" stroke-width="90"><title>Window 1</title></polyline>
+<polyline points="8005,-16895 9669,-16895" fill="none" stroke="#578caa" stroke-width="90"><title>Window 2</title></polyline>
+<polyline points="10909,-16434 12503,-16434" fill="none" stroke="#578caa" stroke-width="90"><title>Window 3</title></polyline>
+<polyline points="106,-15053 106,-12928" fill="none" stroke="#578caa" stroke-width="90"><title>Window 4</title></polyline>
+<polyline points="-177,-11157 -177,-9032" fill="none" stroke="#578caa" stroke-width="90"><title>Window 5</title></polyline>
+<polyline points="-177,-7155 -177,-5029" fill="none" stroke="#578caa" stroke-width="90"><title>Window 6</title></polyline>
+<polyline points="-177,-3294 -177,-1381" fill="none" stroke="#578caa" stroke-width="90"><title>Window 7</title></polyline>
+<polyline points="10696,-11263 12149,-11263" fill="none" stroke="#c18854" stroke-width="90"><title>Core doorway</title></polyline>
+<polyline points="14238,-14522 14238,-12892" fill="none" stroke="#c18854" stroke-width="90"><title>Balcony opening</title></polyline>
+<text x="4800" y="-9000" fill="#253e35" font-family="sans-serif" font-size="420" text-anchor="middle">Main open floor</text>
+<text x="13000" y="-6300" fill="#253e35" font-family="sans-serif" font-size="420" text-anchor="middle">Core</text>
+<text x="12500" y="-1300" fill="#253e35" font-family="sans-serif" font-size="420" text-anchor="middle">Toilet area</text>
+</svg>
