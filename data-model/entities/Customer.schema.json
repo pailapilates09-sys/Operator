@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Customer",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "customer_id": {
+      "type": "string",
+      "description": "Approved private CRM",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "display_name": {
+      "type": "string",
+      "description": "Approved private CRM",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "contact_reference": {
+      "type": "string",
+      "description": "Approved private CRM",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "consent_reference": {
+      "type": "string",
+      "description": "Approved private CRM",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "lifecycle_stage": {
+      "type": "string",
+      "description": "Approved private CRM",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "first_visit_at": {
+      "type": "string",
+      "description": "Derived from validated private events; approved definition required",
+      "x-requirement": "derived",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1,
+      "format": "date-time"
+    },
+    "last_visit_at": {
+      "type": "string",
+      "description": "Derived from validated private events; approved definition required",
+      "x-requirement": "derived",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1,
+      "format": "date-time"
+    },
+    "milestone_state": {
+      "type": "string",
+      "description": "Derived from validated private events; approved definition required",
+      "x-requirement": "derived",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "risk_state": {
+      "type": "string",
+      "description": "Derived from validated private events; approved definition required",
+      "x-requirement": "derived",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    }
+  },
+  "required": [
+    "customer_id",
+    "display_name",
+    "consent_reference",
+    "lifecycle_stage"
+  ],
+  "x-record-storage": "Approved private backend only"
+}

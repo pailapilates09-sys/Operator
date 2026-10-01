@@ -1,12 +1,28 @@
 {
-  "product": "Paila Pilates Client Portal",
-  "current": "0.4.0-preview.1",
-  "date": "2026-09-26",
+  "product": "Paila Studio OS / Client Portal",
+  "current": "0.5.0",
+  "date": "2026-10-01",
   "source_branch": "main",
   "pages_source": "main:/(root)",
+  "operational_data": "Not connected",
   "previous_milestone": {
-    "version": "0.3.0",
-    "label": "Structured SOP handbook",
-    "commit": "e88680807a774c76df7b17d74aada03ec7be2542"
+    "product": "Paila Pilates Client Portal",
+    "current": "0.4.0-preview.1",
+    "date": "2026-09-26",
+    "source_branch": "main",
+    "pages_source": "main:/(root)",
+    "previous_milestone": {
+      "version": "0.3.0",
+      "label": "Structured SOP handbook",
+      "commit": "e88680807a774c76df7b17d74aada03ec7be2542"
+    }
+  },
+  "rollback": {
+    "commit": "213dd4cd33e5b93a4783099170ee8a664d5d0129",
+    "branch": "milestone/client-before-studio-os-v0.5.0"
+  },
+  "preserved_components": {
+    "sop": "Existing handbook and four Draft / Planned procedures",
+    "studio": "User-approved spatial preview v0.1.1; geometry unchanged"
   }
 }

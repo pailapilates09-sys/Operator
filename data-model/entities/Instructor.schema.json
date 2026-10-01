@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Instructor",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "instructor_id": {
+      "type": "string",
+      "description": "Restricted staff system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "staff_id": {
+      "type": "string",
+      "description": "Restricted staff system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "credential_reference": {
+      "type": "string",
+      "description": "Restricted staff system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "credential_review_due": {
+      "type": "string",
+      "description": "Restricted staff system",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "onboarding_state": {
+      "type": "string",
+      "description": "Restricted staff system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "approved_class_types": {
+      "type": "array",
+      "description": "Restricted staff system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "availability_reference": {
+      "type": "string",
+      "description": "Restricted staff system",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "training_reference": {
+      "type": "string",
+      "description": "Restricted staff system",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    }
+  },
+  "required": [
+    "instructor_id",
+    "staff_id",
+    "credential_reference",
+    "onboarding_state",
+    "approved_class_types"
+  ],
+  "x-record-storage": "Approved private backend only"
+}

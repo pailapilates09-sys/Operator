@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Incident",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "incident_id": {
+      "type": "string",
+      "description": "Restricted incident system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "location_id": {
+      "type": "string",
+      "description": "Restricted incident system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "reported_at": {
+      "type": "string",
+      "description": "Restricted incident system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1,
+      "format": "date-time"
+    },
+    "category": {
+      "type": "string",
+      "description": "Restricted incident system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "restricted_evidence_reference": {
+      "type": "string",
+      "description": "Restricted incident system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "responsible_owner_id": {
+      "type": "string",
+      "description": "Restricted incident system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "description": "Restricted incident system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "resolution_reference": {
+      "type": "string",
+      "description": "Restricted incident system",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    }
+  },
+  "required": [
+    "incident_id",
+    "location_id",
+    "reported_at",
+    "category",
+    "restricted_evidence_reference",
+    "responsible_owner_id",
+    "status"
+  ],
+  "x-record-storage": "Approved private backend only"
+}

@@ -1,0 +1,1421 @@
+{
+  "version": "0.5.0",
+  "product": "Paila Studio OS",
+  "modules": [
+    {
+      "key": "today",
+      "title": "Today",
+      "description": "What happened, what needs attention, and what to review.",
+      "path": ""
+    },
+    {
+      "key": "customers",
+      "title": "Customers",
+      "description": "Follow the customer journey without losing the next action.",
+      "path": "customers/"
+    },
+    {
+      "key": "classes",
+      "title": "Classes & schedule",
+      "description": "Coordinate sessions, places, bookings and attendance.",
+      "path": "classes/"
+    },
+    {
+      "key": "memberships",
+      "title": "Memberships & passes",
+      "description": "Track entitlement, renewal and payment exceptions.",
+      "path": "memberships/"
+    },
+    {
+      "key": "sales",
+      "title": "Sales & leads",
+      "description": "Turn enquiries into attended trials and sustained participation.",
+      "path": "sales/"
+    },
+    {
+      "key": "staff",
+      "title": "Staff & instructors",
+      "description": "Coordinate availability, training and coverage.",
+      "path": "staff/"
+    },
+    {
+      "key": "operations",
+      "title": "Studio operations",
+      "description": "Keep the space ready, equipment safe and handovers clear.",
+      "path": "operations/"
+    },
+    {
+      "key": "retention",
+      "title": "Feedback & retention",
+      "description": "Recognise progress, recover service and reconnect thoughtfully.",
+      "path": "retention/"
+    },
+    {
+      "key": "reports",
+      "title": "Reports",
+      "description": "Review daily, weekly and monthly changes from the same event history.",
+      "path": "reports/"
+    },
+    {
+      "key": "sops",
+      "title": "SOP master register",
+      "description": "Find the procedure, its current status and the work still needed.",
+      "path": "sop/register.html"
+    },
+    {
+      "key": "automations",
+      "title": "Automations",
+      "description": "Separate routine candidates from decisions that require a person.",
+      "path": "automations/"
+    },
+    {
+      "key": "system",
+      "title": "Systems & data sources",
+      "description": "See what is connected, what is missing and what a future connection requires.",
+      "path": "system/"
+    },
+    {
+      "key": "model",
+      "title": "Data dictionary",
+      "description": "A public-safe contract for a future private operational system.",
+      "path": "data-model/"
+    }
+  ],
+  "workflows": {
+    "customers": [
+      [
+        "Discovery",
+        "Record source and consent in the private CRM.",
+        "lead.created"
+      ],
+      [
+        "Enquiry",
+        "Capture needs and a responsible next contact.",
+        "lead.contacted"
+      ],
+      [
+        "Trial",
+        "Link a trial booking to the lead and customer.",
+        "trial.booked"
+      ],
+      [
+        "First session",
+        "Confirm actual attendance, not just a booking.",
+        "trial.attended"
+      ],
+      [
+        "Repeat attendance",
+        "Use completed visits to establish participation.",
+        "visit.completed"
+      ],
+      [
+        "Membership",
+        "Link active entitlement to the customer.",
+        "membership.started"
+      ],
+      [
+        "Progress / milestone",
+        "Use an agreed milestone definition and review before outreach.",
+        "client.milestone_reached"
+      ],
+      [
+        "At-risk",
+        "Review lapse or service issues with context; no risk score without an approved rule.",
+        "client.risk_flagged"
+      ],
+      [
+        "Re-engagement",
+        "Record permission, outreach and resulting attendance.",
+        "client.reengaged"
+      ],
+      [
+        "Advocate / referral",
+        "Recognise consented referrals without exposing identities.",
+        "client.referral_recorded"
+      ]
+    ],
+    "classes": [
+      [
+        "Prepare session",
+        "Approved class type, instructor, start/end, location and capacity.",
+        "session.scheduled"
+      ],
+      [
+        "Book place",
+        "Check entitlement and capacity atomically in the future backend.",
+        "booking.created"
+      ],
+      [
+        "Waitlist",
+        "Maintain ordering, promotion and customer consent.",
+        "booking.waitlisted"
+      ],
+      [
+        "Check in",
+        "Distinguish booking status from actual attendance.",
+        "visit.checked_in"
+      ],
+      [
+        "Complete visit",
+        "Record completion and reconcile the session roster.",
+        "visit.completed"
+      ],
+      [
+        "Cancel / late cancel",
+        "Apply only owner-approved notice rules.",
+        "booking.cancelled"
+      ],
+      [
+        "No-show",
+        "Review attendance and the approved policy before follow-up.",
+        "visit.no_show"
+      ]
+    ],
+    "memberships": [
+      [
+        "Trial",
+        "Approved eligibility and entitlement; no assumed price.",
+        "trial.booked"
+      ],
+      [
+        "Package / pass",
+        "Track validity and remaining credits from the ledger.",
+        "pass.issued"
+      ],
+      [
+        "Start",
+        "Record product, approved terms, dates and payment reference.",
+        "membership.started"
+      ],
+      [
+        "Renew",
+        "Reconcile entitlement with confirmed payment.",
+        "membership.renewed"
+      ],
+      [
+        "Freeze",
+        "Record authorised dates and reason in the private system.",
+        "membership.frozen"
+      ],
+      [
+        "Expiry",
+        "Calculate from approved dates and terms, not a guessed policy.",
+        "membership.expired"
+      ],
+      [
+        "Cancellation",
+        "Preserve entitlement history and approval reference.",
+        "membership.cancelled"
+      ],
+      [
+        "Failed payment",
+        "Route for review; never treat failure as revenue.",
+        "payment.failed"
+      ]
+    ],
+    "sales": [
+      [
+        "Lead created",
+        "Capture source, permission and next action.",
+        "lead.created"
+      ],
+      [
+        "First contact",
+        "Record contact time, owner and outcome.",
+        "lead.contacted"
+      ],
+      [
+        "Follow-up",
+        "Use approved timing and communication consent.",
+        "lead.followup_due"
+      ],
+      [
+        "Trial booked",
+        "Link booking to the originating lead.",
+        "trial.booked"
+      ],
+      [
+        "Trial attended",
+        "Verify completed visit before conversion reporting.",
+        "trial.attended"
+      ],
+      [
+        "Converted",
+        "Use an agreed conversion definition and confirmed entitlement.",
+        "lead.converted"
+      ],
+      [
+        "Lost",
+        "Retain reason if known; do not fabricate it.",
+        "lead.lost"
+      ]
+    ],
+    "staff": [
+      [
+        "Onboarding",
+        "Private profile, credential reference and approval to teach.",
+        "staff.onboarded"
+      ],
+      [
+        "Availability",
+        "Approved working availability and leave.",
+        "staff.availability_updated"
+      ],
+      [
+        "Assigned classes",
+        "Link instructor to session and verify coverage.",
+        "session.scheduled"
+      ],
+      [
+        "Substitution",
+        "Confirm the replacement and approval before reassignment.",
+        "staff.substitution"
+      ],
+      [
+        "Shift attendance",
+        "Capture start/end and attendance in a restricted system.",
+        "staff.shift_started"
+      ],
+      [
+        "Training / development",
+        "Record training completion and expiry references privately.",
+        "staff.training_completed"
+      ],
+      [
+        "Performance inputs",
+        "Review attendance, session activity and feedback with context; no public ranking.",
+        "staff.review_recorded"
+      ]
+    ],
+    "operations": [
+      [
+        "Opening",
+        "Use the opening checklist and record readiness.",
+        "studio.opened"
+      ],
+      [
+        "Equipment inspection",
+        "Inspect by approved checklist; do not infer safety from the 3D model.",
+        "equipment.inspected"
+      ],
+      [
+        "Cleaning",
+        "Record completion, zone and checklist version.",
+        "studio.cleaned"
+      ],
+      [
+        "Fault / out of service",
+        "Isolate equipment and escalate to an authorised person.",
+        "equipment.issue_reported"
+      ],
+      [
+        "Maintenance",
+        "Assign repair, preserve service history and evidence.",
+        "maintenance.completed"
+      ],
+      [
+        "Return to service",
+        "Require an authorised safety decision and sign-off.",
+        "equipment.returned_to_service"
+      ],
+      [
+        "Incident",
+        "Capture and restrict incident details; route human review.",
+        "incident.reported"
+      ],
+      [
+        "Closing / handover",
+        "Reconcile issues and pass unresolved actions to the next shift.",
+        "studio.closed"
+      ]
+    ],
+    "retention": [
+      [
+        "Feedback",
+        "Capture the channel, consent and follow-up need.",
+        "feedback.received"
+      ],
+      [
+        "Review request",
+        "Ask only using approved consent and outreach rules.",
+        "feedback.review_requested"
+      ],
+      [
+        "Complaint / recovery",
+        "Assign a person and record a fair resolution.",
+        "feedback.recovery_recorded"
+      ],
+      [
+        "Milestone / streak",
+        "Use completed visits and agreed milestone definitions.",
+        "client.milestone_reached"
+      ],
+      [
+        "Lapse / inactivity",
+        "Use an approved observation window; missing data is not inactivity.",
+        "client.risk_flagged"
+      ],
+      [
+        "Re-engagement",
+        "Record outreach and outcome without automatic sensitive messaging.",
+        "client.reengaged"
+      ]
+    ]
+  },
+  "views": {
+    "customers": {
+      "entities": [
+        "Customer",
+        "Lead",
+        "Visit",
+        "Membership",
+        "Feedback"
+      ],
+      "columns": [
+        "Customer reference",
+        "Lifecycle stage",
+        "Last completed visit",
+        "Next action",
+        "Assigned owner"
+      ],
+      "exceptions": [
+        "Follow-up has no owner",
+        "Trial attended without a next step",
+        "Lapse rule needs approval"
+      ],
+      "decisions": [
+        "Consent and retention policy",
+        "Lifecycle and milestone definitions",
+        "Customer identity deduplication"
+      ]
+    },
+    "classes": {
+      "entities": [
+        "ClassType",
+        "ClassSession",
+        "Booking",
+        "Visit"
+      ],
+      "columns": [
+        "Session",
+        "Start / end",
+        "Instructor",
+        "Capacity",
+        "Booked / waitlisted",
+        "Checked in"
+      ],
+      "exceptions": [
+        "Session lacks instructor coverage",
+        "Booking exceeds approved capacity",
+        "Attendance not reconciled"
+      ],
+      "decisions": [
+        "Timetable and class capacity",
+        "Cancellation and no-show terms",
+        "Waitlist promotion rules"
+      ]
+    },
+    "memberships": {
+      "entities": [
+        "Membership",
+        "Pass",
+        "Payment",
+        "Refund"
+      ],
+      "columns": [
+        "Entitlement reference",
+        "Product",
+        "State",
+        "Start / expiry",
+        "Credits remaining",
+        "Payment state"
+      ],
+      "exceptions": [
+        "Payment failure awaiting review",
+        "Expiry with unresolved renewal",
+        "Freeze or cancellation lacks approval"
+      ],
+      "decisions": [
+        "Pricing and product definitions",
+        "Renewal, freeze and expiry terms",
+        "Refund and credit policy"
+      ]
+    },
+    "sales": {
+      "entities": [
+        "Lead",
+        "Customer",
+        "Booking"
+      ],
+      "columns": [
+        "Lead reference",
+        "Source",
+        "Stage",
+        "Next contact",
+        "Trial status",
+        "Outcome reason"
+      ],
+      "exceptions": [
+        "Uncontacted enquiry",
+        "Overdue follow-up",
+        "Attended trial without disposition"
+      ],
+      "decisions": [
+        "Lead ownership and contact timing",
+        "Conversion definition",
+        "Approved source taxonomy"
+      ]
+    },
+    "staff": {
+      "entities": [
+        "Instructor",
+        "StaffMember",
+        "ClassSession",
+        "ManagementAction"
+      ],
+      "columns": [
+        "Staff reference",
+        "Role",
+        "Credential readiness",
+        "Availability",
+        "Assigned sessions",
+        "Training due"
+      ],
+      "exceptions": [
+        "Uncovered class",
+        "Credential review due",
+        "Substitution awaiting approval"
+      ],
+      "decisions": [
+        "Roles and permissions",
+        "Credential and onboarding requirements",
+        "Performance review framework"
+      ]
+    },
+    "operations": {
+      "entities": [
+        "Equipment",
+        "MaintenanceEvent",
+        "Incident",
+        "ManagementAction"
+      ],
+      "columns": [
+        "Work item",
+        "Zone / equipment",
+        "State",
+        "Assigned owner",
+        "Due date",
+        "Sign-off"
+      ],
+      "exceptions": [
+        "Readiness checklist incomplete",
+        "Equipment out of service",
+        "Incident awaiting human review",
+        "Handover action unresolved"
+      ],
+      "decisions": [
+        "Inspection and cleaning checklists",
+        "Maintenance intervals and safety authority",
+        "Incident escalation and response"
+      ]
+    },
+    "retention": {
+      "entities": [
+        "Feedback",
+        "Customer",
+        "Visit",
+        "ManagementAction"
+      ],
+      "columns": [
+        "Customer reference",
+        "Signal",
+        "Last visit",
+        "Recovery owner",
+        "Next action",
+        "Outcome"
+      ],
+      "exceptions": [
+        "Complaint lacks recovery owner",
+        "Re-engagement lacks consent",
+        "Risk flag lacks approved evidence"
+      ],
+      "decisions": [
+        "Inactivity and churn definitions",
+        "Milestone recognition rules",
+        "Feedback and recovery handling"
+      ]
+    }
+  },
+  "reports": {
+    "Daily": [
+      {
+        "metric": "Classes",
+        "definition": "Scheduled / completed sessions by local studio date",
+        "sources": "ClassSession",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      },
+      {
+        "metric": "Bookings",
+        "definition": "Confirmed and cancelled bookings; separate waitlist",
+        "sources": "Booking",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      },
+      {
+        "metric": "Attendance",
+        "definition": "Completed visits and checked-in visits shown separately",
+        "sources": "Visit",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      },
+      {
+        "metric": "Utilization",
+        "definition": "Completed visits ÷ usable offered places; exclude cancelled sessions",
+        "sources": "ClassSession + Visit",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      },
+      {
+        "metric": "No-shows",
+        "definition": "No-show visits ÷ eligible confirmed bookings; exclusions require policy",
+        "sources": "Booking + Visit",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      },
+      {
+        "metric": "First visits",
+        "definition": "Customers with their earliest completed visit in the period",
+        "sources": "Customer + Visit",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      },
+      {
+        "metric": "Leads",
+        "definition": "New lead events by source",
+        "sources": "Lead",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      },
+      {
+        "metric": "Conversions",
+        "definition": "Confirmed conversions under an approved definition",
+        "sources": "Lead + Membership",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      },
+      {
+        "metric": "Payments / revenue",
+        "definition": "Confirmed payments and refunds reported separately; revenue recognition requires policy",
+        "sources": "Payment + Refund",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      },
+      {
+        "metric": "Failed payments",
+        "definition": "Unresolved failed transactions without double counting retries",
+        "sources": "Payment",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      },
+      {
+        "metric": "Incidents",
+        "definition": "New and unresolved incidents; restricted details",
+        "sources": "Incident",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      },
+      {
+        "metric": "Equipment issues",
+        "definition": "New faults, unresolved faults and unavailable equipment",
+        "sources": "Equipment + MaintenanceEvent",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      },
+      {
+        "metric": "Staffing exceptions",
+        "definition": "Uncovered sessions and pending substitutions",
+        "sources": "ClassSession + StaffMember",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      },
+      {
+        "metric": "Customer follow-ups",
+        "definition": "Due or unresolved actions by responsible owner",
+        "sources": "ManagementAction",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      }
+    ],
+    "Weekly": [
+      {
+        "metric": "Client growth",
+        "definition": "New first-visit customers; active population movement under approved definition",
+        "sources": "Customer + Visit",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      },
+      {
+        "metric": "Trial conversion",
+        "definition": "Converted trial cohort ÷ attended trial cohort, with an approved conversion window",
+        "sources": "Lead + Visit + Membership",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      },
+      {
+        "metric": "Retention",
+        "definition": "Returning eligible customers ÷ defined starting cohort; cohort/window awaiting approval",
+        "sources": "Customer + Visit",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      },
+      {
+        "metric": "Class performance",
+        "definition": "Attendance, offered capacity and no-shows by class type",
+        "sources": "ClassSession + Visit",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      },
+      {
+        "metric": "Instructor activity",
+        "definition": "Assigned/completed sessions and attendance; contextual inputs only",
+        "sources": "Instructor + ClassSession",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      },
+      {
+        "metric": "Membership movement",
+        "definition": "Starts, renewals, freezes, expiries and cancellations",
+        "sources": "Membership",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      },
+      {
+        "metric": "Lead funnel",
+        "definition": "Created → contacted → trial booked → attended → converted by cohort",
+        "sources": "Lead + Booking + Visit",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      },
+      {
+        "metric": "Customer issues",
+        "definition": "Open feedback/recovery actions and resolution times",
+        "sources": "Feedback + ManagementAction",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      },
+      {
+        "metric": "Operational exceptions",
+        "definition": "Open faults, incidents and handover actions by age",
+        "sources": "Equipment + Incident + ManagementAction",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      }
+    ],
+    "Monthly": [
+      {
+        "metric": "Revenue trends",
+        "definition": "Compare confirmed net cash activity by currency; do not equate cash with recognised revenue",
+        "sources": "Payment + Refund",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      },
+      {
+        "metric": "Active clients",
+        "definition": "Distinct customers meeting the approved activity window",
+        "sources": "Customer + Visit",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      },
+      {
+        "metric": "Active memberships",
+        "definition": "Valid entitlements at period end, with freeze handling defined",
+        "sources": "Membership",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      },
+      {
+        "metric": "Retention / churn",
+        "definition": "Approved starting cohort and exit definition; denominator documented",
+        "sources": "Customer + Membership + Visit",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      },
+      {
+        "metric": "Utilization",
+        "definition": "Completed visits ÷ offered usable places over the period",
+        "sources": "ClassSession + Visit",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      },
+      {
+        "metric": "Average visits",
+        "definition": "Completed visits ÷ eligible active customers",
+        "sources": "Customer + Visit",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      },
+      {
+        "metric": "Average customer spend",
+        "definition": "Net confirmed payments ÷ defined paying-customer population; currency separated",
+        "sources": "Payment + Refund + Customer",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      },
+      {
+        "metric": "Class / product performance",
+        "definition": "Participation, entitlement use and approved net cash allocation",
+        "sources": "ClassType + Pass + Membership + Visit",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      },
+      {
+        "metric": "Instructor performance inputs",
+        "definition": "Session activity, training and consented feedback for human review",
+        "sources": "Instructor + ClassSession + Feedback",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      },
+      {
+        "metric": "Marketing source performance",
+        "definition": "Lead and conversion cohorts by source; spend only when authoritative",
+        "sources": "Lead + Membership",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      },
+      {
+        "metric": "Maintenance trends",
+        "definition": "Fault recurrence, downtime and completed maintenance",
+        "sources": "Equipment + MaintenanceEvent",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      },
+      {
+        "metric": "Management decisions / actions",
+        "definition": "Decisions, owners, due dates, evidence and follow-through",
+        "sources": "ManagementAction",
+        "state": "Awaiting source",
+        "owner": "Awaiting assignment"
+      }
+    ]
+  },
+  "sops": [
+    {
+      "code": "SOP-OPS-001",
+      "title": "Opening & closing",
+      "purpose": "Studio readiness and end-of-day controls.",
+      "status": "Planned",
+      "category": "daily",
+      "path": "sop-ops-001.html",
+      "href": "sop/sop-ops-001.html",
+      "owner": "Awaiting assignment",
+      "scope": "Existing handbook"
+    },
+    {
+      "code": "SOP-CX-001",
+      "title": "Customer enquiries",
+      "purpose": "Response, qualification, follow-up, escalation.",
+      "status": "Planned",
+      "category": "customer",
+      "path": "sop-cx-001.html",
+      "href": "sop/sop-cx-001.html",
+      "owner": "Awaiting assignment",
+      "scope": "Existing handbook"
+    },
+    {
+      "code": "SOP-DATA-001",
+      "title": "Business reporting",
+      "purpose": "Metric definitions, refresh cycle, validation, ownership.",
+      "status": "Draft",
+      "category": "data",
+      "path": "sop-data-001.html",
+      "href": "sop/sop-data-001.html",
+      "owner": "Awaiting assignment",
+      "scope": "Existing handbook"
+    },
+    {
+      "code": "SOP-AI-001",
+      "title": "AI-assisted workflows",
+      "purpose": "Safe use, review points, data handling, accountability.",
+      "status": "Draft",
+      "category": "ai",
+      "path": "sop-ai-001.html",
+      "href": "sop/sop-ai-001.html",
+      "owner": "Awaiting assignment",
+      "scope": "Existing handbook"
+    },
+    {
+      "code": "OS-SOP-001",
+      "title": "Enquiries / leads",
+      "purpose": "Proposed operating area; procedure, owner and approval are still required.",
+      "status": "Planned",
+      "category": "Operating taxonomy",
+      "scope": "Proposed coverage",
+      "owner": "Awaiting assignment",
+      "reference": "SOP-CX-001",
+      "href": "sop/sop-cx-001.html"
+    },
+    {
+      "code": "OS-SOP-002",
+      "title": "First visit / onboarding",
+      "purpose": "Proposed operating area; procedure, owner and approval are still required.",
+      "status": "Planned",
+      "category": "Operating taxonomy",
+      "scope": "Proposed coverage",
+      "owner": "Awaiting assignment",
+      "reference": "SOP-CX-001",
+      "href": "sop/sop-cx-001.html"
+    },
+    {
+      "code": "OS-SOP-003",
+      "title": "Booking",
+      "purpose": "Proposed operating area; procedure, owner and approval are still required.",
+      "status": "Planned",
+      "category": "Operating taxonomy",
+      "scope": "Proposed coverage",
+      "owner": "Awaiting assignment",
+      "reference": null,
+      "href": ""
+    },
+    {
+      "code": "OS-SOP-004",
+      "title": "Cancellation / no-show",
+      "purpose": "Proposed operating area; procedure, owner and approval are still required.",
+      "status": "Planned",
+      "category": "Operating taxonomy",
+      "scope": "Proposed coverage",
+      "owner": "Awaiting assignment",
+      "reference": null,
+      "href": ""
+    },
+    {
+      "code": "OS-SOP-005",
+      "title": "Class readiness",
+      "purpose": "Proposed operating area; procedure, owner and approval are still required.",
+      "status": "Planned",
+      "category": "Operating taxonomy",
+      "scope": "Proposed coverage",
+      "owner": "Awaiting assignment",
+      "reference": "SOP-OPS-001",
+      "href": "sop/sop-ops-001.html"
+    },
+    {
+      "code": "OS-SOP-006",
+      "title": "Check-in",
+      "purpose": "Proposed operating area; procedure, owner and approval are still required.",
+      "status": "Planned",
+      "category": "Operating taxonomy",
+      "scope": "Proposed coverage",
+      "owner": "Awaiting assignment",
+      "reference": null,
+      "href": ""
+    },
+    {
+      "code": "OS-SOP-007",
+      "title": "Class close",
+      "purpose": "Proposed operating area; procedure, owner and approval are still required.",
+      "status": "Planned",
+      "category": "Operating taxonomy",
+      "scope": "Proposed coverage",
+      "owner": "Awaiting assignment",
+      "reference": "SOP-OPS-001",
+      "href": "sop/sop-ops-001.html"
+    },
+    {
+      "code": "OS-SOP-008",
+      "title": "Instructor onboarding",
+      "purpose": "Proposed operating area; procedure, owner and approval are still required.",
+      "status": "Planned",
+      "category": "Operating taxonomy",
+      "scope": "Proposed coverage",
+      "owner": "Awaiting assignment",
+      "reference": null,
+      "href": ""
+    },
+    {
+      "code": "OS-SOP-009",
+      "title": "Instructor substitution",
+      "purpose": "Proposed operating area; procedure, owner and approval are still required.",
+      "status": "Planned",
+      "category": "Operating taxonomy",
+      "scope": "Proposed coverage",
+      "owner": "Awaiting assignment",
+      "reference": null,
+      "href": ""
+    },
+    {
+      "code": "OS-SOP-010",
+      "title": "Membership",
+      "purpose": "Proposed operating area; procedure, owner and approval are still required.",
+      "status": "Planned",
+      "category": "Operating taxonomy",
+      "scope": "Proposed coverage",
+      "owner": "Awaiting assignment",
+      "reference": null,
+      "href": ""
+    },
+    {
+      "code": "OS-SOP-011",
+      "title": "Payments",
+      "purpose": "Proposed operating area; procedure, owner and approval are still required.",
+      "status": "Planned",
+      "category": "Operating taxonomy",
+      "scope": "Proposed coverage",
+      "owner": "Awaiting assignment",
+      "reference": null,
+      "href": ""
+    },
+    {
+      "code": "OS-SOP-012",
+      "title": "Refunds",
+      "purpose": "Proposed operating area; procedure, owner and approval are still required.",
+      "status": "Planned",
+      "category": "Operating taxonomy",
+      "scope": "Proposed coverage",
+      "owner": "Awaiting assignment",
+      "reference": null,
+      "href": ""
+    },
+    {
+      "code": "OS-SOP-013",
+      "title": "Opening / closing",
+      "purpose": "Proposed operating area; procedure, owner and approval are still required.",
+      "status": "Planned",
+      "category": "Operating taxonomy",
+      "scope": "Proposed coverage",
+      "owner": "Awaiting assignment",
+      "reference": "SOP-OPS-001",
+      "href": "sop/sop-ops-001.html"
+    },
+    {
+      "code": "OS-SOP-014",
+      "title": "Cleaning",
+      "purpose": "Proposed operating area; procedure, owner and approval are still required.",
+      "status": "Planned",
+      "category": "Operating taxonomy",
+      "scope": "Proposed coverage",
+      "owner": "Awaiting assignment",
+      "reference": "SOP-OPS-001",
+      "href": "sop/sop-ops-001.html"
+    },
+    {
+      "code": "OS-SOP-015",
+      "title": "Equipment inspection",
+      "purpose": "Proposed operating area; procedure, owner and approval are still required.",
+      "status": "Planned",
+      "category": "Operating taxonomy",
+      "scope": "Proposed coverage",
+      "owner": "Awaiting assignment",
+      "reference": "SOP-OPS-001",
+      "href": "sop/sop-ops-001.html"
+    },
+    {
+      "code": "OS-SOP-016",
+      "title": "Maintenance",
+      "purpose": "Proposed operating area; procedure, owner and approval are still required.",
+      "status": "Planned",
+      "category": "Operating taxonomy",
+      "scope": "Proposed coverage",
+      "owner": "Awaiting assignment",
+      "reference": "SOP-OPS-001",
+      "href": "sop/sop-ops-001.html"
+    },
+    {
+      "code": "OS-SOP-017",
+      "title": "Incidents",
+      "purpose": "Proposed operating area; procedure, owner and approval are still required.",
+      "status": "Planned",
+      "category": "Operating taxonomy",
+      "scope": "Proposed coverage",
+      "owner": "Awaiting assignment",
+      "reference": "SOP-OPS-001",
+      "href": "sop/sop-ops-001.html"
+    },
+    {
+      "code": "OS-SOP-018",
+      "title": "Complaints / service recovery",
+      "purpose": "Proposed operating area; procedure, owner and approval are still required.",
+      "status": "Planned",
+      "category": "Operating taxonomy",
+      "scope": "Proposed coverage",
+      "owner": "Awaiting assignment",
+      "reference": "SOP-CX-001",
+      "href": "sop/sop-cx-001.html"
+    },
+    {
+      "code": "OS-SOP-019",
+      "title": "Sales follow-up",
+      "purpose": "Proposed operating area; procedure, owner and approval are still required.",
+      "status": "Planned",
+      "category": "Operating taxonomy",
+      "scope": "Proposed coverage",
+      "owner": "Awaiting assignment",
+      "reference": "SOP-CX-001",
+      "href": "sop/sop-cx-001.html"
+    },
+    {
+      "code": "OS-SOP-020",
+      "title": "Reviews / feedback",
+      "purpose": "Proposed operating area; procedure, owner and approval are still required.",
+      "status": "Planned",
+      "category": "Operating taxonomy",
+      "scope": "Proposed coverage",
+      "owner": "Awaiting assignment",
+      "reference": "SOP-CX-001",
+      "href": "sop/sop-cx-001.html"
+    },
+    {
+      "code": "OS-SOP-021",
+      "title": "Marketing",
+      "purpose": "Proposed operating area; procedure, owner and approval are still required.",
+      "status": "Planned",
+      "category": "Operating taxonomy",
+      "scope": "Proposed coverage",
+      "owner": "Awaiting assignment",
+      "reference": null,
+      "href": ""
+    },
+    {
+      "code": "OS-SOP-022",
+      "title": "Staff operations",
+      "purpose": "Proposed operating area; procedure, owner and approval are still required.",
+      "status": "Planned",
+      "category": "Operating taxonomy",
+      "scope": "Proposed coverage",
+      "owner": "Awaiting assignment",
+      "reference": "SOP-OPS-001",
+      "href": "sop/sop-ops-001.html"
+    },
+    {
+      "code": "OS-SOP-023",
+      "title": "Daily management close",
+      "purpose": "Proposed operating area; procedure, owner and approval are still required.",
+      "status": "Planned",
+      "category": "Operating taxonomy",
+      "scope": "Proposed coverage",
+      "owner": "Awaiting assignment",
+      "reference": "SOP-DATA-001",
+      "href": "sop/sop-data-001.html"
+    },
+    {
+      "code": "OS-SOP-024",
+      "title": "Weekly management review",
+      "purpose": "Proposed operating area; procedure, owner and approval are still required.",
+      "status": "Planned",
+      "category": "Operating taxonomy",
+      "scope": "Proposed coverage",
+      "owner": "Awaiting assignment",
+      "reference": "SOP-DATA-001",
+      "href": "sop/sop-data-001.html"
+    },
+    {
+      "code": "OS-SOP-025",
+      "title": "Monthly management review",
+      "purpose": "Proposed operating area; procedure, owner and approval are still required.",
+      "status": "Planned",
+      "category": "Operating taxonomy",
+      "scope": "Proposed coverage",
+      "owner": "Awaiting assignment",
+      "reference": "SOP-DATA-001",
+      "href": "sop/sop-data-001.html"
+    },
+    {
+      "code": "OS-SOP-026",
+      "title": "Data / privacy",
+      "purpose": "Proposed operating area; procedure, owner and approval are still required.",
+      "status": "Planned",
+      "category": "Operating taxonomy",
+      "scope": "Proposed coverage",
+      "owner": "Awaiting assignment",
+      "reference": "SOP-DATA-001",
+      "href": "sop/sop-data-001.html"
+    }
+  ],
+  "automations": [
+    {
+      "name": "Schema / event contract validation",
+      "category": "Automatable now",
+      "trigger": "Versioned contract changes",
+      "requires": "Public model definitions",
+      "review": "Technical validation before a release",
+      "status": "Inactive candidate"
+    },
+    {
+      "name": "Report framework completeness",
+      "category": "Automatable now",
+      "trigger": "Reporting definition changes",
+      "requires": "Public report definitions",
+      "review": "Review missing definitions; no private data processing",
+      "status": "Inactive candidate"
+    },
+    {
+      "name": "Booking reminders",
+      "category": "Automatable after data exists",
+      "trigger": "booking.created",
+      "requires": "Approved booking source, consent and reminder timing",
+      "review": "Owner approves routing and policy before activation",
+      "status": "Inactive candidate"
+    },
+    {
+      "name": "First-session follow-up",
+      "category": "Automatable after data exists",
+      "trigger": "visit.completed",
+      "requires": "Confirmed first visit, consent and approved message",
+      "review": "Owner approves routing and policy before activation",
+      "status": "Inactive candidate"
+    },
+    {
+      "name": "Package expiry notice",
+      "category": "Automatable after data exists",
+      "trigger": "pass.expiring",
+      "requires": "Entitlement ledger, approved expiry and consent",
+      "review": "Owner approves routing and policy before activation",
+      "status": "Inactive candidate"
+    },
+    {
+      "name": "Renewal reminders",
+      "category": "Automatable after data exists",
+      "trigger": "membership.expiring",
+      "requires": "Approved terms, renewal date and consent",
+      "review": "Owner approves routing and policy before activation",
+      "status": "Inactive candidate"
+    },
+    {
+      "name": "Lapsed-client detection",
+      "category": "Automatable after data exists",
+      "trigger": "visit.completed / observation window",
+      "requires": "Complete attendance history and approved inactivity definition",
+      "review": "Owner approves routing and policy before activation",
+      "status": "Inactive candidate"
+    },
+    {
+      "name": "Daily owner brief",
+      "category": "Automatable after data exists",
+      "trigger": "End of studio day",
+      "requires": "Reconciled sessions, attendance, payments and exception sources",
+      "review": "Owner approves routing and policy before activation",
+      "status": "Inactive candidate"
+    },
+    {
+      "name": "Weekly owner brief",
+      "category": "Automatable after data exists",
+      "trigger": "End of reporting week",
+      "requires": "Approved weekly definitions and complete source coverage",
+      "review": "Owner approves routing and policy before activation",
+      "status": "Inactive candidate"
+    },
+    {
+      "name": "Maintenance reminders",
+      "category": "Automatable after data exists",
+      "trigger": "Inspection / service due",
+      "requires": "Equipment inventory, service intervals and responsible owner",
+      "review": "Owner approves routing and policy before activation",
+      "status": "Inactive candidate"
+    },
+    {
+      "name": "Failed-payment alerts",
+      "category": "Automatable after data exists",
+      "trigger": "payment.failed",
+      "requires": "Authoritative payment status and restricted recipients",
+      "review": "Owner approves routing and policy before activation",
+      "status": "Inactive candidate"
+    },
+    {
+      "name": "No-show follow-up",
+      "category": "Human review required",
+      "trigger": "visit.no_show",
+      "requires": "Reconciled attendance, cancellation policy and consent",
+      "review": "A person reviews context and approves each sensitive action",
+      "status": "Inactive candidate"
+    },
+    {
+      "name": "Milestone recognition",
+      "category": "Human review required",
+      "trigger": "client.milestone_reached",
+      "requires": "Approved milestone definition and communication consent",
+      "review": "A person reviews context and approves each sensitive action",
+      "status": "Inactive candidate"
+    },
+    {
+      "name": "Feedback / review request",
+      "category": "Human review required",
+      "trigger": "visit.completed",
+      "requires": "Consent, approved eligibility and message",
+      "review": "A person reviews context and approves each sensitive action",
+      "status": "Inactive candidate"
+    },
+    {
+      "name": "Complaint service recovery",
+      "category": "Human review required",
+      "trigger": "feedback.received",
+      "requires": "Restricted feedback record and responsible person",
+      "review": "A person reviews context and approves each sensitive action",
+      "status": "Inactive candidate"
+    },
+    {
+      "name": "Churn-risk review",
+      "category": "Human review required",
+      "trigger": "client.risk_flagged",
+      "requires": "Approved cohort/rule and complete visit history",
+      "review": "A person reviews context and approves each sensitive action",
+      "status": "Inactive candidate"
+    },
+    {
+      "name": "Equipment safety / return to service",
+      "category": "Must remain human-controlled",
+      "trigger": "equipment.returned_to_service",
+      "requires": "Qualified inspection and authorised sign-off",
+      "review": "Decision and accountability remain with an authorised person",
+      "status": "Inactive candidate"
+    },
+    {
+      "name": "Refund approval",
+      "category": "Must remain human-controlled",
+      "trigger": "refund.requested",
+      "requires": "Approved policy, payment evidence and authorised decision",
+      "review": "Decision and accountability remain with an authorised person",
+      "status": "Inactive candidate"
+    },
+    {
+      "name": "Incident / health response",
+      "category": "Must remain human-controlled",
+      "trigger": "incident.reported",
+      "requires": "Restricted evidence and responsible safety authority",
+      "review": "Decision and accountability remain with an authorised person",
+      "status": "Inactive candidate"
+    },
+    {
+      "name": "Staff performance / personnel decision",
+      "category": "Must remain human-controlled",
+      "trigger": "staff.review_recorded",
+      "requires": "Context, private evidence and responsible manager",
+      "review": "Decision and accountability remain with an authorised person",
+      "status": "Inactive candidate"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Bookings & attendance",
+      "entities": [
+        "ClassSession",
+        "Booking",
+        "Visit"
+      ],
+      "status": "Not connected",
+      "need": "Approved private scheduling system; complete roster and reconciled attendance."
+    },
+    {
+      "name": "Customers & leads",
+      "entities": [
+        "Customer",
+        "Lead",
+        "Feedback"
+      ],
+      "status": "Not connected",
+      "need": "Restricted CRM with permission, identity and lifecycle ownership."
+    },
+    {
+      "name": "Entitlements & payments",
+      "entities": [
+        "Membership",
+        "Pass",
+        "Payment",
+        "Refund"
+      ],
+      "status": "Not connected",
+      "need": "Approved entitlement ledger and payment provider; no card data in this portal."
+    },
+    {
+      "name": "Staff & instructor operations",
+      "entities": [
+        "Instructor",
+        "StaffMember"
+      ],
+      "status": "Not connected",
+      "need": "Role-based staff system; credentials remain private."
+    },
+    {
+      "name": "Equipment, incidents & actions",
+      "entities": [
+        "Equipment",
+        "MaintenanceEvent",
+        "Incident",
+        "ManagementAction"
+      ],
+      "status": "Not connected",
+      "need": "Approved checklists, safety authority and restricted incident handling."
+    },
+    {
+      "name": "SOP handbook",
+      "entities": [
+        "SOP"
+      ],
+      "status": "Reference available",
+      "need": "Existing public handbook; four procedures remain Draft / Planned. It is not an approved operations manual."
+    },
+    {
+      "name": "Studio layout",
+      "entities": [
+        "Equipment"
+      ],
+      "status": "Approved preview available",
+      "need": "Preserved 2D/3D spatial preview. It is not a verified equipment inventory or a safety decision."
+    }
+  ],
+  "benchmarks": [
+    {
+      "name": "Reform Body Pilates & Wellness",
+      "region": "Nepal",
+      "url": "https://reformbody.com.np/",
+      "observed": "Public class formats, private sessions and booking / membership presentation.",
+      "inference": "Separate class, booking, entitlement and first-visit journeys.",
+      "coverage": "Official public page",
+      "checked": "2026-10-01"
+    },
+    {
+      "name": "AFit Studios / Align Pilates",
+      "region": "Nepal",
+      "url": "https://afitstudios.com/align",
+      "observed": "Public mat / reformer offering, guided instruction and account-based booking.",
+      "inference": "Model instructor coverage and onboarding alongside the booking journey.",
+      "coverage": "Official search snapshot; direct page has a verification wall",
+      "checked": "2026-10-01"
+    },
+    {
+      "name": "Strong & Lean by Rosetta",
+      "region": "Nepal",
+      "url": "https://np.linkedin.com/showcase/strong-lean-by-rosetta/",
+      "observed": "Public structured fitness programmes and supportive community positioning.",
+      "inference": "Track continuity and customer progress; this is an adjacent fitness reference.",
+      "coverage": "Company public profile; limited operating detail",
+      "checked": "2026-10-01"
+    },
+    {
+      "name": "Club Pilates",
+      "region": "Global",
+      "url": "https://www.clubpilates.com/education-faq",
+      "observed": "Public instructor education and training structure.",
+      "inference": "Keep credentials, onboarding and continuing development in the staff model.",
+      "coverage": "Official public page",
+      "checked": "2026-10-01"
+    },
+    {
+      "name": "KX Pilates",
+      "region": "Global",
+      "url": "https://kxpilates.com/au/faqs",
+      "observed": "Public app / web booking, passes and membership policies.",
+      "inference": "Track booking, entitlement and cancellation as separate states.",
+      "coverage": "Official public FAQ",
+      "checked": "2026-10-01"
+    },
+    {
+      "name": "BODYROK",
+      "region": "Global",
+      "url": "https://bodyrok.com/terms/",
+      "observed": "Public booking, package and cancellation terms.",
+      "inference": "Define explicit booking and attendance events with owner-approved local policies.",
+      "coverage": "Official public terms",
+      "checked": "2026-10-01"
+    }
+  ]
+}

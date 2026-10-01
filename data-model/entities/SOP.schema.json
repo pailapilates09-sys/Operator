@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SOP",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "sop_id": {
+      "type": "string",
+      "description": "Versioned handbook; approval register controls operational use",
+      "x-requirement": "required",
+      "x-privacy": "public-safe definition",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "description": "Versioned handbook; approval register controls operational use",
+      "x-requirement": "required",
+      "x-privacy": "public-safe definition",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "category": {
+      "type": "string",
+      "description": "Versioned handbook; approval register controls operational use",
+      "x-requirement": "required",
+      "x-privacy": "public-safe definition",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "description": "Versioned handbook; approval register controls operational use",
+      "x-requirement": "required",
+      "x-privacy": "public-safe definition",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "description": "Versioned handbook; approval register controls operational use",
+      "x-requirement": "required",
+      "x-privacy": "public-safe definition",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "public_reference": {
+      "type": "string",
+      "description": "Versioned handbook; approval register controls operational use",
+      "x-requirement": "optional",
+      "x-privacy": "public-safe definition",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "owner_id": {
+      "type": "string",
+      "description": "Versioned handbook; approval register controls operational use",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "approval_reference": {
+      "type": "string",
+      "description": "Versioned handbook; approval register controls operational use",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "review_due_at": {
+      "type": "string",
+      "description": "Versioned handbook; approval register controls operational use",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1,
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "sop_id",
+    "title",
+    "category",
+    "version",
+    "status"
+  ],
+  "x-record-storage": "Approved private backend only"
+}

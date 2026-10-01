@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Refund",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "refund_id": {
+      "type": "string",
+      "description": "Payment provider + authorised refund decision",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "payment_id": {
+      "type": "string",
+      "description": "Payment provider + authorised refund decision",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "amount": {
+      "type": "number",
+      "description": "Payment provider + authorised refund decision",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minimum": 0
+    },
+    "currency": {
+      "type": "string",
+      "description": "Payment provider + authorised refund decision",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "description": "Payment provider + authorised refund decision",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "approval_reference": {
+      "type": "string",
+      "description": "Payment provider + authorised refund decision",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "provider_reference": {
+      "type": "string",
+      "description": "Payment provider + authorised refund decision",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "completed_at": {
+      "type": "string",
+      "description": "Payment provider + authorised refund decision",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1,
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "refund_id",
+    "payment_id",
+    "amount",
+    "currency",
+    "status",
+    "approval_reference"
+  ],
+  "x-record-storage": "Approved private backend only"
+}

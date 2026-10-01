@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Pass",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "pass_id": {
+      "type": "string",
+      "description": "Approved entitlement ledger",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "customer_id": {
+      "type": "string",
+      "description": "Approved entitlement ledger",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "product_reference": {
+      "type": "string",
+      "description": "Approved entitlement ledger",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "terms_reference": {
+      "type": "string",
+      "description": "Approved entitlement ledger",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "issued_at": {
+      "type": "string",
+      "description": "Approved entitlement ledger",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1,
+      "format": "date-time"
+    },
+    "expires_at": {
+      "type": "string",
+      "description": "Approved entitlement ledger",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1,
+      "format": "date-time"
+    },
+    "issued_credits": {
+      "type": "integer",
+      "description": "Approved entitlement ledger",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minimum": 0
+    },
+    "remaining_credits": {
+      "type": "integer",
+      "description": "Derived from validated private events; approved definition required",
+      "x-requirement": "derived",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minimum": 0
+    },
+    "status": {
+      "type": "string",
+      "description": "Approved entitlement ledger",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    }
+  },
+  "required": [
+    "pass_id",
+    "customer_id",
+    "product_reference",
+    "terms_reference",
+    "issued_at",
+    "issued_credits",
+    "status"
+  ],
+  "x-record-storage": "Approved private backend only"
+}

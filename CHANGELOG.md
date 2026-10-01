@@ -1,3 +1,15 @@
+# Changelog
+
+## 0.5.0 — 2026-10-01
+
+- Promote the Client Portal into the Paila Studio OS owner / management framework.
+- Add Today, customer lifecycle, classes, memberships, sales, staff, studio operations, retention, reports, SOP master register, inactive automation candidates, source readiness and data dictionary.
+- Add 19 entity schemas, shared event envelope and event-specific reference contracts; no private records or operational sample data.
+- Add daily / weekly / monthly review definitions and explicit disconnected states.
+- Preserve the existing SOP handbook, 2D/3D studio preview and outward Customer Portal link.
+- Before-release main: `213dd4cd33e5b93a4783099170ee8a664d5d0129`; fallback branch `milestone/client-before-studio-os-v0.5.0`.
+- Private backend, real sources, policy approval and automation activation remain future work. Owner performs visual / UX QA.
+
 # Paila Pilates Client Portal — Change Log
 
 ## v0.3.0 — 2026-09-26

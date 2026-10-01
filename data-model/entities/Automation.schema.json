@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Automation",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "automation_id": {
+      "type": "string",
+      "description": "Versioned candidate register; activation requires private approval",
+      "x-requirement": "required",
+      "x-privacy": "public-safe definition",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "name": {
+      "type": "string",
+      "description": "Versioned candidate register; activation requires private approval",
+      "x-requirement": "required",
+      "x-privacy": "public-safe definition",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "category": {
+      "type": "string",
+      "description": "Versioned candidate register; activation requires private approval",
+      "x-requirement": "required",
+      "x-privacy": "public-safe definition",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "trigger_definition": {
+      "type": "string",
+      "description": "Versioned candidate register; activation requires private approval",
+      "x-requirement": "required",
+      "x-privacy": "public-safe definition",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "dependencies": {
+      "type": "array",
+      "description": "Versioned candidate register; activation requires private approval",
+      "x-requirement": "required",
+      "x-privacy": "public-safe definition",
+      "x-sensitive": false,
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "type": "string",
+      "description": "Versioned candidate register; activation requires private approval",
+      "x-requirement": "required",
+      "x-privacy": "public-safe definition",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "review_gate": {
+      "type": "string",
+      "description": "Versioned candidate register; activation requires private approval",
+      "x-requirement": "required",
+      "x-privacy": "public-safe definition",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "approval_reference": {
+      "type": "string",
+      "description": "Versioned candidate register; activation requires private approval",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "execution_reference": {
+      "type": "string",
+      "description": "Versioned candidate register; activation requires private approval",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    }
+  },
+  "required": [
+    "automation_id",
+    "name",
+    "category",
+    "trigger_definition",
+    "dependencies",
+    "status",
+    "review_gate"
+  ],
+  "x-record-storage": "Approved private backend only"
+}

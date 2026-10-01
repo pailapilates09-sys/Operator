@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Feedback",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "feedback_id": {
+      "type": "string",
+      "description": "Restricted feedback system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "customer_id": {
+      "type": "string",
+      "description": "Restricted feedback system",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "channel": {
+      "type": "string",
+      "description": "Restricted feedback system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "received_at": {
+      "type": "string",
+      "description": "Restricted feedback system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1,
+      "format": "date-time"
+    },
+    "category": {
+      "type": "string",
+      "description": "Restricted feedback system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "restricted_content_reference": {
+      "type": "string",
+      "description": "Restricted feedback system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "consent_reference": {
+      "type": "string",
+      "description": "Restricted feedback system",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "recovery_owner_id": {
+      "type": "string",
+      "description": "Restricted feedback system",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "resolution_reference": {
+      "type": "string",
+      "description": "Restricted feedback system",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "description": "Restricted feedback system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    }
+  },
+  "required": [
+    "feedback_id",
+    "channel",
+    "received_at",
+    "category",
+    "restricted_content_reference",
+    "status"
+  ],
+  "x-record-storage": "Approved private backend only"
+}

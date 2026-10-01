@@ -1,0 +1,480 @@
+{
+  "version": "1.0.0",
+  "types": [
+    {
+      "type": "lead.created",
+      "required_references": [
+        "lead_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "lead.contacted",
+      "required_references": [
+        "lead_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "lead.followup_due",
+      "required_references": [
+        "lead_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "lead.converted",
+      "required_references": [
+        "lead_id",
+        "customer_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "lead.lost",
+      "required_references": [
+        "lead_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "trial.booked",
+      "required_references": [
+        "customer_id",
+        "session_id",
+        "booking_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "trial.attended",
+      "required_references": [
+        "customer_id",
+        "session_id",
+        "booking_id",
+        "visit_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "session.scheduled",
+      "required_references": [
+        "class_id",
+        "session_id",
+        "instructor_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "booking.created",
+      "required_references": [
+        "customer_id",
+        "session_id",
+        "booking_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "booking.waitlisted",
+      "required_references": [
+        "customer_id",
+        "session_id",
+        "booking_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "booking.cancelled",
+      "required_references": [
+        "customer_id",
+        "session_id",
+        "booking_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "booking.late_cancelled",
+      "required_references": [
+        "customer_id",
+        "session_id",
+        "booking_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "visit.checked_in",
+      "required_references": [
+        "customer_id",
+        "session_id",
+        "booking_id",
+        "visit_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "visit.completed",
+      "required_references": [
+        "customer_id",
+        "session_id",
+        "booking_id",
+        "visit_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "visit.no_show",
+      "required_references": [
+        "customer_id",
+        "session_id",
+        "booking_id",
+        "visit_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "membership.started",
+      "required_references": [
+        "customer_id",
+        "membership_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "membership.renewed",
+      "required_references": [
+        "customer_id",
+        "membership_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "membership.frozen",
+      "required_references": [
+        "customer_id",
+        "membership_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "membership.cancelled",
+      "required_references": [
+        "customer_id",
+        "membership_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "membership.expired",
+      "required_references": [
+        "customer_id",
+        "membership_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "membership.expiring",
+      "required_references": [
+        "customer_id",
+        "membership_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "pass.issued",
+      "required_references": [
+        "customer_id",
+        "pass_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "pass.expiring",
+      "required_references": [
+        "customer_id",
+        "pass_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "payment.completed",
+      "required_references": [
+        "customer_id",
+        "payment_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "payment.failed",
+      "required_references": [
+        "customer_id",
+        "payment_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "refund.requested",
+      "required_references": [
+        "payment_id",
+        "refund_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "refund.completed",
+      "required_references": [
+        "payment_id",
+        "refund_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "feedback.received",
+      "required_references": [
+        "feedback_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "feedback.review_requested",
+      "required_references": [
+        "customer_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "feedback.recovery_recorded",
+      "required_references": [
+        "feedback_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "equipment.inspected",
+      "required_references": [
+        "equipment_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "equipment.issue_reported",
+      "required_references": [
+        "equipment_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "equipment.returned_to_service",
+      "required_references": [
+        "equipment_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "maintenance.completed",
+      "required_references": [
+        "equipment_id",
+        "maintenance_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "incident.reported",
+      "required_references": [
+        "incident_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "staff.shift_started",
+      "required_references": [
+        "staff_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "staff.shift_ended",
+      "required_references": [
+        "staff_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "staff.substitution",
+      "required_references": [
+        "staff_id",
+        "instructor_id",
+        "session_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "staff.onboarded",
+      "required_references": [
+        "staff_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "staff.availability_updated",
+      "required_references": [
+        "staff_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "staff.training_completed",
+      "required_references": [
+        "staff_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "staff.review_recorded",
+      "required_references": [
+        "staff_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "client.milestone_reached",
+      "required_references": [
+        "customer_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "client.risk_flagged",
+      "required_references": [
+        "customer_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "client.reengaged",
+      "required_references": [
+        "customer_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "client.referral_recorded",
+      "required_references": [
+        "customer_id"
+      ],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "studio.opened",
+      "required_references": [],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "studio.cleaned",
+      "required_references": [],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    },
+    {
+      "type": "studio.closed",
+      "required_references": [],
+      "storage": "Private operational",
+      "authority": "Approved source system; authoritative evidence and policy needed",
+      "active": false
+    }
+  ]
+}

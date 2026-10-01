@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ClassType",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "class_type_id": {
+      "type": "string",
+      "description": "Owner-approved class catalogue",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "name": {
+      "type": "string",
+      "description": "Owner-approved class catalogue",
+      "x-requirement": "required",
+      "x-privacy": "public-safe definition",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "format": {
+      "type": "string",
+      "description": "Owner-approved class catalogue",
+      "x-requirement": "required",
+      "x-privacy": "public-safe definition",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "duration_minutes": {
+      "type": "integer",
+      "description": "Owner-approved class catalogue",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minimum": 1
+    },
+    "approved_capacity": {
+      "type": "integer",
+      "description": "Owner-approved class catalogue",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minimum": 1
+    },
+    "required_credential_reference": {
+      "type": "string",
+      "description": "Owner-approved class catalogue",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "approval_reference": {
+      "type": "string",
+      "description": "Owner-approved class catalogue",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    }
+  },
+  "required": [
+    "class_type_id",
+    "name",
+    "format",
+    "duration_minutes",
+    "approved_capacity",
+    "approval_reference"
+  ],
+  "x-record-storage": "Approved private backend only"
+}
