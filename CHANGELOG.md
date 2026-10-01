@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.6.0 — 2026-10-01 — SHAREHOLDER BENCHMARK PROTOTYPE
+
+- Replace blank operational tables with a clearly labelled fictional sample dataset so shareholders can judge the proposed operating model before real private integrations exist.
+- Select Club Pilates as the primary operating-system benchmark based on publicly documented operations/GM manuals, intranet/POS/training resources, recurring memberships, sales/recruitment/site support and multi-site standardization.
+- Use Reform Body as the Kathmandu local-market base; use KX Pilates for instructor readiness, BODYROK for owner/scale discipline, AFit / Align for consultation/facilities context, and Strong & Lean by Rosetta for structured-program/retention cues.
+- Add a populated Today dashboard, anonymous customer lifecycle, sample class timetable, illustrative memberships/pricing, lead funnel, staff readiness, studio operations, retention examples and sample daily/weekly/monthly management reports.
+- Add concrete draft policies for shareholder review, including capacities, first-visit orientation, cancellation/window values, waitlist handling and instructor shadow-teaching readiness. Every such value is marked PROTOTYPE / NOT APPROVED.
+- Add `/benchmark/` and `data-model/shareholder-prototype.json` so the evidence-to-prototype mapping is inspectable.
+- Preserve the production truth boundary: the real private backend and operational sources remain disconnected; no real customer/staff/payment/health records are published and no automations are activated.
+- Preserve pre-change production at `c49ddd3a62d8b3d933460611bbf940162ecaf511` on `rollback/before-shareholder-benchmark-prototype-v0.6.0`.
+- Release branch/tag/milestone must not be created until A9 Seq13 closeout reaches FINAL_CLOSED_PASS.
+
 ## 0.5.0 — 2026-10-01
 
 - Promote the Client Portal into the Paila Studio OS owner / management framework.
@@ -42,5 +54,4 @@ Standalone SOP Handbook framework with responsive layout, search, navigation, SO
 
 ## Deployment model
 
-GitHub Pages should remain configured to deploy from `main` and `/(root)`. Branches are used for development and fallback snapshots, not for visitor navigation. Public sections are implemented as folders/subpages under the same deployed site.
-
+GitHub Pages remains configured to deploy from `main` and `/(root)`. Branches are development/fallback/release references, not visitor navigation. Public sections are folders/subpages under the same deployed site.
