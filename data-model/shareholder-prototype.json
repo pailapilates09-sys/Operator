@@ -1,0 +1,150 @@
+{
+  "version": "0.6.0",
+  "status": "SHAREHOLDER_BENCHMARK_PROTOTYPE",
+  "market": "Kathmandu, Nepal",
+  "as_of": "2026-10-01",
+  "disclaimer": "FICTIONAL SAMPLE DATA FOR SHAREHOLDER REVIEW. These values, prices, capacities, schedules, customer IDs and policies are not live Paila records and are not approved business terms. They are a discussion-ready prototype synthesized from public benchmark patterns so shareholders can accept, change or reject concrete proposals.",
+  "selection": {
+    "primary_operating_system": "Club Pilates",
+    "local_market_base": "Reform Body Pilates & Wellness Studio",
+    "reason": "Club Pilates provides the strongest publicly documented operating-system precedent among the six references: formal operations and GM manuals, intranet/POS/training resources, recurring memberships, sales/recruitment support and multi-site standardization. Reform Body provides the closest Kathmandu boutique-Pilates customer journey and local operating context.",
+    "supporting_layers": [
+      {"source":"KX Pilates","use":"Instructor onboarding, shadow-teaching readiness and continuous development"},
+      {"source":"BODYROK","use":"Owner dashboard, recurring-revenue discipline, centralized programming and community-led retention"},
+      {"source":"AFit / Align Pilates","use":"Consultation-led acquisition, Reformer + Mat product mix, facilities/hygiene and local price context"},
+      {"source":"Strong & Lean by Rosetta","use":"Structured multi-week journeys, milestone follow-up and community continuity"}
+    ]
+  },
+  "today": {
+    "metrics": [
+      {"label":"Sessions today","value":"7","note":"6 group + 1 private · fictional prototype"},
+      {"label":"Booked places","value":"46 / 57","note":"81% planned fill · fictional prototype"},
+      {"label":"Prototype receipts","value":"NPR 64,500","note":"Illustrative only · not accounting data"},
+      {"label":"Open actions","value":"3","note":"1 waitlist · 1 renewal · 1 equipment follow-up"}
+    ],
+    "attention": [
+      {"title":"18:15 Reformer Strength is full","detail":"8/8 booked with 1 person on the prototype waitlist. Proposed action: confirm promotion rule and contact cutoff."},
+      {"title":"One membership renewal is due","detail":"Anonymous prototype member C-1041 is shown with renewal due in 3 days. Proposed action: owner-approved reminder workflow."},
+      {"title":"Reformer R-04 needs follow-up","detail":"Prototype pre-opening inspection records a strap wear note. Proposed action: keep out of service until an authorised check closes the action."}
+    ],
+    "events": [
+      ["06:10","Opening checklist completed","Studio readiness · prototype"],
+      ["07:22","Reformer Foundations attendance reconciled","7 attended / 7 booked · prototype"],
+      ["09:05","Trial attended","Anonymous C-1024 · prototype"],
+      ["11:15","Private session completed","Anonymous C-1033 · prototype"],
+      ["13:02","Membership payment recorded","NPR 11,500 · prototype"],
+      ["14:20","Equipment follow-up opened","Reformer R-04 · prototype"]
+    ]
+  },
+  "views": {
+    "customers": [
+      ["C-1024","Trial attended","Today 09:05","Send first-session options","Front desk / sales"],
+      ["C-1018","Repeat attendance","Yesterday","Offer 8-class plan comparison","Client success"],
+      ["C-1041","Membership","3 days ago","Renewal due in 3 days","Front desk / sales"],
+      ["C-0997","At-risk","18 days ago","Human review before outreach","Client success"],
+      ["C-0972","Advocate / referral","4 days ago","Thank-you + consented referral follow-up","Community lead"]
+    ],
+    "classes": [
+      ["Reformer Foundations","06:30–07:20","Lead Reformer Instructor","8","7 booked / 0 waitlist","7 checked in"],
+      ["Reformer Flow","08:00–08:50","Reformer Instructor A","8","8 booked / 2 waitlist","8 checked in"],
+      ["Private 1:1","10:30–11:20","Senior Instructor","1","1 booked","1 checked in"],
+      ["Mat & Core","12:30–13:20","Mat & Mobility Instructor","12","9 booked / 0 waitlist","8 checked in"],
+      ["Reformer Foundations","15:30–16:20","Reformer Instructor B","8","6 booked / 0 waitlist","— upcoming"],
+      ["Reformer Flow","17:00–17:50","Lead Reformer Instructor","8","7 booked / 0 waitlist","— upcoming"],
+      ["Reformer Strength","18:15–19:05","Reformer Instructor A","8","8 booked / 1 waitlist","— upcoming"]
+    ],
+    "memberships": [
+      ["M-1041","8-Class Monthly","Renewal due","01 Sep / 04 Oct","2","Paid"],
+      ["P-1018","Intro 2-Class","Active","25 Sep / 09 Oct","1","Paid"],
+      ["M-0997","4-Class Monthly","Active","10 Sep / 10 Oct","3","Paid"],
+      ["M-0972","Unlimited Monthly","Active","18 Sep / 18 Oct","Unlimited","Paid"],
+      ["M-1054","12-Class Monthly","Payment review","01 Oct / 01 Nov","12","Failed payment · human review"]
+    ],
+    "sales": [
+      ["L-2051","Instagram","New enquiry","Today 16:00","Not booked","—"],
+      ["L-2048","Referral","Contacted","Tomorrow 10:00","Intro booked","—"],
+      ["L-2041","Walk-in","Trial booked","After trial","Tomorrow 08:00","—"],
+      ["L-2034","Website","Trial attended","Today 15:00","Attended","Decision pending"],
+      ["L-2018","Referral","Converted","—","Attended","8-Class Monthly"],
+      ["L-2007","Instagram","Lost","—","Not attended","Timing / schedule"]
+    ],
+    "staff": [
+      ["Lead Reformer Instructor","Instructor","Ready","06:00–18:00","06:30 / 17:00","Monthly development review"],
+      ["Reformer Instructor A","Instructor","Ready","07:30–19:30","08:00 / 18:15","Quarterly skills review"],
+      ["Reformer Instructor B","Instructor","Supervised-ready","14:00–19:00","15:30","4 shadow hours remaining"],
+      ["Mat & Mobility Instructor","Instructor","Ready","11:30–15:00","12:30","Mobility workshop due this month"],
+      ["Front desk / sales","Studio team","Ready","06:00–14:00","Customer desk","Sales + service review Friday"]
+    ],
+    "operations": [
+      ["Opening checklist","Whole studio","Complete","Opening shift","06:15","Signed"],
+      ["Reformer R-01–R-03","Reformer zone","Available","Lead instructor","Before first class","Checked"],
+      ["Reformer R-04","Reformer zone","Follow-up / hold","Studio manager","Before 15:30","Pending authorised check"],
+      ["Midday clean","Studio + change area","Scheduled","Studio team","14:00","Due"],
+      ["Evening handover","Whole studio","Scheduled","Closing shift","19:15","Due"]
+    ],
+    "retention": [
+      ["C-1018","Positive first-month pattern","Yesterday","Client success","Plan comparison after next class","Open"],
+      ["C-0997","18-day participation gap","18 days ago","Client success","Human review before contact","Review"],
+      ["C-0972","Referral received","4 days ago","Community lead","Thank-you + consent check","Open"],
+      ["C-1038","Feedback: schedule request","2 days ago","Studio manager","Review evening slot demand","Open"],
+      ["C-0960","12-class milestone","Today","Front desk","Recognition message if consented","Ready for review"]
+    ]
+  },
+  "packages": [
+    {"name":"First Steps","price":"NPR 2,500","term":"2 classes / 14 days","purpose":"Low-friction first visit and fit check","status":"PROTOTYPE — NOT APPROVED"},
+    {"name":"4-Class Monthly","price":"NPR 6,500","term":"4 classes / 30 days","purpose":"Light weekly practice","status":"PROTOTYPE — NOT APPROVED"},
+    {"name":"8-Class Monthly","price":"NPR 11,500","term":"8 classes / 30 days","purpose":"Core twice-weekly recurring plan","status":"PROTOTYPE — NOT APPROVED"},
+    {"name":"12-Class Monthly","price":"NPR 15,000","term":"12 classes / 30 days","purpose":"Higher-frequency practice","status":"PROTOTYPE — NOT APPROVED"},
+    {"name":"Unlimited Monthly","price":"NPR 17,500","term":"Unlimited / 30 days","purpose":"Premium recurring plan","status":"PROTOTYPE — NOT APPROVED"},
+    {"name":"Private 1:1","price":"NPR 3,500","term":"Per 50-minute session","purpose":"Individual onboarding / focused coaching","status":"PROTOTYPE — NOT APPROVED"}
+  ],
+  "draft_policies": [
+    ["Reformer group capacity","8 clients","Small-class benchmark translated into a concrete shareholder test value","PROTOTYPE"],
+    ["Mat group capacity","12 clients","Allows a broader low-equipment format while retaining coaching quality","PROTOTYPE"],
+    ["First-visit orientation","15 minutes before first Reformer class","Supports beginner-friendly onboarding","PROTOTYPE"],
+    ["Cancellation notice","8 hours","Concrete discussion value; shareholder approval required","PROTOTYPE"],
+    ["Waitlist promotion cutoff","2 hours before class","Gives a usable workflow for testing notifications","PROTOTYPE"],
+    ["Instructor readiness","Credential check + supervised teaching; up to 20 shadow hours where needed","KX-inspired development model; Paila requirement not yet approved","PROTOTYPE"],
+    ["Equipment readiness","Inspection before first operating block; flagged equipment held out of service","Safety remains human-controlled","PROTOTYPE"]
+  ],
+  "reports": {
+    "Daily": {
+      "Classes":"7 scheduled · 4 completed at snapshot",
+      "Bookings":"46 confirmed · 3 waitlisted",
+      "Attendance":"24 completed visits at snapshot",
+      "Utilization":"81% booked-place utilization",
+      "First visits":"3",
+      "Leads / trials":"5 leads · 2 trials attended",
+      "Payments":"NPR 64,500 prototype receipts · 1 failed-payment review",
+      "Operations":"1 equipment follow-up · 0 prototype incidents"
+    },
+    "Weekly": {
+      "New clients":"14 first visits",
+      "Conversion":"8 of 12 attended trials moved to a paid prototype plan",
+      "Attendance":"186 completed visits",
+      "Utilization":"76% average booked-place utilization",
+      "Membership movement":"12 starts · 5 renewals · 1 freeze request",
+      "Retention":"9 customers flagged for human follow-up",
+      "Sales":"NPR 426,000 prototype receipts",
+      "Operations":"3 maintenance actions · 2 still open"
+    },
+    "Monthly": {
+      "Revenue":"NPR 1,820,000 prototype reconciled receipts",
+      "Active memberships":"112",
+      "Visit frequency":"6.2 visits / active customer",
+      "Utilization":"74%",
+      "Trial conversion":"64% of attended trials",
+      "Retention":"82% prototype 30-day continuation",
+      "Class mix":"Reformer 71% · Mat/Core 21% · Private 8%",
+      "Management actions":"6 open · 18 closed"
+    }
+  },
+  "benchmarks": [
+    {"name":"Reform Body","region":"Kathmandu, Nepal","role":"Local market base","observed":"Small classes, Reformer/Mat/Barre/Yoga/private sessions, timetable, memberships, booking, beginner-friendly service and multiple Kathmandu branches.","applied":"Boutique class mix, local operating hours, first-visit clarity, schedule-first customer journey.","url":"https://reformbody.com.np/"},
+    {"name":"AFit / Align Pilates","region":"Lalitpur / Kathmandu market","role":"Local supporting model","observed":"Reformer + Mat/Core, certified-instructor positioning, account booking, consultations, facilities/hygiene and current membership pricing context.","applied":"Consultation funnel, Reformer + Mat mix, facilities readiness, local commercial context without copying prices.","url":"https://afitstudios.com/align"},
+    {"name":"Strong & Lean by Rosetta","region":"Kathmandu, Nepal","role":"Retention / journey reference","observed":"Structured multi-week transformation programs and community-oriented participation.","applied":"Milestones, follow-up, lapse/re-engagement and program continuity.","url":"https://np.linkedin.com/showcase/strong-lean-by-rosetta/"},
+    {"name":"Club Pilates","region":"International","role":"Primary operating-system benchmark","observed":"Operations manual, GM training manual, intranet, POS/training resources, recurring memberships, sales/recruitment/site support and multi-site scale.","applied":"SOP architecture, recurring plan ladder, role separation, standardized operations and management system.","url":"https://www.clubpilates.com/franchise/faq"},
+    {"name":"KX Pilates","region":"International","role":"Instructor quality benchmark","observed":"Extensive trainer onboarding, up to 20 shadow-teaching hours and ongoing upskilling; franchise manuals and daily support.","applied":"Instructor readiness states, supervised teaching and continuous development.","url":"https://kxpilates.com/au/global-franchises"},
+    {"name":"BODYROK","region":"International","role":"Owner / scale benchmark","observed":"Recurring revenue, centralized programming/brand consistency, owner responsibility for team/schedules/memberships/community and operations training.","applied":"Owner exception dashboard, recurring-revenue discipline, community/retention and owner-to-manager workflow.","url":"https://www.bodyrokfranchise.com/"}
+  ]
+}
