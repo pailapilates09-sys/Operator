@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Booking",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "booking_id": {
+      "type": "string",
+      "description": "Approved booking system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "customer_id": {
+      "type": "string",
+      "description": "Approved booking system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "session_id": {
+      "type": "string",
+      "description": "Approved booking system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "entitlement_reference": {
+      "type": "string",
+      "description": "Approved booking system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "created_at": {
+      "type": "string",
+      "description": "Approved booking system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1,
+      "format": "date-time"
+    },
+    "status": {
+      "type": "string",
+      "description": "Approved booking system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "waitlist_position": {
+      "type": "integer",
+      "description": "Approved booking system",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minimum": 0
+    },
+    "cancelled_at": {
+      "type": "string",
+      "description": "Approved booking system",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1,
+      "format": "date-time"
+    },
+    "policy_reference": {
+      "type": "string",
+      "description": "Approved booking system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    }
+  },
+  "required": [
+    "booking_id",
+    "customer_id",
+    "session_id",
+    "entitlement_reference",
+    "created_at",
+    "status",
+    "policy_reference"
+  ],
+  "x-record-storage": "Approved private backend only"
+}

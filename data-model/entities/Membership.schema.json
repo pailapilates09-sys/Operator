@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Membership",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "membership_id": {
+      "type": "string",
+      "description": "Approved entitlement ledger",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "customer_id": {
+      "type": "string",
+      "description": "Approved entitlement ledger",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "product_reference": {
+      "type": "string",
+      "description": "Approved entitlement ledger",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "terms_reference": {
+      "type": "string",
+      "description": "Approved entitlement ledger",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "start_at": {
+      "type": "string",
+      "description": "Approved entitlement ledger",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1,
+      "format": "date-time"
+    },
+    "expires_at": {
+      "type": "string",
+      "description": "Approved entitlement ledger",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1,
+      "format": "date-time"
+    },
+    "status": {
+      "type": "string",
+      "description": "Approved entitlement ledger",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "freeze_start_at": {
+      "type": "string",
+      "description": "Approved entitlement ledger",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1,
+      "format": "date-time"
+    },
+    "freeze_end_at": {
+      "type": "string",
+      "description": "Approved entitlement ledger",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1,
+      "format": "date-time"
+    },
+    "payment_reference": {
+      "type": "string",
+      "description": "Approved entitlement ledger",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "renewal_due_at": {
+      "type": "string",
+      "description": "Derived from validated private events; approved definition required",
+      "x-requirement": "derived",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1,
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "membership_id",
+    "customer_id",
+    "product_reference",
+    "terms_reference",
+    "start_at",
+    "status"
+  ],
+  "x-record-storage": "Approved private backend only"
+}

@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Lead",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "lead_id": {
+      "type": "string",
+      "description": "Approved private CRM",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "customer_id": {
+      "type": "string",
+      "description": "Approved private CRM",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "source": {
+      "type": "string",
+      "description": "Approved private CRM",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "created_at": {
+      "type": "string",
+      "description": "Approved private CRM",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1,
+      "format": "date-time"
+    },
+    "stage": {
+      "type": "string",
+      "description": "Approved private CRM",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "first_contact_at": {
+      "type": "string",
+      "description": "Approved private CRM",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1,
+      "format": "date-time"
+    },
+    "next_followup_at": {
+      "type": "string",
+      "description": "Approved private CRM",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1,
+      "format": "date-time"
+    },
+    "owner_id": {
+      "type": "string",
+      "description": "Approved private CRM",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "lost_reason": {
+      "type": "string",
+      "description": "Approved private CRM",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "conversion_at": {
+      "type": "string",
+      "description": "Derived from validated private events; approved definition required",
+      "x-requirement": "derived",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1,
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "lead_id",
+    "source",
+    "created_at",
+    "stage",
+    "owner_id"
+  ],
+  "x-record-storage": "Approved private backend only"
+}

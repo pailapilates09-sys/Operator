@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Equipment",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "equipment_id": {
+      "type": "string",
+      "description": "Approved equipment inventory / inspection authority",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "location_id": {
+      "type": "string",
+      "description": "Approved equipment inventory / inspection authority",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "equipment_type": {
+      "type": "string",
+      "description": "Approved equipment inventory / inspection authority",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "zone_reference": {
+      "type": "string",
+      "description": "Approved equipment inventory / inspection authority",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "description": "Approved equipment inventory / inspection authority",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "inspection_checklist_reference": {
+      "type": "string",
+      "description": "Approved equipment inventory / inspection authority",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "service_interval_reference": {
+      "type": "string",
+      "description": "Approved equipment inventory / inspection authority",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "last_inspected_at": {
+      "type": "string",
+      "description": "Derived from validated private events; approved definition required",
+      "x-requirement": "derived",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1,
+      "format": "date-time"
+    },
+    "return_to_service_approval": {
+      "type": "string",
+      "description": "Approved equipment inventory / inspection authority",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    }
+  },
+  "required": [
+    "equipment_id",
+    "location_id",
+    "equipment_type",
+    "status",
+    "inspection_checklist_reference"
+  ],
+  "x-record-storage": "Approved private backend only"
+}

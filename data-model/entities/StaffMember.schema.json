@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StaffMember",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "staff_id": {
+      "type": "string",
+      "description": "Restricted staff system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "display_name": {
+      "type": "string",
+      "description": "Restricted staff system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "role": {
+      "type": "string",
+      "description": "Restricted staff system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "access_role": {
+      "type": "string",
+      "description": "Restricted staff system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "onboarding_state": {
+      "type": "string",
+      "description": "Restricted staff system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "availability_reference": {
+      "type": "string",
+      "description": "Restricted staff system",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "shift_reference": {
+      "type": "string",
+      "description": "Restricted staff system",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "training_reference": {
+      "type": "string",
+      "description": "Restricted staff system",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    }
+  },
+  "required": [
+    "staff_id",
+    "display_name",
+    "role",
+    "access_role",
+    "onboarding_state"
+  ],
+  "x-record-storage": "Approved private backend only"
+}

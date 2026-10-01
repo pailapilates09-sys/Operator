@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ClassSession",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "session_id": {
+      "type": "string",
+      "description": "Approved private scheduling system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "class_type_id": {
+      "type": "string",
+      "description": "Approved private scheduling system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "location_id": {
+      "type": "string",
+      "description": "Approved private scheduling system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "instructor_id": {
+      "type": "string",
+      "description": "Approved private scheduling system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "start_at": {
+      "type": "string",
+      "description": "Approved private scheduling system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1,
+      "format": "date-time"
+    },
+    "end_at": {
+      "type": "string",
+      "description": "Approved private scheduling system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1,
+      "format": "date-time"
+    },
+    "capacity": {
+      "type": "integer",
+      "description": "Approved private scheduling system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minimum": 1
+    },
+    "status": {
+      "type": "string",
+      "description": "Approved private scheduling system",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "substitution_reference": {
+      "type": "string",
+      "description": "Approved private scheduling system",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "utilization": {
+      "type": "number",
+      "description": "Derived from validated private events; approved definition required",
+      "x-requirement": "derived",
+      "x-privacy": "private operational",
+      "x-sensitive": false
+    }
+  },
+  "required": [
+    "session_id",
+    "class_type_id",
+    "location_id",
+    "instructor_id",
+    "start_at",
+    "end_at",
+    "capacity",
+    "status"
+  ],
+  "x-record-storage": "Approved private backend only"
+}

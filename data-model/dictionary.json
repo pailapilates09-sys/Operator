@@ -1,0 +1,1661 @@
+{
+  "version": "0.5.0",
+  "records": [],
+  "entities": [
+    {
+      "entity": "Customer",
+      "authority": "Approved private CRM",
+      "fields": [
+        {
+          "name": "customer_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved private CRM",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "display_name",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Approved private CRM",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "contact_reference",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Approved private CRM",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "consent_reference",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Approved private CRM",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "lifecycle_stage",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved private CRM",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "first_visit_at",
+          "type": "string",
+          "requirement": "derived",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Derived from validated private events; approved definition required",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "last_visit_at",
+          "type": "string",
+          "requirement": "derived",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Derived from validated private events; approved definition required",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "milestone_state",
+          "type": "string",
+          "requirement": "derived",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Derived from validated private events; approved definition required",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "risk_state",
+          "type": "string",
+          "requirement": "derived",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Derived from validated private events; approved definition required",
+          "note": "Public field definition does not authorise publishing a private record."
+        }
+      ],
+      "schema": "entities/Customer.schema.json"
+    },
+    {
+      "entity": "Lead",
+      "authority": "Approved private CRM",
+      "fields": [
+        {
+          "name": "lead_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved private CRM",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "customer_id",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved private CRM",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "source",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved private CRM",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "created_at",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved private CRM",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "stage",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved private CRM",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "first_contact_at",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved private CRM",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "next_followup_at",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved private CRM",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "owner_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved private CRM",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "lost_reason",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved private CRM",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "conversion_at",
+          "type": "string",
+          "requirement": "derived",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Derived from validated private events; approved definition required",
+          "note": "Public field definition does not authorise publishing a private record."
+        }
+      ],
+      "schema": "entities/Lead.schema.json"
+    },
+    {
+      "entity": "Instructor",
+      "authority": "Restricted staff system",
+      "fields": [
+        {
+          "name": "instructor_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted staff system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "staff_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted staff system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "credential_reference",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted staff system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "credential_review_due",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted staff system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "onboarding_state",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted staff system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "approved_class_types",
+          "type": "array",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted staff system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "availability_reference",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted staff system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "training_reference",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted staff system",
+          "note": "Public field definition does not authorise publishing a private record."
+        }
+      ],
+      "schema": "entities/Instructor.schema.json"
+    },
+    {
+      "entity": "StaffMember",
+      "authority": "Restricted staff system",
+      "fields": [
+        {
+          "name": "staff_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted staff system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "display_name",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted staff system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "role",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted staff system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "access_role",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted staff system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "onboarding_state",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted staff system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "availability_reference",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted staff system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "shift_reference",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted staff system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "training_reference",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted staff system",
+          "note": "Public field definition does not authorise publishing a private record."
+        }
+      ],
+      "schema": "entities/StaffMember.schema.json"
+    },
+    {
+      "entity": "ClassType",
+      "authority": "Owner-approved class catalogue",
+      "fields": [
+        {
+          "name": "class_type_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Owner-approved class catalogue",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "public-safe definition",
+          "sensitive": false,
+          "authority": "Owner-approved class catalogue",
+          "note": "Publish only an approved reference or model definition."
+        },
+        {
+          "name": "format",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "public-safe definition",
+          "sensitive": false,
+          "authority": "Owner-approved class catalogue",
+          "note": "Publish only an approved reference or model definition."
+        },
+        {
+          "name": "duration_minutes",
+          "type": "integer",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Owner-approved class catalogue",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "approved_capacity",
+          "type": "integer",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Owner-approved class catalogue",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "required_credential_reference",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Owner-approved class catalogue",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "approval_reference",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Owner-approved class catalogue",
+          "note": "Public field definition does not authorise publishing a private record."
+        }
+      ],
+      "schema": "entities/ClassType.schema.json"
+    },
+    {
+      "entity": "ClassSession",
+      "authority": "Approved private scheduling system",
+      "fields": [
+        {
+          "name": "session_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved private scheduling system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "class_type_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved private scheduling system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "location_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved private scheduling system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "instructor_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved private scheduling system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "start_at",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved private scheduling system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "end_at",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved private scheduling system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "capacity",
+          "type": "integer",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved private scheduling system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved private scheduling system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "substitution_reference",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved private scheduling system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "utilization",
+          "type": "number",
+          "requirement": "derived",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Derived from validated private events; approved definition required",
+          "note": "Public field definition does not authorise publishing a private record."
+        }
+      ],
+      "schema": "entities/ClassSession.schema.json"
+    },
+    {
+      "entity": "Booking",
+      "authority": "Approved booking system",
+      "fields": [
+        {
+          "name": "booking_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved booking system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "customer_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved booking system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "session_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved booking system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "entitlement_reference",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved booking system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "created_at",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved booking system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved booking system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "waitlist_position",
+          "type": "integer",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved booking system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "cancelled_at",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved booking system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "policy_reference",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved booking system",
+          "note": "Public field definition does not authorise publishing a private record."
+        }
+      ],
+      "schema": "entities/Booking.schema.json"
+    },
+    {
+      "entity": "Visit",
+      "authority": "Reconciled attendance system",
+      "fields": [
+        {
+          "name": "visit_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Reconciled attendance system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "customer_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Reconciled attendance system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "session_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Reconciled attendance system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "booking_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Reconciled attendance system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Reconciled attendance system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "checked_in_at",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Reconciled attendance system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "completed_at",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Reconciled attendance system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "first_visit",
+          "type": "boolean",
+          "requirement": "derived",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Derived from validated private events; approved definition required",
+          "note": "Public field definition does not authorise publishing a private record."
+        }
+      ],
+      "schema": "entities/Visit.schema.json"
+    },
+    {
+      "entity": "Membership",
+      "authority": "Approved entitlement ledger",
+      "fields": [
+        {
+          "name": "membership_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved entitlement ledger",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "customer_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved entitlement ledger",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "product_reference",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved entitlement ledger",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "terms_reference",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved entitlement ledger",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "start_at",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved entitlement ledger",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "expires_at",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved entitlement ledger",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved entitlement ledger",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "freeze_start_at",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved entitlement ledger",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "freeze_end_at",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved entitlement ledger",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "payment_reference",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved entitlement ledger",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "renewal_due_at",
+          "type": "string",
+          "requirement": "derived",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Derived from validated private events; approved definition required",
+          "note": "Public field definition does not authorise publishing a private record."
+        }
+      ],
+      "schema": "entities/Membership.schema.json"
+    },
+    {
+      "entity": "Pass",
+      "authority": "Approved entitlement ledger",
+      "fields": [
+        {
+          "name": "pass_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved entitlement ledger",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "customer_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved entitlement ledger",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "product_reference",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved entitlement ledger",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "terms_reference",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved entitlement ledger",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "issued_at",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved entitlement ledger",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "expires_at",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved entitlement ledger",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "issued_credits",
+          "type": "integer",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved entitlement ledger",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "remaining_credits",
+          "type": "integer",
+          "requirement": "derived",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Derived from validated private events; approved definition required",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved entitlement ledger",
+          "note": "Public field definition does not authorise publishing a private record."
+        }
+      ],
+      "schema": "entities/Pass.schema.json"
+    },
+    {
+      "entity": "Payment",
+      "authority": "Payment provider reconciliation",
+      "fields": [
+        {
+          "name": "payment_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Payment provider reconciliation",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "customer_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Payment provider reconciliation",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "provider_transaction_reference",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Payment provider reconciliation",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "entitlement_reference",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Payment provider reconciliation",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "amount",
+          "type": "number",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Payment provider reconciliation",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "currency",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Payment provider reconciliation",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Payment provider reconciliation",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "occurred_at",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Payment provider reconciliation",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "failure_code",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Payment provider reconciliation",
+          "note": "Public field definition does not authorise publishing a private record."
+        }
+      ],
+      "schema": "entities/Payment.schema.json"
+    },
+    {
+      "entity": "Refund",
+      "authority": "Payment provider + authorised refund decision",
+      "fields": [
+        {
+          "name": "refund_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Payment provider + authorised refund decision",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "payment_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Payment provider + authorised refund decision",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "amount",
+          "type": "number",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Payment provider + authorised refund decision",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "currency",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Payment provider + authorised refund decision",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Payment provider + authorised refund decision",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "approval_reference",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Payment provider + authorised refund decision",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "provider_reference",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Payment provider + authorised refund decision",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "completed_at",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Payment provider + authorised refund decision",
+          "note": "Public field definition does not authorise publishing a private record."
+        }
+      ],
+      "schema": "entities/Refund.schema.json"
+    },
+    {
+      "entity": "Feedback",
+      "authority": "Restricted feedback system",
+      "fields": [
+        {
+          "name": "feedback_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted feedback system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "customer_id",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted feedback system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "channel",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted feedback system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "received_at",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted feedback system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted feedback system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "restricted_content_reference",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted feedback system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "consent_reference",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted feedback system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "recovery_owner_id",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted feedback system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "resolution_reference",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted feedback system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted feedback system",
+          "note": "Public field definition does not authorise publishing a private record."
+        }
+      ],
+      "schema": "entities/Feedback.schema.json"
+    },
+    {
+      "entity": "Incident",
+      "authority": "Restricted incident system",
+      "fields": [
+        {
+          "name": "incident_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted incident system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "location_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted incident system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "reported_at",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted incident system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted incident system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "restricted_evidence_reference",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted incident system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "responsible_owner_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted incident system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted incident system",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "resolution_reference",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted incident system",
+          "note": "Public field definition does not authorise publishing a private record."
+        }
+      ],
+      "schema": "entities/Incident.schema.json"
+    },
+    {
+      "entity": "Equipment",
+      "authority": "Approved equipment inventory / inspection authority",
+      "fields": [
+        {
+          "name": "equipment_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved equipment inventory / inspection authority",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "location_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved equipment inventory / inspection authority",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "equipment_type",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved equipment inventory / inspection authority",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "zone_reference",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved equipment inventory / inspection authority",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved equipment inventory / inspection authority",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "inspection_checklist_reference",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved equipment inventory / inspection authority",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "service_interval_reference",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved equipment inventory / inspection authority",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "last_inspected_at",
+          "type": "string",
+          "requirement": "derived",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Derived from validated private events; approved definition required",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "return_to_service_approval",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Approved equipment inventory / inspection authority",
+          "note": "Public field definition does not authorise publishing a private record."
+        }
+      ],
+      "schema": "entities/Equipment.schema.json"
+    },
+    {
+      "entity": "MaintenanceEvent",
+      "authority": "Maintenance register + authorised sign-off",
+      "fields": [
+        {
+          "name": "maintenance_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Maintenance register + authorised sign-off",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "equipment_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Maintenance register + authorised sign-off",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "reported_at",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Maintenance register + authorised sign-off",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "event_type",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Maintenance register + authorised sign-off",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Maintenance register + authorised sign-off",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "responsible_owner_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Maintenance register + authorised sign-off",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "due_at",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Maintenance register + authorised sign-off",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "service_evidence_reference",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Maintenance register + authorised sign-off",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "completed_at",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Maintenance register + authorised sign-off",
+          "note": "Public field definition does not authorise publishing a private record."
+        }
+      ],
+      "schema": "entities/MaintenanceEvent.schema.json"
+    },
+    {
+      "entity": "Automation",
+      "authority": "Versioned candidate register; activation requires private approval",
+      "fields": [
+        {
+          "name": "automation_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "public-safe definition",
+          "sensitive": false,
+          "authority": "Versioned candidate register; activation requires private approval",
+          "note": "Publish only an approved reference or model definition."
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "public-safe definition",
+          "sensitive": false,
+          "authority": "Versioned candidate register; activation requires private approval",
+          "note": "Publish only an approved reference or model definition."
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "public-safe definition",
+          "sensitive": false,
+          "authority": "Versioned candidate register; activation requires private approval",
+          "note": "Publish only an approved reference or model definition."
+        },
+        {
+          "name": "trigger_definition",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "public-safe definition",
+          "sensitive": false,
+          "authority": "Versioned candidate register; activation requires private approval",
+          "note": "Publish only an approved reference or model definition."
+        },
+        {
+          "name": "dependencies",
+          "type": "array",
+          "requirement": "required",
+          "privacy": "public-safe definition",
+          "sensitive": false,
+          "authority": "Versioned candidate register; activation requires private approval",
+          "note": "Publish only an approved reference or model definition."
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "public-safe definition",
+          "sensitive": false,
+          "authority": "Versioned candidate register; activation requires private approval",
+          "note": "Publish only an approved reference or model definition."
+        },
+        {
+          "name": "review_gate",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "public-safe definition",
+          "sensitive": false,
+          "authority": "Versioned candidate register; activation requires private approval",
+          "note": "Publish only an approved reference or model definition."
+        },
+        {
+          "name": "approval_reference",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Versioned candidate register; activation requires private approval",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "execution_reference",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Versioned candidate register; activation requires private approval",
+          "note": "Public field definition does not authorise publishing a private record."
+        }
+      ],
+      "schema": "entities/Automation.schema.json"
+    },
+    {
+      "entity": "SOP",
+      "authority": "Versioned handbook; approval register controls operational use",
+      "fields": [
+        {
+          "name": "sop_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "public-safe definition",
+          "sensitive": false,
+          "authority": "Versioned handbook; approval register controls operational use",
+          "note": "Publish only an approved reference or model definition."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "public-safe definition",
+          "sensitive": false,
+          "authority": "Versioned handbook; approval register controls operational use",
+          "note": "Publish only an approved reference or model definition."
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "public-safe definition",
+          "sensitive": false,
+          "authority": "Versioned handbook; approval register controls operational use",
+          "note": "Publish only an approved reference or model definition."
+        },
+        {
+          "name": "version",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "public-safe definition",
+          "sensitive": false,
+          "authority": "Versioned handbook; approval register controls operational use",
+          "note": "Publish only an approved reference or model definition."
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "public-safe definition",
+          "sensitive": false,
+          "authority": "Versioned handbook; approval register controls operational use",
+          "note": "Publish only an approved reference or model definition."
+        },
+        {
+          "name": "public_reference",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "public-safe definition",
+          "sensitive": false,
+          "authority": "Versioned handbook; approval register controls operational use",
+          "note": "Publish only an approved reference or model definition."
+        },
+        {
+          "name": "owner_id",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Versioned handbook; approval register controls operational use",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "approval_reference",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Versioned handbook; approval register controls operational use",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "review_due_at",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Versioned handbook; approval register controls operational use",
+          "note": "Public field definition does not authorise publishing a private record."
+        }
+      ],
+      "schema": "entities/SOP.schema.json"
+    },
+    {
+      "entity": "ManagementAction",
+      "authority": "Restricted management action register",
+      "fields": [
+        {
+          "name": "action_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Restricted management action register",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "origin_event_id",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Restricted management action register",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "review_period",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Restricted management action register",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "decision_reference",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted management action register",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "responsible_owner_id",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Restricted management action register",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "due_at",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Restricted management action register",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "requirement": "required",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Restricted management action register",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "restricted_evidence_reference",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": true,
+          "authority": "Restricted management action register",
+          "note": "Public field definition does not authorise publishing a private record."
+        },
+        {
+          "name": "closed_at",
+          "type": "string",
+          "requirement": "optional",
+          "privacy": "private operational",
+          "sensitive": false,
+          "authority": "Restricted management action register",
+          "note": "Public field definition does not authorise publishing a private record."
+        }
+      ],
+      "schema": "entities/ManagementAction.schema.json"
+    }
+  ],
+  "classification_notes": "Field names and schemas are public-safe. No example operational records are included. Derived fields are read-only projections; optional fields are omitted when unknown, never fabricated."
+}

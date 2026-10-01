@@ -1,3 +1,13 @@
+# Paila Studio OS / Client Portal
+
+Live owner / management framework: https://pailapilates10-cmd.github.io/Paila-Pilates-SOP/
+
+Current release: **v0.5.0**. Real operational sources are **not connected**. No private customer, payment, staff or incident records belong in this public repository. All automation candidates are inactive.
+
+See [architecture and integration contract](docs/studio-os.md), [version and rollback](version.json), [public data dictionary](data-model/dictionary.json) and [changelog](CHANGELOG.md). Existing `/sop/` and `/studio/` are preserved. GitHub Pages continues to publish from `main` at the repository root.
+
+## Earlier portal documentation (preserved history)
+
 # Paila Pilates — Client Portal & SOP Handbook
 
 This repository is the public-safe presentation layer for the Paila Pilates owner/client-facing digital gateway.

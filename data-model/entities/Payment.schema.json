@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Payment",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "payment_id": {
+      "type": "string",
+      "description": "Payment provider reconciliation",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "customer_id": {
+      "type": "string",
+      "description": "Payment provider reconciliation",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "provider_transaction_reference": {
+      "type": "string",
+      "description": "Payment provider reconciliation",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "entitlement_reference": {
+      "type": "string",
+      "description": "Payment provider reconciliation",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "amount": {
+      "type": "number",
+      "description": "Payment provider reconciliation",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minimum": 0
+    },
+    "currency": {
+      "type": "string",
+      "description": "Payment provider reconciliation",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "description": "Payment provider reconciliation",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "occurred_at": {
+      "type": "string",
+      "description": "Payment provider reconciliation",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1,
+      "format": "date-time"
+    },
+    "failure_code": {
+      "type": "string",
+      "description": "Payment provider reconciliation",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    }
+  },
+  "required": [
+    "payment_id",
+    "customer_id",
+    "provider_transaction_reference",
+    "amount",
+    "currency",
+    "status",
+    "occurred_at"
+  ],
+  "x-record-storage": "Approved private backend only"
+}

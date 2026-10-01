@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MaintenanceEvent",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "maintenance_id": {
+      "type": "string",
+      "description": "Maintenance register + authorised sign-off",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "equipment_id": {
+      "type": "string",
+      "description": "Maintenance register + authorised sign-off",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "reported_at": {
+      "type": "string",
+      "description": "Maintenance register + authorised sign-off",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1,
+      "format": "date-time"
+    },
+    "event_type": {
+      "type": "string",
+      "description": "Maintenance register + authorised sign-off",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "description": "Maintenance register + authorised sign-off",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "responsible_owner_id": {
+      "type": "string",
+      "description": "Maintenance register + authorised sign-off",
+      "x-requirement": "required",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1
+    },
+    "due_at": {
+      "type": "string",
+      "description": "Maintenance register + authorised sign-off",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1,
+      "format": "date-time"
+    },
+    "service_evidence_reference": {
+      "type": "string",
+      "description": "Maintenance register + authorised sign-off",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": true,
+      "minLength": 1
+    },
+    "completed_at": {
+      "type": "string",
+      "description": "Maintenance register + authorised sign-off",
+      "x-requirement": "optional",
+      "x-privacy": "private operational",
+      "x-sensitive": false,
+      "minLength": 1,
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "maintenance_id",
+    "equipment_id",
+    "reported_at",
+    "event_type",
+    "status",
+    "responsible_owner_id"
+  ],
+  "x-record-storage": "Approved private backend only"
+}
