@@ -13,6 +13,8 @@ The research application map is `data-model/research-model.json`. Shared event p
 
 Minimum verification: `python tools/validate_studio_os.py` (requires `jsonschema[format]`), `node tools/verify_review.mjs`, ES module syntax checks and provider-read Pages success for the exact published main SHA. Owner visual review follows publication.
 
+Use [How to use / Start here](guide/) for 1-, 3-, 7- and 15-page progressive web guides. Browser printing supports a Save PDF option; pagination depends on print settings. Tutorial v1.0 teaches the implemented fictional controls and their boundaries.
+
 ## Earlier portal documentation (preserved history)
 
 # Paila Pilates — Client Portal & SOP Handbook

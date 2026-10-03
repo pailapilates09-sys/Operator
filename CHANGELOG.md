@@ -1,5 +1,12 @@
 # Changelog
 
+## Tutorial v1.0 — 2026-10-03 — shareholder-review addition
+
+- Add 1-, 3-, 7- and 15-page progressive web guides with contents links, direct screen links and browser Print / Save PDF.
+- Add Start here / How to use to the workspace navigation, header and Today welcome card.
+- Explain actual controls, demo persistence, report denominators, human review gates and research-versus-approved-policy boundaries. Preserve the operational seed, handbook, layout and Customer Portal.
+- Preserve pre-guide review commit `51d28fbecf5959de6b33319a5737298179ef7170` on `rollback/before-studio-os-tutorial-2026-10-03`. No formal product release created.
+
 ## review-2026-10-03 — PRE-RELEASE / SHAREHOLDER REVIEW
 
 - Implement a working customer-journey, conversion, retention and accountable management review from the Seq19 research feeder; keep external benchmarks separate from operating targets.

@@ -58,7 +58,7 @@ try{
 
   const sidebar=h('aside',{class:'sidebar',id:'navigation'},link(h('span',{class:'brand-mark'},'PP'),'',{class:'brand'}));
   sidebar.firstChild.append(h('span',{},h('strong',{},'Paila Studio OS'),h('small',{},'SHAREHOLDER REVIEW')));
-  const nav=h('nav',{'aria-label':'Workspace'},h('p',{class:'nav-label'},'Daily workspace'));
+  const nav=h('nav',{'aria-label':'Workspace'},link([h('span',{class:'nav-dot'}),'Start here / How to use'],'guide/',{class:'nav-link'}),h('p',{class:'nav-label'},'Daily workspace'));
   for(const m of cfg.modules){
     if(m.key==='sales') nav.append(h('p',{class:'nav-label'},'Growth & client journey'));
     if(m.key==='classes') nav.append(h('p',{class:'nav-label'},'Service & membership'));
@@ -84,6 +84,7 @@ try{
     h('span',{class:'topbar-context'},'Paila Pilates / ',h('strong',{},current.title)),
     h('div',{class:'topbar-links'},
       pill('FICTIONAL / PROTOTYPE / NOT APPROVED','prototype'),
+      link('How to use','guide/'),
       link('Benchmark','benchmark/'),
       link('Handbook','sop/'),
       h('a',{href:'https://pailapilates10-cmd.github.io/Paila-Pilates.com/',target:'_blank',rel:'noopener noreferrer'},'Customer Portal')
@@ -102,6 +103,8 @@ try{
     seed.disclaimer,
     'prototype-notice'
   ));
+
+  if(moduleKey==='today') main.append(card('New here? Start with one useful loop','A short guide explains what to click first, then offers deeper walkthroughs.',h('div',{class:'module-links'},link('1-page quick start','guide/'),link('3-page walkthrough','guide/3-pages/'),link('7-page daily / weekly guide','guide/7-pages/'),link('15-page reference','guide/15-pages/'))));
 
   const benchmarkStrip=()=>h('div',{class:'benchmark-strip'},
     h('div',{},h('span',{class:'eyebrow'},'Selected operating model'),h('strong',{},prototype.selection.primary_operating_system+' backbone')),

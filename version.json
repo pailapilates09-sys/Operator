@@ -38,5 +38,19 @@
     "version": "0.6.0",
     "commit": "ade69b1073468c913e25b1a486cb417e54016adb",
     "branch": "release/paila-studio-os-v0.6.0"
+  },
+  "tutorial": {
+    "version": "1.0",
+    "date": "2026-10-03",
+    "path": "guide/",
+    "levels": [
+      1,
+      3,
+      7,
+      15
+    ],
+    "state": "LIVE_GUIDE_FOR_FICTIONAL_REVIEW",
+    "preservation_commit": "51d28fbecf5959de6b33319a5737298179ef7170",
+    "rollback_branch": "rollback/before-studio-os-tutorial-2026-10-03"
   }
 }
