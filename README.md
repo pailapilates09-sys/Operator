@@ -77,3 +77,5 @@ The four SOP records retain their existing Draft/Planned status. Missing owners,
 ## Studio layout preview
 
 `/studio/` contains the interactive 2D plan and lazy-loaded 3D cutaway. Both portals consume the same geometry version and canonical SHA-256, recorded in `studio/manifest.json`. The view remains a source-derived preview; height is illustrative and dimensional conflicts remain unresolved. Original plan/video and private lineage stay in restricted project storage. Three.js 0.170.0 is vendored with its MIT license. No build or runtime CDN is needed.
+
+Tutorial v1.1 adds 26 illustrated infographic pages, optional text, full-size image/download links and original PNG links in Google Drive. Same guide URLs; no formal product release.

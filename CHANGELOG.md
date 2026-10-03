@@ -1,3 +1,7 @@
+## Tutorial v1.1 · 2026-10-03
+
+Add 26 actual illustrated infographic pages across the 1/3/7/15-page guides. Store original PNGs in the Paila Drive project, serve compressed image copies from Pages, and retain optional teaching text and real screen links. Print waits for image loading. Preserve the prototype and approval boundaries; no formal product release.
+
 # Changelog
 
 ## Tutorial v1.0 — 2026-10-03 — shareholder-review addition

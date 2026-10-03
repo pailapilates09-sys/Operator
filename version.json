@@ -40,7 +40,7 @@
     "branch": "release/paila-studio-os-v0.6.0"
   },
   "tutorial": {
-    "version": "1.0",
+    "version": "1.1",
     "date": "2026-10-03",
     "path": "guide/",
     "levels": [
@@ -50,7 +50,10 @@
       15
     ],
     "state": "LIVE_GUIDE_FOR_FICTIONAL_REVIEW",
-    "preservation_commit": "51d28fbecf5959de6b33319a5737298179ef7170",
-    "rollback_branch": "rollback/before-studio-os-tutorial-2026-10-03"
+    "preservation_commit": "d99a2e8bc73c44b29012ec3f36055309bbadddfa",
+    "rollback_branch": "rollback/before-visual-tutorial-2026-10-03",
+    "format": "26 illustrated infographic pages with optional text",
+    "image_count": 26,
+    "drive_folder": "https://drive.google.com/drive/folders/1Z5MSk0Kpor-CC3L85oQBN6Ejv7kIZkK0"
   }
 }
