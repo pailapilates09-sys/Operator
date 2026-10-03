@@ -4,7 +4,8 @@ from jsonschema import Draft202012Validator,FormatChecker,ValidationError
 root=pathlib.Path(__file__).resolve().parents[1]
 def read(p):return json.loads((root/p).read_text())
 cfg=read('data-model/console.json');dic=read('data-model/dictionary.json');ev=read('data-model/events.json');schema=read('data-model/event.schema.json')
-assert cfg['version']==read('version.json')['current']=='0.5.0'
+assert cfg['version']==read('version.json')['current']=='0.6.0'
+assert cfg['build']==read('version.json')['build']=='review-2026-10-03'
 assert len(dic['entities'])==19 and dic['records']==[]
 assert len({x['entity'] for x in dic['entities']})==19
 assert len(cfg['sops'])>=30 and len({x['code'] for x in cfg['sops']})==len(cfg['sops'])
@@ -18,7 +19,7 @@ for period,minimum in [('Daily',14),('Weekly',9),('Monthly',12)]:
 for m in cfg['modules']:
  p=m['path'];target='index.html' if not p else p if p.endswith('.html') else p+'index.html'
  assert (root/target).exists(),target
- text=(root/target).read_text();assert f'data-module="{m["key"]}"' in text and 'v0.5.0' in text
+ text=(root/target).read_text();assert f'data-module="{m["key"]}"' in text and 'v=review-2026-10-03' in text
 for ent in dic['entities']:
  s=read('data-model/'+ent['schema']);Draft202012Validator.check_schema(s)
  assert set(s['required'])=={f['name'] for f in ent['fields'] if f['requirement']=='required'}
@@ -39,7 +40,7 @@ assert len(ev['types'])>=26 and {x['type'] for x in ev['types']}==set(schema['pr
 for steps in cfg['workflows'].values():
  assert all(step[2] in schema['properties']['event_type']['enum'] for step in steps)
 # All original handbook / viewer files must remain byte-for-byte unchanged.
-base='213dd4cd33e5b93a4783099170ee8a664d5d0129'
+base='ade69b1073468c913e25b1a486cb417e54016adb'
 changes=subprocess.check_output(['git','diff','--name-only',base],cwd=root,text=True).splitlines()
 assert not any((p.startswith('studio/') or p.startswith('sop/')) and p!='sop/register.html' for p in changes),changes
 print(f'PASS: {len(cfg["modules"])} module routes; 19 entity schemas; {len(ev["types"])} event contracts; report/SOP/automation coverage; preserved handbook and viewer.')

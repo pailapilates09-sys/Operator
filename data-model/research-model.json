@@ -1,0 +1,133 @@
+{
+  "classification": "Research application for shareholder review; not approved policy",
+  "feederState": "Local research corpus Seq19; read 2026-10-03",
+  "sources": [
+    {
+      "id": "VID-001",
+      "title": "Profitable studio funnel and management measures",
+      "url": "https://www.youtube.com/watch?v=MKzFtRqq8go",
+      "evidence": "Parsed episode evidence"
+    },
+    {
+      "id": "VID-002",
+      "title": "Participation, booking friction and client experience",
+      "url": "https://www.youtube.com/watch?v=wGsdoduEN1A",
+      "evidence": "Parsed episode evidence"
+    },
+    {
+      "id": "VID-003",
+      "title": "Opening and presale dependencies",
+      "url": "https://www.youtube.com/watch?v=BGRj4omO-CE",
+      "evidence": "Parsed user transcript"
+    },
+    {
+      "id": "VID-004",
+      "title": "Business constraints and leadership rhythm",
+      "url": "https://pilates-elephants.breathe-education.com/episode/the-5-stages-of-pilates-studio-business",
+      "evidence": "Parsed user transcript"
+    },
+    {
+      "id": "VID-005",
+      "title": "KPI constraint and schedule experiments",
+      "url": "https://breathe-education.com/workshop-kpi/",
+      "evidence": "Official page summary only; no full workshop transcript"
+    },
+    {
+      "id": "DOC-001",
+      "title": "Trainable and measurable sales process",
+      "url": "https://www.mindbodyonline.com/sites/default/files/public/education/learning-assets/Fitness_Business_Guide_to_Perfecting_Your_Sales_Process.pdf",
+      "evidence": "Vendor guide evidence"
+    },
+    {
+      "id": "DOC-002",
+      "title": "Client experience across the membership lifecycle",
+      "url": "https://www.mindbodyonline.com/sites/default/files/public/education/learning-assets/How_to_Retain_at_Your_Group_Fitness_Studio_EMEA_Guide.pdf",
+      "evidence": "Vendor guide evidence"
+    },
+    {
+      "id": "DOC-003",
+      "title": "Presale launch process",
+      "url": "https://studiogrow.co/wp-content/uploads/2024/04/Launch-Workbook-with-edits-2.pdf",
+      "evidence": "Vendor workbook evidence"
+    }
+  ],
+  "applications": [
+    {
+      "feature": "Customer journey and conversion board",
+      "patterns": [
+        "OP-001",
+        "OP-004",
+        "OP-033",
+        "MAP-003",
+        "MAP-042"
+      ],
+      "sources": [
+        "VID-001",
+        "DOC-001"
+      ],
+      "decision": "A single fictional event history follows lead, attended first visit, second purchase and membership. People retain an accountable next action."
+    },
+    {
+      "feature": "Explainable retention and service recovery",
+      "patterns": [
+        "OP-005",
+        "OP-010",
+        "OP-035",
+        "MAP-011",
+        "MAP-027",
+        "MAP-044"
+      ],
+      "sources": [
+        "VID-001",
+        "VID-002",
+        "DOC-002"
+      ],
+      "decision": "Attendance gaps, unused credits and booking friction create human-review queues; no automatic messages, inferred health conditions or predictive risk scores."
+    },
+    {
+      "feature": "Capacity and management experiments",
+      "patterns": [
+        "OP-027",
+        "OP-038",
+        "MAP-038",
+        "MAP-041",
+        "MAP-047"
+      ],
+      "sources": [
+        "VID-004",
+        "VID-005"
+      ],
+      "decision": "Capacity and waitlist evidence support a proposed experiment with owner and review date. External business stages do not classify Paila."
+    },
+    {
+      "feature": "Daily readiness and coaching",
+      "patterns": [
+        "OP-011",
+        "OP-022",
+        "MAP-013",
+        "MAP-028",
+        "MAP-033"
+      ],
+      "sources": [
+        "VID-002"
+      ],
+      "decision": "Opening, midday and closing tasks carry owners; equipment holds need authorised inspection. Staff coaching uses service evidence, not popularity ranking."
+    },
+    {
+      "feature": "Launch and integrated planning",
+      "patterns": [
+        "OP-014",
+        "OP-037",
+        "MAP-018",
+        "MAP-046"
+      ],
+      "sources": [
+        "VID-001",
+        "VID-003",
+        "DOC-003"
+      ],
+      "decision": "Launch mode is an optional planning lens. Financial scenarios expose assumptions and distinguish cash from recognised revenue and profit."
+    }
+  ],
+  "boundary": "External numerical benchmarks remain source claims in the private research feeder. No foreign conversion, labour, revenue or stage threshold becomes a Paila target here."
+}

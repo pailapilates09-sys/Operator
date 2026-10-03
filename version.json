@@ -1,17 +1,22 @@
 {
   "product": "Paila Studio OS / Client Portal",
   "current": "0.6.0",
-  "date": "2026-10-01",
+  "date": "2026-10-03",
   "source_branch": "main",
   "pages_source": "main:/(root)",
-  "status": "SHAREHOLDER_BENCHMARK_PROTOTYPE",
+  "status": "PRE_RELEASE_SHAREHOLDER_REVIEW",
   "market": "Kathmandu, Nepal",
   "prototype_data": "Fictional sample data for shareholder review only",
   "operational_data": "Real private sources are not connected",
   "benchmark_model": {
     "primary_operating_system": "Club Pilates",
     "local_market_base": "Reform Body Pilates & Wellness Studio",
-    "supporting_references": ["KX Pilates", "BODYROK", "AFit / Align Pilates", "Strong & Lean by Rosetta"]
+    "supporting_references": [
+      "KX Pilates",
+      "BODYROK",
+      "AFit / Align Pilates",
+      "Strong & Lean by Rosetta"
+    ]
   },
   "previous_release": {
     "version": "0.5.0",
@@ -19,13 +24,19 @@
     "label": "Disconnected Studio OS management framework"
   },
   "rollback": {
-    "commit": "c49ddd3a62d8b3d933460611bbf940162ecaf511",
-    "branch": "rollback/before-shareholder-benchmark-prototype-v0.6.0"
+    "commit": "ade69b1073468c913e25b1a486cb417e54016adb",
+    "branch": "rollback/before-shareholder-review-2026-10-03"
   },
-  "release_boundary": "Do not create tag/milestone/release branch until A9 Seq13 closeout is FINAL_CLOSED_PASS.",
+  "release_boundary": "Live review publication is authorised. No v0.7.0 tag, GitHub Release, milestone or frozen release reference until the owner reviews this webpage and explicitly authorises release.",
   "preserved_components": {
     "sop": "Existing handbook and Draft / Planned procedure status preserved",
     "studio": "User-approved spatial preview v0.1.1 preserved",
     "customer_portal": "Separate repository unchanged"
+  },
+  "build": "review-2026-10-03",
+  "approved_release": {
+    "version": "0.6.0",
+    "commit": "ade69b1073468c913e25b1a486cb417e54016adb",
+    "branch": "release/paila-studio-os-v0.6.0"
   }
 }

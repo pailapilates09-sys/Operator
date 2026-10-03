@@ -1,4 +1,5 @@
 import {createDisconnectedSource} from './data-model/adapter.js';
+import {renderReviewModule} from './review.js?v=review-2026-10-03';
 
 const base=new URL(document.body.dataset.root,location.href);
 const moduleKey=document.body.dataset.module;
@@ -6,8 +7,8 @@ const app=document.querySelector('#app');
 const h=(tag,attrs={},...children)=>{
   const e=document.createElement(tag);
   for(const [k,v] of Object.entries(attrs)){
+    if(v===null||v===undefined||v===false) continue;
     if(k==='class') e.className=v;
-    else if(k==='html') e.innerHTML=v;
     else e.setAttribute(k,v);
   }
   for(const c of children.flat(Infinity)){
@@ -38,11 +39,13 @@ const protoCell=(value)=>h('span',{class:'prototype-value'},value);
 const statusCell=(value)=>[protoCell(value),h('small',{class:'prototype-label'},'FICTIONAL SAMPLE')];
 
 try{
-  const [cfg,dict,events,prototype]=await Promise.all([
+  const [cfg,dict,events,prototype,seed,research]=await Promise.all([
     getJson('data-model/console.json'),
     getJson('data-model/dictionary.json'),
     getJson('data-model/events.json'),
-    getJson('data-model/shareholder-prototype.json')
+    getJson('data-model/shareholder-prototype.json'),
+    getJson('data-model/review-seed.json'),
+    getJson('data-model/research-model.json')
   ]);
   const current=cfg.modules.find(x=>x.key===moduleKey);
   if(!current) throw new Error('Unknown workspace module');
@@ -51,20 +54,24 @@ try{
   const source=createDisconnectedSource();
   await source.readModule(moduleKey);
 
-  const displayVersion=prototype.version||cfg.version;
+  const displayVersion='review-2026-10-03';
 
   const sidebar=h('aside',{class:'sidebar',id:'navigation'},link(h('span',{class:'brand-mark'},'PP'),'',{class:'brand'}));
-  sidebar.firstChild.append(h('span',{},h('strong',{},'Paila Studio OS'),h('small',{},'SHAREHOLDER PROTOTYPE')));
-  const nav=h('nav',{'aria-label':'Workspace'},h('p',{class:'nav-label'},'Manage the studio'));
+  sidebar.firstChild.append(h('span',{},h('strong',{},'Paila Studio OS'),h('small',{},'SHAREHOLDER REVIEW')));
+  const nav=h('nav',{'aria-label':'Workspace'},h('p',{class:'nav-label'},'Daily workspace'));
   for(const m of cfg.modules){
-    if(m.key==='reports') nav.append(h('p',{class:'nav-label'},'Review & improve'));
+    if(m.key==='sales') nav.append(h('p',{class:'nav-label'},'Growth & client journey'));
+    if(m.key==='classes') nav.append(h('p',{class:'nav-label'},'Service & membership'));
+    if(m.key==='staff') nav.append(h('p',{class:'nav-label'},'People & operations'));
+    if(m.key==='management') nav.append(h('p',{class:'nav-label'},'Management & improvement'));
+    if(m.key==='sops') nav.append(h('p',{class:'nav-label'},'Procedures & systems'));
     if(m.key==='system'){
       nav.append(link([h('span',{class:'nav-dot'}),'Studio Layout'],'studio/',{class:'nav-link'}));
       nav.append(link([h('span',{class:'nav-dot'}),'Benchmark model'],'benchmark/',{class:'nav-link'}));
     }
     nav.append(link([h('span',{class:'nav-dot'}),m.title],m.path,{class:'nav-link'+(m.key===moduleKey?' active':''),...(m.key===moduleKey?{'aria-current':'page'}:{})}));
   }
-  sidebar.append(nav,h('div',{class:'sidebar-footer'},h('strong',{},'v'+displayVersion),h('p',{},'Benchmark prototype · real backend still disconnected')));
+  sidebar.append(nav,h('div',{class:'sidebar-footer'},h('strong',{},displayVersion),h('p',{},'Pre-release review · approved release v0.6.0')));
 
   const toggle=h('button',{class:'nav-toggle','aria-controls':'navigation','aria-expanded':'false'},'Menu');
   toggle.addEventListener('click',()=>{
@@ -76,7 +83,7 @@ try{
     toggle,
     h('span',{class:'topbar-context'},'Paila Pilates / ',h('strong',{},current.title)),
     h('div',{class:'topbar-links'},
-      pill('PROTOTYPE · FICTIONAL DATA','prototype'),
+      pill('FICTIONAL / PROTOTYPE / NOT APPROVED','prototype'),
       link('Benchmark','benchmark/'),
       link('Handbook','sop/'),
       h('a',{href:'https://pailapilates10-cmd.github.io/Paila-Pilates.com/',target:'_blank',rel:'noopener noreferrer'},'Customer Portal')
@@ -86,13 +93,13 @@ try{
   const main=h('main',{id:'main'},
     h('div',{class:'page-head'},
       h('div',{},h('div',{class:'eyebrow'},'Owner / shareholder review'),h('h1',{},current.title),h('p',{class:'lede'},current.description)),
-      pill('v'+displayVersion+' prototype','prototype')
+      pill('PRE-RELEASE / REVIEW','prototype')
     )
   );
 
   main.append(note(
-    'Shareholder benchmark prototype — not live Paila data',
-    prototype.disclaimer,
+    'PRE-RELEASE / SHAREHOLDER REVIEW',
+    seed.disclaimer,
     'prototype-notice'
   ));
 
@@ -158,7 +165,9 @@ try{
     prototype.draft_policies.map(r=>cells([r[0],protoCell(r[1]),r[2],pill(r[3],'prototype')]))
   );
 
-  if(moduleKey==='today'){
+  if(renderReviewModule({moduleKey,main,h,link,pill,card,note,ul,table,cells,seed,research,cfg})){
+    // Working review modules share one fictional event projection.
+  }else if(moduleKey==='today'){
     main.append(benchmarkStrip());
 
     const metrics=h('div',{class:'grid four section'},prototype.today.metrics.map(m=>h('section',{class:'card prototype-card'},
@@ -347,7 +356,7 @@ try{
         ]))))
       ));
     };
-    main.append(note('Prototype rows are examples; this dictionary remains the future production contract','The shareholder demo does not turn fictional values into authoritative records.','prototype-notice'),h('div',{class:'toolbar'},h('label',{for:'entity-select'},'Entity',picker),link('Download prototype data','data-model/shareholder-prototype.json',{class:'button'})),body);
+    main.append(note('Review seed and production contracts are separate','The synthetic review engine uses a small demonstration schema. This dictionary and its event envelope remain future private-system contracts; fictional seed rows are not production records.','prototype-notice'),h('div',{class:'toolbar'},h('label',{for:'entity-select'},'Entity',picker),link('Download review seed','data-model/review-seed.json',{class:'button'})),body);
     const initial=new URLSearchParams(location.search).get('entity');
     if(dict.entities.some(e=>e.entity===initial)) picker.value=initial;
     picker.addEventListener('change',()=>{render();const u=new URL(location.href);u.searchParams.set('entity',picker.value);history.replaceState(null,'',u);});
@@ -360,11 +369,11 @@ try{
   }
 
   main.append(h('footer',{class:'footer'},
-    h('span',{},'Paila Studio OS v'+displayVersion+' · shareholder benchmark prototype'),
+    h('span',{},'Paila Studio OS · '+displayVersion+' · approved release v0.6.0'),
     link('Version / rollback','version.json'),
     link('Benchmark model','benchmark/'),
     link('Architecture','https://github.com/pailapilates10-cmd/Paila-Pilates-SOP/blob/main/docs/studio-os.md'),
-    h('span',{},'FICTIONAL SAMPLE DATA · real operational backend not connected')
+    h('span',{},'FICTIONAL / PROTOTYPE / NOT APPROVED · private backend disconnected')
   ));
 
   app.replaceChildren(h('div',{class:'shell'},sidebar,h('div',{class:'workspace'},topbar,main)));

@@ -1,5 +1,5 @@
 {
-  "version": "0.5.0",
+  "version": "0.6.0",
   "product": "Paila Studio OS",
   "modules": [
     {
@@ -7,6 +7,18 @@
       "title": "Today",
       "description": "What happened, what needs attention, and what to review.",
       "path": ""
+    },
+    {
+      "key": "sales",
+      "title": "Sales & leads",
+      "description": "Turn enquiries into attended trials and sustained participation.",
+      "path": "sales/"
+    },
+    {
+      "key": "journey",
+      "title": "Client journey",
+      "description": "Move from enquiry to a completed first visit, a clear next step and sustained participation.",
+      "path": "journey/"
     },
     {
       "key": "customers",
@@ -27,10 +39,10 @@
       "path": "memberships/"
     },
     {
-      "key": "sales",
-      "title": "Sales & leads",
-      "description": "Turn enquiries into attended trials and sustained participation.",
-      "path": "sales/"
+      "key": "retention",
+      "title": "Feedback & retention",
+      "description": "Recognise progress, recover service and reconnect thoughtfully.",
+      "path": "retention/"
     },
     {
       "key": "staff",
@@ -45,16 +57,22 @@
       "path": "operations/"
     },
     {
-      "key": "retention",
-      "title": "Feedback & retention",
-      "description": "Recognise progress, recover service and reconnect thoughtfully.",
-      "path": "retention/"
+      "key": "management",
+      "title": "Management & decisions",
+      "description": "Review the current constraint, decide an experiment and track accountable follow-through.",
+      "path": "management/"
     },
     {
       "key": "reports",
       "title": "Reports",
       "description": "Review daily, weekly and monthly changes from the same event history.",
       "path": "reports/"
+    },
+    {
+      "key": "readiness",
+      "title": "Launch readiness",
+      "description": "An optional pre-opening planning lens, with dependencies and approval gates.",
+      "path": "readiness/"
     },
     {
       "key": "sops",
@@ -571,14 +589,14 @@
       },
       {
         "metric": "Utilization",
-        "definition": "Completed visits ÷ usable offered places; exclude cancelled sessions",
+        "definition": "Completed visits \u00f7 usable offered places; exclude cancelled sessions",
         "sources": "ClassSession + Visit",
         "state": "Awaiting source",
         "owner": "Awaiting assignment"
       },
       {
         "metric": "No-shows",
-        "definition": "No-show visits ÷ eligible confirmed bookings; exclusions require policy",
+        "definition": "No-show visits \u00f7 eligible confirmed bookings; exclusions require policy",
         "sources": "Booking + Visit",
         "state": "Awaiting source",
         "owner": "Awaiting assignment"
@@ -657,14 +675,14 @@
       },
       {
         "metric": "Trial conversion",
-        "definition": "Converted trial cohort ÷ attended trial cohort, with an approved conversion window",
+        "definition": "Converted trial cohort \u00f7 attended trial cohort, with an approved conversion window",
         "sources": "Lead + Visit + Membership",
         "state": "Awaiting source",
         "owner": "Awaiting assignment"
       },
       {
         "metric": "Retention",
-        "definition": "Returning eligible customers ÷ defined starting cohort; cohort/window awaiting approval",
+        "definition": "Returning eligible customers \u00f7 defined starting cohort; cohort/window awaiting approval",
         "sources": "Customer + Visit",
         "state": "Awaiting source",
         "owner": "Awaiting assignment"
@@ -692,7 +710,7 @@
       },
       {
         "metric": "Lead funnel",
-        "definition": "Created → contacted → trial booked → attended → converted by cohort",
+        "definition": "Created \u2192 contacted \u2192 trial booked \u2192 attended \u2192 converted by cohort",
         "sources": "Lead + Booking + Visit",
         "state": "Awaiting source",
         "owner": "Awaiting assignment"
@@ -743,21 +761,21 @@
       },
       {
         "metric": "Utilization",
-        "definition": "Completed visits ÷ offered usable places over the period",
+        "definition": "Completed visits \u00f7 offered usable places over the period",
         "sources": "ClassSession + Visit",
         "state": "Awaiting source",
         "owner": "Awaiting assignment"
       },
       {
         "metric": "Average visits",
-        "definition": "Completed visits ÷ eligible active customers",
+        "definition": "Completed visits \u00f7 eligible active customers",
         "sources": "Customer + Visit",
         "state": "Awaiting source",
         "owner": "Awaiting assignment"
       },
       {
         "metric": "Average customer spend",
-        "definition": "Net confirmed payments ÷ defined paying-customer population; currency separated",
+        "definition": "Net confirmed payments \u00f7 defined paying-customer population; currency separated",
         "sources": "Payment + Refund + Customer",
         "state": "Awaiting source",
         "owner": "Awaiting assignment"
@@ -1417,5 +1435,6 @@
       "coverage": "Official public terms",
       "checked": "2026-10-01"
     }
-  ]
+  ],
+  "build": "review-2026-10-03"
 }

@@ -1,5 +1,12 @@
 # Changelog
 
+## review-2026-10-03 — PRE-RELEASE / SHAREHOLDER REVIEW
+
+- Implement a working customer-journey, conversion, retention and accountable management review from the Seq19 research feeder; keep external benchmarks separate from operating targets.
+- Add fictional event-based projections, capacity-checked booking transitions, demo acknowledgements, service checks, reports, financial scenario inputs and an optional launch planning lens.
+- Preserve v0.6.0 at `ade69b1073468c913e25b1a486cb417e54016adb` through the pre-review rollback branch; preserve the original handbook, spatial preview and outward Customer Portal boundary.
+- All records and assumptions are FICTIONAL / PROTOTYPE / NOT APPROVED. Private sources remain disconnected. This live review does not create a v0.7.0 release, tag, milestone or frozen release reference.
+
 ## 0.6.0 — 2026-10-01 — SHAREHOLDER BENCHMARK PROTOTYPE
 
 - Replace blank operational tables with a clearly labelled fictional sample dataset so shareholders can judge the proposed operating model before real private integrations exist.

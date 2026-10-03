@@ -2,9 +2,16 @@
 
 Live owner / management framework: https://pailapilates10-cmd.github.io/Paila-Pilates-SOP/
 
-Current release: **v0.5.0**. Real operational sources are **not connected**. No private customer, payment, staff or incident records belong in this public repository. All automation candidates are inactive.
+Live build: **review-2026-10-03 — PRE-RELEASE / SHAREHOLDER REVIEW**. Approved frozen release: **v0.6.0**. Real operational sources are **not connected**. No private customer, payment, staff or incident records belong in this public repository. All automation candidates are inactive.
 
 See [architecture and integration contract](docs/studio-os.md), [version and rollback](version.json), [public data dictionary](data-model/dictionary.json) and [changelog](CHANGELOG.md). Existing `/sop/` and `/studio/` are preserved. GitHub Pages continues to publish from `main` at the repository root.
+
+
+The working review adds a client conversion board (`/journey/`), accountable decision board (`/management/`), optional launch lens (`/readiness/`) and connected fictional management views. All demo records, amounts and operating assumptions are **FICTIONAL / PROTOTYPE / NOT APPROVED**. Demo interactions use only known synthetic identifiers and allowlisted status values in browser-session storage. The reset control clears that demo state. No real messaging, payment, equipment release, policy approval or private record writing occurs.
+
+The research application map is `data-model/research-model.json`. Shared event projections in `data-model/prototype-engine.js` reconcile metrics across pages. The seed schema is a demonstration model, separate from the future private production entity/event contracts. Rollback is `ade69b1073468c913e25b1a486cb417e54016adb` on `rollback/before-shareholder-review-2026-10-03`. No v0.7.0 formal release is authorised.
+
+Minimum verification: `python tools/validate_studio_os.py` (requires `jsonschema[format]`), `node tools/verify_review.mjs`, ES module syntax checks and provider-read Pages success for the exact published main SHA. Owner visual review follows publication.
 
 ## Earlier portal documentation (preserved history)
 

@@ -1,3 +1,17 @@
+# Paila Studio OS — live shareholder review 2026-10-03
+
+This build extends the approved v0.6.0 presentation with a working fictional operating model. It remains a pre-release review at the normal Pages URL, with no formal v0.7.0 release authority.
+
+`os.js` loads the governed navigation and reference contracts, the historical benchmark model, the new synthetic event seed and the research application map. `review.js` renders the working views; `prototype-engine.js` derives lifecycle, attendance, capacity, membership and reporting measures. The production adapter stays disconnected. The demonstration event schema is explicitly separate from the future private production contracts.
+
+Routes `/journey/`, `/management/` and `/readiness/` add conversion handoffs, evidence-based decisions and optional launch planning. Existing management routes use the same seed projections. Acquisition cohorts, event windows and denominators are displayed; zero denominators yield n/a. Cash receipts stay separate from earned revenue and scenario surplus. External benchmarks are source claims, never silently local targets.
+
+Browser-session changes contain only known fictional IDs, allowlisted statuses and bounded scenario settings. Restore rechecks capacity and maintenance holds. Completed visit evidence is immutable. Human review is required before real outreach, pricing, policies, schedule changes or safety release. No real private data, contacts, credentials or backend integrations are included. The Customer Portal stays a separate outward destination. Original handbook files and all spatial-viewer bytes are preserved.
+
+Rollback: `rollback/before-shareholder-review-2026-10-03` at `ade69b1073468c913e25b1a486cb417e54016adb`. The approved `release/paila-studio-os-v0.6.0` remains at the same original commit. Owner review and explicit release authorisation are required before a formal next release.
+
+## Earlier v0.5.0 architecture (historical)
+
 # Paila Studio Operating System — v0.5.0
 
 The existing Client Portal is the owner / management console. This release provides a live, read-only management framework with explicit disconnected states. It is not a live operational database, authentication service or active automation system.

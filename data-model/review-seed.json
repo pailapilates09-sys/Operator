@@ -1,0 +1,882 @@
+{
+  "build": "review-2026-10-03",
+  "classification": "FICTIONAL / PROTOTYPE / NOT APPROVED",
+  "asOf": "2026-10-03",
+  "timezone": "Asia/Kathmandu",
+  "asOfTime": "15:00 NPT",
+  "disclaimer": "Every customer, staff alias, event, amount, capacity, threshold and operating decision in this review build is FICTIONAL / PROTOTYPE / NOT APPROVED. No real private backend is connected. Actions change only the fictional demo in this browser session; they never contact a person, charge money or approve a policy.",
+  "people": [
+    {
+      "id": "DEMO-C01",
+      "name": "Fictional client 01",
+      "source": "Referral",
+      "goal": "Build a consistent routine",
+      "owner": "Demo Front Desk",
+      "introCredits": 0,
+      "nextAction": "Review next visit and an approved membership option"
+    },
+    {
+      "id": "DEMO-C02",
+      "name": "Fictional client 02",
+      "source": "Website",
+      "goal": "Explore a first class",
+      "owner": "Demo Membership Lead",
+      "introCredits": 2,
+      "nextAction": "Offer a first-visit booking for review"
+    },
+    {
+      "id": "DEMO-C03",
+      "name": "Fictional client 03",
+      "source": "Walk-in",
+      "goal": "Find a suitable weekly schedule",
+      "owner": "Demo Front Desk",
+      "introCredits": 0,
+      "nextAction": "Check participation and ask about booking friction"
+    },
+    {
+      "id": "DEMO-C04",
+      "name": "Fictional client 04",
+      "source": "Website",
+      "goal": "Build a consistent routine",
+      "owner": "Demo Membership Lead",
+      "introCredits": 0,
+      "nextAction": "Review next visit and an approved membership option"
+    },
+    {
+      "id": "DEMO-C05",
+      "name": "Fictional client 05",
+      "source": "Social",
+      "goal": "Explore a first class",
+      "owner": "Demo Front Desk",
+      "introCredits": 2,
+      "nextAction": "Offer a first-visit booking for review"
+    },
+    {
+      "id": "DEMO-C06",
+      "name": "Fictional client 06",
+      "source": "Referral",
+      "goal": "Find a suitable weekly schedule",
+      "owner": "Demo Membership Lead",
+      "introCredits": 2,
+      "nextAction": "Check participation and ask about booking friction"
+    },
+    {
+      "id": "DEMO-C07",
+      "name": "Fictional client 07",
+      "source": "Referral",
+      "goal": "Build a consistent routine",
+      "owner": "Demo Front Desk",
+      "introCredits": 0,
+      "nextAction": "Review next visit and an approved membership option"
+    },
+    {
+      "id": "DEMO-C08",
+      "name": "Fictional client 08",
+      "source": "Website",
+      "goal": "Explore a first class",
+      "owner": "Demo Membership Lead",
+      "introCredits": 0,
+      "nextAction": "Offer a first-visit booking for review"
+    },
+    {
+      "id": "DEMO-C09",
+      "name": "Fictional client 09",
+      "source": "Walk-in",
+      "goal": "Find a suitable weekly schedule",
+      "owner": "Demo Front Desk",
+      "introCredits": 0,
+      "nextAction": "Check participation and ask about booking friction"
+    },
+    {
+      "id": "DEMO-C10",
+      "name": "Fictional client 10",
+      "source": "Social",
+      "goal": "Build a consistent routine",
+      "owner": "Demo Membership Lead",
+      "introCredits": 0,
+      "nextAction": "Review next visit and an approved membership option"
+    },
+    {
+      "id": "DEMO-C11",
+      "name": "Fictional client 11",
+      "source": "Website",
+      "goal": "Explore a first class",
+      "owner": "Demo Front Desk",
+      "introCredits": 0,
+      "nextAction": "Offer a first-visit booking for review"
+    },
+    {
+      "id": "DEMO-C12",
+      "name": "Fictional client 12",
+      "source": "Social",
+      "goal": "Find a suitable weekly schedule",
+      "owner": "Demo Membership Lead",
+      "introCredits": 0,
+      "nextAction": "Check participation and ask about booking friction"
+    },
+    {
+      "id": "DEMO-C13",
+      "name": "Fictional client 13",
+      "source": "Referral",
+      "goal": "Build a consistent routine",
+      "owner": "Demo Front Desk",
+      "introCredits": 0,
+      "nextAction": "Review next visit and an approved membership option"
+    },
+    {
+      "id": "DEMO-C14",
+      "name": "Fictional client 14",
+      "source": "Website",
+      "goal": "Explore a first class",
+      "owner": "Demo Membership Lead",
+      "introCredits": 0,
+      "nextAction": "Offer a first-visit booking for review"
+    }
+  ],
+  "events": [
+    {
+      "id": "DEMO-E019",
+      "type": "lead",
+      "date": "2026-09-05",
+      "personId": "DEMO-C08",
+      "source": "Website"
+    },
+    {
+      "id": "DEMO-E016",
+      "type": "lead",
+      "date": "2026-09-06",
+      "personId": "DEMO-C07",
+      "source": "Referral"
+    },
+    {
+      "id": "DEMO-E001",
+      "type": "lead",
+      "date": "2026-09-07",
+      "personId": "DEMO-C01",
+      "source": "Referral"
+    },
+    {
+      "id": "DEMO-E020",
+      "type": "visit",
+      "date": "2026-09-08",
+      "personId": "DEMO-C08",
+      "first": true
+    },
+    {
+      "id": "DEMO-E006",
+      "type": "lead",
+      "date": "2026-09-09",
+      "personId": "DEMO-C03",
+      "source": "Walk-in"
+    },
+    {
+      "id": "DEMO-E017",
+      "type": "visit",
+      "date": "2026-09-09",
+      "personId": "DEMO-C07",
+      "first": true
+    },
+    {
+      "id": "DEMO-E002",
+      "type": "visit",
+      "date": "2026-09-10",
+      "personId": "DEMO-C01",
+      "first": true
+    },
+    {
+      "id": "DEMO-E021",
+      "type": "purchase",
+      "date": "2026-09-10",
+      "personId": "DEMO-C08",
+      "plan": "DEMO-8",
+      "credits": 8,
+      "amount": 11500
+    },
+    {
+      "id": "DEMO-E040",
+      "type": "visit",
+      "date": "2026-09-10",
+      "personId": "DEMO-C07",
+      "first": false
+    },
+    {
+      "id": "DEMO-E009",
+      "type": "lead",
+      "date": "2026-09-11",
+      "personId": "DEMO-C04",
+      "source": "Website"
+    },
+    {
+      "id": "DEMO-E018",
+      "type": "purchase",
+      "date": "2026-09-11",
+      "personId": "DEMO-C07",
+      "plan": "DEMO-8",
+      "credits": 8,
+      "amount": 11500
+    },
+    {
+      "id": "DEMO-E042",
+      "type": "visit",
+      "date": "2026-09-11",
+      "personId": "DEMO-C08",
+      "first": false
+    },
+    {
+      "id": "DEMO-E003",
+      "type": "purchase",
+      "date": "2026-09-12",
+      "personId": "DEMO-C01",
+      "plan": "DEMO-8",
+      "credits": 8,
+      "amount": 11500
+    },
+    {
+      "id": "DEMO-E007",
+      "type": "visit",
+      "date": "2026-09-12",
+      "personId": "DEMO-C03",
+      "first": true
+    },
+    {
+      "id": "DEMO-E041",
+      "type": "visit",
+      "date": "2026-09-12",
+      "personId": "DEMO-C07",
+      "first": false
+    },
+    {
+      "id": "DEMO-E008",
+      "type": "purchase",
+      "date": "2026-09-14",
+      "personId": "DEMO-C03",
+      "plan": "DEMO-8",
+      "credits": 8,
+      "amount": 11500
+    },
+    {
+      "id": "DEMO-E010",
+      "type": "visit",
+      "date": "2026-09-14",
+      "personId": "DEMO-C04",
+      "first": true
+    },
+    {
+      "id": "DEMO-E022",
+      "type": "lead",
+      "date": "2026-09-15",
+      "personId": "DEMO-C09",
+      "source": "Walk-in"
+    },
+    {
+      "id": "DEMO-E043",
+      "type": "visit",
+      "date": "2026-09-15",
+      "personId": "DEMO-C08",
+      "first": false
+    },
+    {
+      "id": "DEMO-E011",
+      "type": "purchase",
+      "date": "2026-09-16",
+      "personId": "DEMO-C04",
+      "plan": "DEMO-8",
+      "credits": 8,
+      "amount": 11500
+    },
+    {
+      "id": "DEMO-E035",
+      "type": "visit",
+      "date": "2026-09-16",
+      "personId": "DEMO-C03",
+      "first": false
+    },
+    {
+      "id": "DEMO-E025",
+      "type": "lead",
+      "date": "2026-09-17",
+      "personId": "DEMO-C10",
+      "source": "Social"
+    },
+    {
+      "id": "DEMO-E032",
+      "type": "visit",
+      "date": "2026-09-17",
+      "personId": "DEMO-C01",
+      "first": false
+    },
+    {
+      "id": "DEMO-E023",
+      "type": "visit",
+      "date": "2026-09-18",
+      "personId": "DEMO-C09",
+      "first": true
+    },
+    {
+      "id": "DEMO-E038",
+      "type": "visit",
+      "date": "2026-09-19",
+      "personId": "DEMO-C04",
+      "first": false
+    },
+    {
+      "id": "DEMO-E024",
+      "type": "purchase",
+      "date": "2026-09-20",
+      "personId": "DEMO-C09",
+      "plan": "DEMO-8",
+      "credits": 8,
+      "amount": 11500
+    },
+    {
+      "id": "DEMO-E026",
+      "type": "visit",
+      "date": "2026-09-20",
+      "personId": "DEMO-C10",
+      "first": true
+    },
+    {
+      "id": "DEMO-E027",
+      "type": "purchase",
+      "date": "2026-09-22",
+      "personId": "DEMO-C10",
+      "plan": "DEMO-8",
+      "credits": 8,
+      "amount": 11500
+    },
+    {
+      "id": "DEMO-E044",
+      "type": "visit",
+      "date": "2026-09-22",
+      "personId": "DEMO-C09",
+      "first": false
+    },
+    {
+      "id": "DEMO-E004",
+      "type": "lead",
+      "date": "2026-09-23",
+      "personId": "DEMO-C02",
+      "source": "Website"
+    },
+    {
+      "id": "DEMO-E036",
+      "type": "visit",
+      "date": "2026-09-23",
+      "personId": "DEMO-C03",
+      "first": false
+    },
+    {
+      "id": "DEMO-E033",
+      "type": "visit",
+      "date": "2026-09-24",
+      "personId": "DEMO-C01",
+      "first": false
+    },
+    {
+      "id": "DEMO-E046",
+      "type": "visit",
+      "date": "2026-09-24",
+      "personId": "DEMO-C10",
+      "first": false
+    },
+    {
+      "id": "DEMO-E012",
+      "type": "lead",
+      "date": "2026-09-25",
+      "personId": "DEMO-C05",
+      "source": "Social"
+    },
+    {
+      "id": "DEMO-E005",
+      "type": "visit",
+      "date": "2026-09-26",
+      "personId": "DEMO-C02",
+      "first": true
+    },
+    {
+      "id": "DEMO-E039",
+      "type": "visit",
+      "date": "2026-09-26",
+      "personId": "DEMO-C04",
+      "first": false
+    },
+    {
+      "id": "DEMO-E013",
+      "type": "visit",
+      "date": "2026-09-28",
+      "personId": "DEMO-C05",
+      "first": true
+    },
+    {
+      "id": "DEMO-E047",
+      "type": "visit",
+      "date": "2026-09-28",
+      "personId": "DEMO-C10",
+      "first": false
+    },
+    {
+      "id": "DEMO-E045",
+      "type": "visit",
+      "date": "2026-09-29",
+      "personId": "DEMO-C09",
+      "first": false
+    },
+    {
+      "id": "DEMO-E014",
+      "type": "lead",
+      "date": "2026-09-30",
+      "personId": "DEMO-C06",
+      "source": "Referral"
+    },
+    {
+      "id": "DEMO-E028",
+      "type": "lead",
+      "date": "2026-09-30",
+      "personId": "DEMO-C11",
+      "source": "Website"
+    },
+    {
+      "id": "DEMO-E029",
+      "type": "lead",
+      "date": "2026-09-30",
+      "personId": "DEMO-C12",
+      "source": "Social"
+    },
+    {
+      "id": "DEMO-E030",
+      "type": "lead",
+      "date": "2026-09-30",
+      "personId": "DEMO-C13",
+      "source": "Referral"
+    },
+    {
+      "id": "DEMO-E031",
+      "type": "lead",
+      "date": "2026-09-30",
+      "personId": "DEMO-C14",
+      "source": "Website"
+    },
+    {
+      "id": "DEMO-E037",
+      "type": "visit",
+      "date": "2026-09-30",
+      "personId": "DEMO-C03",
+      "first": false
+    },
+    {
+      "id": "DEMO-E048",
+      "type": "cancel",
+      "date": "2026-09-30",
+      "personId": "DEMO-C08",
+      "reason": "Schedule no longer fits",
+      "reviewState": "Human review required"
+    },
+    {
+      "id": "DEMO-E034",
+      "type": "visit",
+      "date": "2026-10-01",
+      "personId": "DEMO-C01",
+      "first": false
+    },
+    {
+      "id": "DEMO-E051",
+      "type": "friction",
+      "date": "2026-10-01",
+      "personId": "DEMO-C02",
+      "reason": "Unclear next booking step",
+      "owner": "Demo Front Desk"
+    },
+    {
+      "id": "DEMO-E049",
+      "type": "freeze_request",
+      "date": "2026-10-02",
+      "personId": "DEMO-C10",
+      "reason": "Temporary schedule change",
+      "reviewState": "Terms not approved"
+    },
+    {
+      "id": "DEMO-E050",
+      "type": "friction",
+      "date": "2026-10-02",
+      "personId": "DEMO-C07",
+      "reason": "Preferred time unavailable",
+      "owner": "Demo Studio Lead"
+    },
+    {
+      "id": "DEMO-E015",
+      "type": "visit",
+      "date": "2026-10-03",
+      "personId": "DEMO-C06",
+      "first": true
+    },
+    {
+      "id": "DEMO-E052",
+      "type": "visit",
+      "date": "2026-10-03",
+      "personId": "DEMO-C01",
+      "first": false,
+      "sessionId": "DEMO-S01"
+    },
+    {
+      "id": "DEMO-E053",
+      "type": "visit",
+      "date": "2026-10-03",
+      "personId": "DEMO-C03",
+      "first": false,
+      "sessionId": "DEMO-S01"
+    },
+    {
+      "id": "DEMO-E054",
+      "type": "visit",
+      "date": "2026-10-03",
+      "personId": "DEMO-C09",
+      "first": false,
+      "sessionId": "DEMO-S01"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "DEMO-S01",
+      "date": "2026-10-03",
+      "time": "09:00",
+      "name": "Foundations",
+      "capacity": 8,
+      "held": 0,
+      "staffId": "DEMO-T01",
+      "state": "Completed"
+    },
+    {
+      "id": "DEMO-S02",
+      "date": "2026-10-03",
+      "time": "16:00",
+      "name": "Reformer foundations",
+      "capacity": 8,
+      "held": 1,
+      "staffId": "DEMO-T02",
+      "state": "Scheduled"
+    },
+    {
+      "id": "DEMO-S03",
+      "date": "2026-10-03",
+      "time": "17:30",
+      "name": "Reformer flow",
+      "capacity": 8,
+      "held": 0,
+      "staffId": "DEMO-T01",
+      "state": "Scheduled"
+    },
+    {
+      "id": "DEMO-S04",
+      "date": "2026-10-03",
+      "time": "18:45",
+      "name": "Private introduction",
+      "capacity": 1,
+      "held": 0,
+      "staffId": "DEMO-T03",
+      "state": "Scheduled"
+    }
+  ],
+  "bookings": [
+    {
+      "id": "DEMO-B01",
+      "sessionId": "DEMO-S01",
+      "personId": "DEMO-C01",
+      "status": "Attended"
+    },
+    {
+      "id": "DEMO-B02",
+      "sessionId": "DEMO-S01",
+      "personId": "DEMO-C03",
+      "status": "Attended"
+    },
+    {
+      "id": "DEMO-B03",
+      "sessionId": "DEMO-S01",
+      "personId": "DEMO-C06",
+      "status": "Attended"
+    },
+    {
+      "id": "DEMO-B04",
+      "sessionId": "DEMO-S01",
+      "personId": "DEMO-C09",
+      "status": "Attended"
+    },
+    {
+      "id": "DEMO-B05",
+      "sessionId": "DEMO-S02",
+      "personId": "DEMO-C01",
+      "status": "Booked"
+    },
+    {
+      "id": "DEMO-B06",
+      "sessionId": "DEMO-S02",
+      "personId": "DEMO-C02",
+      "status": "Booked"
+    },
+    {
+      "id": "DEMO-B07",
+      "sessionId": "DEMO-S02",
+      "personId": "DEMO-C03",
+      "status": "Booked"
+    },
+    {
+      "id": "DEMO-B08",
+      "sessionId": "DEMO-S02",
+      "personId": "DEMO-C04",
+      "status": "Booked"
+    },
+    {
+      "id": "DEMO-B09",
+      "sessionId": "DEMO-S02",
+      "personId": "DEMO-C05",
+      "status": "Booked"
+    },
+    {
+      "id": "DEMO-B10",
+      "sessionId": "DEMO-S02",
+      "personId": "DEMO-C07",
+      "status": "Booked"
+    },
+    {
+      "id": "DEMO-B11",
+      "sessionId": "DEMO-S02",
+      "personId": "DEMO-C09",
+      "status": "Booked"
+    },
+    {
+      "id": "DEMO-B12",
+      "sessionId": "DEMO-S03",
+      "personId": "DEMO-C01",
+      "status": "Booked"
+    },
+    {
+      "id": "DEMO-B13",
+      "sessionId": "DEMO-S03",
+      "personId": "DEMO-C02",
+      "status": "Booked"
+    },
+    {
+      "id": "DEMO-B14",
+      "sessionId": "DEMO-S03",
+      "personId": "DEMO-C03",
+      "status": "Booked"
+    },
+    {
+      "id": "DEMO-B15",
+      "sessionId": "DEMO-S03",
+      "personId": "DEMO-C04",
+      "status": "Booked"
+    },
+    {
+      "id": "DEMO-B16",
+      "sessionId": "DEMO-S03",
+      "personId": "DEMO-C05",
+      "status": "Booked"
+    },
+    {
+      "id": "DEMO-B17",
+      "sessionId": "DEMO-S03",
+      "personId": "DEMO-C06",
+      "status": "Booked"
+    },
+    {
+      "id": "DEMO-B18",
+      "sessionId": "DEMO-S03",
+      "personId": "DEMO-C07",
+      "status": "Booked"
+    },
+    {
+      "id": "DEMO-B19",
+      "sessionId": "DEMO-S03",
+      "personId": "DEMO-C09",
+      "status": "Booked"
+    },
+    {
+      "id": "DEMO-B20",
+      "sessionId": "DEMO-S04",
+      "personId": "DEMO-C10",
+      "status": "Booked"
+    },
+    {
+      "id": "DEMO-B21",
+      "sessionId": "DEMO-S03",
+      "personId": "DEMO-C10",
+      "status": "Waitlisted"
+    },
+    {
+      "id": "DEMO-B22",
+      "sessionId": "DEMO-S02",
+      "personId": "DEMO-C06",
+      "status": "Waitlisted"
+    }
+  ],
+  "plans": [
+    {
+      "id": "DEMO-INTRO",
+      "name": "First-visit option",
+      "credits": 2,
+      "price": 2500
+    },
+    {
+      "id": "DEMO-4",
+      "name": "Four-visit option",
+      "credits": 4,
+      "price": 6500
+    },
+    {
+      "id": "DEMO-8",
+      "name": "Eight-visit option",
+      "credits": 8,
+      "price": 11500
+    }
+  ],
+  "staff": [
+    {
+      "id": "DEMO-T01",
+      "name": "Fictional instructor 01",
+      "role": "Session lead",
+      "readiness": "Demo evidence: induction and observation logged",
+      "coaching": "Practice goal check-in and clear next-visit handoff"
+    },
+    {
+      "id": "DEMO-T02",
+      "name": "Fictional instructor 02",
+      "role": "Session lead",
+      "readiness": "Demo evidence: induction logged; peer observation due",
+      "coaching": "Peer observation with service checklist"
+    },
+    {
+      "id": "DEMO-T03",
+      "name": "Fictional instructor 03",
+      "role": "Private introduction lead",
+      "readiness": "Demo evidence: first-visit rehearsal logged",
+      "coaching": "Review preference handoff; avoid recording health narratives"
+    }
+  ],
+  "actions": [
+    {
+      "id": "DEMO-A01",
+      "title": "Review participation gap for Fictional client 07",
+      "owner": "Demo Membership Lead",
+      "due": "2026-10-03",
+      "evidence": "DEMO-C07: participation gap and preferred-time friction",
+      "gate": "Human checks context and permission before outreach",
+      "route": "retention/"
+    },
+    {
+      "id": "DEMO-A02",
+      "title": "Review held place before the 16:00 session",
+      "owner": "Demo Studio Lead",
+      "due": "2026-10-03",
+      "evidence": "DEMO-S02: one place held; seven available seats occupied",
+      "gate": "Safety release needs authorised inspection; this demo cannot release equipment",
+      "route": "operations/"
+    },
+    {
+      "id": "DEMO-A03",
+      "title": "Offer next step after the first visit",
+      "owner": "Demo Front Desk",
+      "due": "2026-10-03",
+      "evidence": "DEMO-C06: first visit completed; no second purchase",
+      "gate": "Use an owner-approved option; no automatic offer or payment",
+      "route": "journey/"
+    },
+    {
+      "id": "DEMO-A04",
+      "title": "Review freeze request and neutral cancellation reason",
+      "owner": "Demo Membership Lead",
+      "due": "2026-10-04",
+      "evidence": "DEMO-C10 freeze request; DEMO-C08 schedule-related cancellation",
+      "gate": "Freeze, downgrade and refund terms require owner approval",
+      "route": "memberships/"
+    },
+    {
+      "id": "DEMO-A05",
+      "title": "Reassess preferred-time schedule experiment",
+      "owner": "Demo Studio Lead",
+      "due": "2026-10-10",
+      "evidence": "DEMO-S03 full; DEMO-B21 waitlisted; DEMO-C07 booking friction",
+      "gate": "Review capacity, instructor coverage and cost before any real schedule change",
+      "route": "management/"
+    }
+  ],
+  "checks": [
+    {
+      "id": "DEMO-O01",
+      "zone": "Arrival and reception",
+      "rhythm": "Opening",
+      "task": "Welcome route, visible timetable and tidy arrival area",
+      "state": "Complete",
+      "owner": "Demo Front Desk"
+    },
+    {
+      "id": "DEMO-O02",
+      "zone": "Teaching area",
+      "rhythm": "Opening",
+      "task": "Inspect readiness; keep one demo place held until authorised review",
+      "state": "Blocked \u2014 inspection required",
+      "owner": "Demo Studio Lead"
+    },
+    {
+      "id": "DEMO-O03",
+      "zone": "Shared amenities",
+      "rhythm": "Midday",
+      "task": "Cleanliness, supplies and reset between sessions",
+      "state": "Due",
+      "owner": "Demo Front Desk"
+    },
+    {
+      "id": "DEMO-O04",
+      "zone": "Teaching area",
+      "rhythm": "Closing",
+      "task": "Reset and hand over maintenance holds",
+      "state": "Due",
+      "owner": "Demo Session Lead"
+    },
+    {
+      "id": "DEMO-O05",
+      "zone": "Reception",
+      "rhythm": "Closing",
+      "task": "Reconcile fictional attendance and next-day exceptions",
+      "state": "Due",
+      "owner": "Demo Front Desk"
+    }
+  ],
+  "readiness": [
+    {
+      "id": "DEMO-R01",
+      "workstream": "Business model and funding",
+      "state": "Owner review",
+      "dependency": "Approved assumptions, financing and spending limits",
+      "owner": "Owner"
+    },
+    {
+      "id": "DEMO-R02",
+      "workstream": "Premises and procurement",
+      "state": "Blocked",
+      "dependency": "Lease authority, fit-out decisions and safety review",
+      "owner": "Owner / authorised adviser"
+    },
+    {
+      "id": "DEMO-R03",
+      "workstream": "Staffing and service",
+      "state": "Prototype drafted",
+      "dependency": "Approved roles, hiring terms, induction and coverage",
+      "owner": "Studio lead"
+    },
+    {
+      "id": "DEMO-R04",
+      "workstream": "Presale and first-visit process",
+      "state": "Prototype drafted",
+      "dependency": "Approved offer, consent and private lead system",
+      "owner": "Membership lead"
+    },
+    {
+      "id": "DEMO-R05",
+      "workstream": "Operating policies and integrations",
+      "state": "Blocked",
+      "dependency": "Approved SOPs, private authentication, payments and permissions",
+      "owner": "Owner / source owners"
+    }
+  ]
+}
