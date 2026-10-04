@@ -2,7 +2,8 @@
 // Paila private daily capture exporter. Requires Node 20+. Never publish output.
 import {createHash, createSign} from 'node:crypto';
 import {mkdir, readFile, writeFile, rename} from 'node:fs/promises';
-import {resolve, join} from 'node:path';
+import {resolve, dirname, join} from 'node:path';
+import {fileURLToPath} from 'node:url';
 
 const SHEET_ID='13um0MJkeGd3k_pRDQMu3L0FXJp1BErI8KpY7K8V9kZg';
 const TABLES={
@@ -60,7 +61,12 @@ const csvCell=x=>{const s=x==null?'':String(x);return /[,"\r\n]/.test(s)?'"'+s.r
 function convert(c,v,where){
   if(v===''||v===null||v===undefined)return null;
   if(COUNTS.has(c)||AMOUNTS.has(c)){
-    const n=Number(v);if(!Number.isFinite(n)||!Number.isSafeInteger(n)||COUNTS.has(c)&&n<0)fail(`${where}: invalid number ${c}`);return n;
+    const raw=String(v).trim(),n=Number(raw);
+    if(!Number.isFinite(n)||!Number.isSafeInteger(Math.round(n*100))||
+      COUNTS.has(c)&&(!Number.isSafeInteger(n)||n<0)||
+      AMOUNTS.has(c)&&(!/^-?\d+(?:\.\d{1,2})?$/.test(raw)||c!=='cash_difference_npr'&&n<0))
+      fail(`${where}: invalid number ${c}`);
+    return n;
   }
   if(BOOLS.has(c)){
     if(v===true||v==='TRUE'||v==='true')return true;
@@ -99,7 +105,7 @@ function sql(rowsByTable){
 }
 async function atomic(path,content){const temp=path+'.tmp-'+process.pid;await writeFile(temp,content,{mode:0o600});await rename(temp,path)}
 async function main(){
-  const opts=args(),out=resolve(opts.out),repo=resolve(import.meta.dirname,'..');
+  const opts=args(),out=resolve(opts.out),repo=resolve(dirname(fileURLToPath(import.meta.url)),'..');
   if(out===repo||out.startsWith(repo+'/'))fail('Output must be outside the public repository');
   await mkdir(out,{recursive:true,mode:0o700});
   const sheetId=opts['sheet-id'];if(sheetId&&sheetId!==SHEET_ID)fail('Unexpected source Sheet ID');
@@ -117,6 +123,8 @@ async function main(){
       const key=row[cfg.key],digest=sha(stable(row));next[table][key]=digest;
       if(previous[table]?.[key]!==digest)observed.push({observation_id:sha(`${table}|${key}|${digest}`),observation_type:previous[table]?.[key]?'capture.row_changed':'capture.row_first_seen',observed_at:now,source_sheet_id:SHEET_ID,table,key,row_sha256:digest,record:row});
     }
+    const missing=Object.keys(previous[table]||{}).filter(key=>!(key in next[table]));
+    if(missing.length)fail(`${table}: ${missing.length} prior key(s) missing; investigate source corrections before exporting`);
   }
   // Write snapshots and event log before advancing state. Re-run uses observation_id for downstream dedupe.
   for(const [table,cfg] of Object.entries(TABLES)){
