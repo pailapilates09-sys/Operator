@@ -58,7 +58,7 @@ try{
 
   const sidebar=h('aside',{class:'sidebar',id:'navigation'},link(h('span',{class:'brand-mark'},'PP'),'',{class:'brand'}));
   sidebar.firstChild.append(h('span',{},h('strong',{},'Paila Studio OS'),h('small',{},'SHAREHOLDER REVIEW')));
-  const nav=h('nav',{'aria-label':'Workspace'},link([h('span',{class:'nav-dot'}),'Start here / How to use'],'guide/',{class:'nav-link'}),h('p',{class:'nav-label'},'Daily workspace'));
+  const nav=h('nav',{'aria-label':'Workspace'},link([h('span',{class:'nav-dot'}),'Paila Workspace · all links'],'workspace/',{class:'nav-link'}),link([h('span',{class:'nav-dot'}),'Start here / How to use'],'guide/',{class:'nav-link'}),h('p',{class:'nav-label'},'Daily workspace'));
   for(const m of cfg.modules){
     if(m.key==='sales') nav.append(h('p',{class:'nav-label'},'Growth & client journey'));
     if(m.key==='classes') nav.append(h('p',{class:'nav-label'},'Service & membership'));
@@ -84,6 +84,7 @@ try{
     h('span',{class:'topbar-context'},'Paila Pilates / ',h('strong',{},current.title)),
     h('div',{class:'topbar-links'},
       pill('FICTIONAL / PROTOTYPE / NOT APPROVED','prototype'),
+      link('Workspace','workspace/'),
       link('How to use','guide/'),
       link('Benchmark','benchmark/'),
       link('Handbook','sop/'),
