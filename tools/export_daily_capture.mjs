@@ -5,7 +5,7 @@ import {mkdir, readFile, writeFile, rename} from 'node:fs/promises';
 import {resolve, dirname, join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
-const SHEET_ID='13um0MJkeGd3k_pRDQMu3L0FXJp1BErI8KpY7K8V9kZg';
+const SHEET_ID='1Nd3rozgFbK7yypC5HxKNyHjTkpMckjlyH1OIOPnIpAk';
 const TABLES={
   daily_close:{tab:'Daily Close',key:'day_id',columns:'day_id local_date location_id lead_enquiries responses_same_day trials_booked trials_attended first_visits memberships_started renewals_due renewals_completed memberships_ended unresolved_followups incidents_count equipment_holds_count opening_done cleaning_done closing_done source_reference entered_by_id manager_review coverage_status'.split(' ')},
   class_sessions:{tab:'Class Sessions',key:'session_id',columns:'session_id local_date location_id class_type_id instructor_id status capacity booked_at_start attended_booked walk_ins no_shows cancelled_pre_cutoff waitlist_end source_reference row_check'.split(' ')},

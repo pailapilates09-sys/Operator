@@ -1,6 +1,6 @@
 # Paila Studio OS / Client Portal
 
-Live owner / management framework: https://pailapilates10-cmd.github.io/Paila-Pilates-SOP/
+Live owner / management framework: https://pailapilates09-sys.github.io/Operator/
 
 Live build: **review-2026-10-03 — PRE-RELEASE / SHAREHOLDER REVIEW**. Approved frozen release: **v0.6.0**. Real operational sources are **not connected**. No private customer, payment, staff or incident records belong in this public repository. All automation candidates are inactive.
 
@@ -82,4 +82,8 @@ Tutorial v1.1 adds 26 illustrated infographic pages, optional text, full-size im
 
 ## Paila Workspace
 
-[Open the tools, links and guides directory](https://pailapilates10-cmd.github.io/Paila-Pilates-SOP/workspace/). Entries live in `workspace/links.json`; see [editing and source notes](docs/workspace-directory.md). The daily Sheet-to-website integration remains INCOMPLETE.
+[Open the tools, links and guides directory](https://pailapilates09-sys.github.io/Operator/workspace/). Entries live in `workspace/links.json`; see [editing and source notes](docs/workspace-directory.md). The daily Sheet-to-website integration remains INCOMPLETE.
+
+## 09 recovery links
+
+[Recovery files, live pages and ownership](docs/DRIVE_RECOVERY_09.md) records the native 09 Docs and Sheets. [Open this repository](https://github.com/pailapilates09-sys/Operator).

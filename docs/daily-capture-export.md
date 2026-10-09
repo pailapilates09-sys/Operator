@@ -1,10 +1,10 @@
 # Daily capture private export contract
 
-The [Paila daily capture sheet](https://docs.google.com/spreadsheets/d/13um0MJkeGd3k_pRDQMu3L0FXJp1BErI8KpY7K8V9kZg/edit) is the source for three aggregate tables. The public Studio OS repository contains the exporter **code only**. Run the exporter in an approved private runner with Node 20+ and a private output directory outside any public repository.
+The [Paila daily capture sheet](https://docs.google.com/spreadsheets/d/1Nd3rozgFbK7yypC5HxKNyHjTkpMckjlyH1OIOPnIpAk/edit) is the source for three aggregate tables. The public Studio OS repository contains the exporter **code only**. Run the exporter in an approved private runner with Node 20+ and a private output directory outside any public repository.
 
 ```sh
 node tools/export_daily_capture.mjs \
-  --sheet-id 13um0MJkeGd3k_pRDQMu3L0FXJp1BErI8KpY7K8V9kZg \
+  --sheet-id 1Nd3rozgFbK7yypC5HxKNyHjTkpMckjlyH1OIOPnIpAk \
   --out /private/paila-daily-capture
 ```
 
@@ -15,3 +15,7 @@ Each run validates exact headers, unique stable keys, location/date, numeric and
 Run from the private scheduler after the manager closes the day; treat a failed validation as a stopped export. The output directory is restricted to the private runner. Feed the SQL to an approved private PostgreSQL database only after its access policy and backup path are in place. Do not publish any output file to GitHub Pages.
 
 The `data-model/private-adapter.js` module describes the future authenticated API client. Its server must implement `GET /modules/:module` and `GET /reports/:period` with session and role checks, coverage, source identity, `asOf`, and discriminated status. This module is **not activated** in the public Pages UI. An approved private backend and authenticated owner UI remain required for real operational views.
+
+## 09 recovery
+
+The active source is the rebuilt 09 Sheet. Its input headers match the saved export contract; all operational input rows start blank. Original entries, calculation policy and revision history were unavailable. Manager View summarizes the first 100 input rows. The exporter remains a private, manually configured process; publishing these links does not connect website reports to Sheet edits. Original IDs are retained in `workspace/drive-recovery-09.json`.

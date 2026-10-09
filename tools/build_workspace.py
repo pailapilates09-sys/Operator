@@ -33,7 +33,7 @@ page="""<!doctype html>
 <title>Paila Workspace · Tools, links & guides</title><link rel="stylesheet" href="./workspace.css?v=1"></head>
 <body><a class="skip" href="#main">Skip to resources</a>
 <header class="top"><div class="wrap top-inner"><a class="brand" href="../"><span class="mark">PP</span><span><strong>Paila Pilates</strong><small>TOOLS · DOCUMENTS · GUIDES</small></span></a>
-<nav aria-label="Workspace links"><a href="../">Studio OS</a><a href="../guide/">How-to guides</a><a href="https://docs.google.com/spreadsheets/d/13um0MJkeGd3k_pRDQMu3L0FXJp1BErI8KpY7K8V9kZg/edit">Daily Sheet</a></nav></div></header>
+<nav aria-label="Workspace links"><a href="../">Studio OS</a><a href="../guide/">How-to guides</a><a href="@@DAILY_SHEET@@">Daily Sheet</a></nav></div></header>
 <main id="main" class="wrap"><section class="hero"><div><p class="eyebrow">Your studio, in one place</p><h1>Paila Workspace</h1>
 <p class="lede">Find the right tool, understand why it matters, and open it. One link to share with your owner, manager or team.</p>
 <p class="metadata"><span id="total-count">@@TOTAL@@</span> resources · Directory updated <span id="updated">@@DATE@@ · Asia/Kathmandu</span></p>
@@ -59,6 +59,6 @@ page="""<!doctype html>
 <noscript><p>The saved links work without JavaScript. Enable JavaScript for search and the latest JSON directory.</p></noscript></main>
 <footer><div class="wrap"><span>Paila Workspace · Directory v1.0 · A8 local governance</span><a href="../guide/">Open the illustrated How-to guides →</a></div></footer>
 <script src="./workspace.js?v=1" defer></script></body></html>"""
-page=page.replace('@@DIRECTORY@@',''.join(blocks)).replace('@@NAV@@',nav).replace('@@OPTIONS@@',options).replace('@@TOTAL@@',str(len(data['entries']))).replace('@@DATE@@',E(data['updated']))
+page=page.replace('@@DAILY_SHEET@@',E(next(e['url'] for e in data['entries'] if e['id']=='daily-sheet'))).replace('@@DIRECTORY@@',''.join(blocks)).replace('@@NAV@@',nav).replace('@@OPTIONS@@',options).replace('@@TOTAL@@',str(len(data['entries']))).replace('@@DATE@@',E(data['updated']))
 (ROOT/'workspace/index.html').write_text(page)
 print(f"Built workspace/index.html: {len(data['entries'])} resources in {len(groups)} groups")
