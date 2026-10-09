@@ -88,7 +88,7 @@ try{
       link('How to use','guide/'),
       link('Benchmark','benchmark/'),
       link('Handbook','sop/'),
-      h('a',{href:'https://pailapilates10-cmd.github.io/Paila-Pilates.com/',target:'_blank',rel:'noopener noreferrer'},'Customer Portal')
+      h('a',{href:'https://pailapilates09-sys.github.io/Customer/',target:'_blank',rel:'noopener noreferrer'},'Customer Portal')
     )
   );
 
@@ -376,7 +376,7 @@ try{
     h('span',{},'Paila Studio OS · '+displayVersion+' · approved release v0.6.0'),
     link('Version / rollback','version.json'),
     link('Benchmark model','benchmark/'),
-    link('Architecture','https://github.com/pailapilates10-cmd/Paila-Pilates-SOP/blob/main/docs/studio-os.md'),
+    link('Architecture','https://github.com/pailapilates09-sys/Operator/blob/main/docs/studio-os.md'),
     h('span',{},'FICTIONAL / PROTOTYPE / NOT APPROVED · private backend disconnected')
   ));
 

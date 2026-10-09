@@ -37,7 +37,7 @@ page="""<!doctype html>
 <main id="main" class="wrap"><section class="hero"><div><p class="eyebrow">Your studio, in one place</p><h1>Paila Workspace</h1>
 <p class="lede">Find the right tool, understand why it matters, and open it. One link to share with your owner, manager or team.</p>
 <p class="metadata"><span id="total-count">@@TOTAL@@</span> resources · Directory updated <span id="updated">@@DATE@@ · Asia/Kathmandu</span></p>
-<div class="actions"><button class="button" id="copy-link" type="button" hidden>Copy workspace link</button><a class="button secondary" href="https://github.com/pailapilates10-cmd/Paila-Pilates-SOP/blob/main/workspace/links.json">Edit directory in GitHub</a></div>
+<div class="actions"><button class="button" id="copy-link" type="button" hidden>Copy workspace link</button><a class="button secondary" href="https://github.com/pailapilates09-sys/Operator/blob/main/workspace/links.json">Edit directory in GitHub</a></div>
 <p id="share-status" class="metadata" role="status" aria-live="polite"></p><input class="share-url" id="share-url" aria-label="Workspace link to copy" readonly hidden></div>
 <aside class="status-box" aria-labelledby="connection-title"><span class="badge incomplete">INCOMPLETE · AUTOMATIC CONNECTION</span><h2 id="connection-title">Sheet updates stay in the sheet for now.</h2>
 <p>The daily collection framework is available. Studio OS still displays fictional review data. Its exporter and private adapter code exist, but the live scheduler, database, API and authenticated owner connection remain unfinished.</p>
@@ -53,7 +53,7 @@ page="""<!doctype html>
 <p id="result-count" class="count" role="status" aria-live="polite">@@TOTAL@@ resources</p><p id="load-status" class="metadata" role="status"></p>
 <div id="directory">@@DIRECTORY@@</div><div id="empty" class="empty" hidden><p>No matching resources.</p><button class="button secondary" type="button" id="clear-filters">Clear filters</button></div>
 <details class="edit-help"><summary>How to keep this directory current</summary>
-<p>Open <a href="https://github.com/pailapilates10-cmd/Paila-Pilates-SOP/blob/main/workspace/links.json">Edit directory in GitHub</a>, select the pencil, and update an entry's title, URL, purpose, instructions or status. Keep its ID. Add new entries with a unique ID and an existing category. Update the directory date and save through the governed publication workflow.</p>
+<p>Open <a href="https://github.com/pailapilates09-sys/Operator/blob/main/workspace/links.json">Edit directory in GitHub</a>, select the pencil, and update an entry's title, URL, purpose, instructions or status. Keep its ID. Add new entries with a unique ID and an existing category. Update the directory date and save through the governed publication workflow.</p>
 <p>After GitHub Pages deploys, this page reads the current JSON directory. The linked Google Doc or Sheet is edited in its own application. Changing a directory link does not export business data or connect the backend.</p>
 <p>VERIFIED means the stated artifact was read back, within the note shown. PREVIEW means a draft or prototype. INCOMPLETE means required work remains. BLOCKED means a required dependency is unavailable. These labels are a dated directory snapshot, not a live monitoring service.</p></details>
 <noscript><p>The saved links work without JavaScript. Enable JavaScript for search and the latest JSON directory.</p></noscript></main>
