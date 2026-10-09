@@ -1,6 +1,6 @@
 # Paila Workspace directory
 
-Route: https://pailapilates10-cmd.github.io/Paila-Pilates-SOP/workspace/
+Route: https://pailapilates09-sys.github.io/Operator/workspace/
 
 The directory is the owner-requested shareable navigation page. Its canonical entries are `workspace/links.json`; the browser reads the current file with no-store and constructs real HTML anchors. Search and category/status filters do not write source records. A generated HTML snapshot keeps all links available without JavaScript or if JSON loading fails.
 
@@ -11,3 +11,7 @@ Source baseline: `1c33206627f82913039db8cedddf83737e7e12c0`. Live Drive project/
 Neon/Vercel entries are provider-console shortcuts only. No Paila-specific private project binding or integration is asserted. The daily exporter/private adapter production status remains INCOMPLETE. The external A9 Main index is labelled legacy federation; A8 does not implicitly synchronize it.
 
 This is a navigation addition to the shareholder-review build. It is not a formal Studio OS v0.7.0 product release.
+
+## 09 recovery status
+
+The active directory now uses the native 09 recovery file IDs. Older governance references retain their original URLs and are marked BLOCKED because their original contents and registrar records were unavailable. See [the recovery closeout](CLOSEOUT_09_RECOVERY_20261009.md) for verified public A7 pointers, namespace separation and outstanding work. The historical 2026-10-05 source observation above is retained as lineage, not a current-access claim.
