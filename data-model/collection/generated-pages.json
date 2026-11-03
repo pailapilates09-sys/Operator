@@ -1,0 +1,38 @@
+{
+  "generated_from": [
+    "contract.json",
+    "sources.json",
+    "navigation.json",
+    "workspace/links.json"
+  ],
+  "pages": [
+    "index.html",
+    "workspace/index.html",
+    "work/daily/index.html",
+    "work/classes/index.html",
+    "work/clients/index.html",
+    "work/money/index.html",
+    "work/setup/index.html",
+    "work/sheets/index.html",
+    "work/sheets/setup/index.html",
+    "work/sheets/customers/index.html",
+    "work/sheets/sessions/index.html",
+    "work/sheets/attendance/index.html",
+    "work/sheets/memberships/index.html",
+    "work/sheets/payments/index.html",
+    "work/sheets/expenses/index.html",
+    "work/sheets/daily_close/index.html",
+    "work/sheets/followups/index.html",
+    "work/sheets/equipment/index.html",
+    "work/help/index.html",
+    "work/help/entry/index.html",
+    "work/help/ids/index.html",
+    "work/reports/index.html",
+    "work/resources/index.html",
+    "work/resources/documents/index.html",
+    "work/resources/tools/index.html",
+    "work/resources/history/index.html",
+    "work/resources/examples/index.html",
+    "work/help/changes/index.html"
+  ]
+}

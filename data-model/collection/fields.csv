@@ -1,0 +1,90 @@
+table,field,sheet_header,type,required,primary_key,references
+locations,location_id,Location ID,id,True,True,
+locations,name,Location name,text,True,False,
+locations,status,Status,choice,True,False,
+team,staff_id,Staff ID,id,True,True,
+team,display_name,Name,text,True,False,
+team,role,Role,choice,True,False,
+team,location_id,Location ID,id,True,False,locations.location_id
+team,status,Status,choice,True,False,
+plans,plan_id,Plan ID,id,True,True,
+plans,name,Plan name,text,True,False,
+plans,visits,Visits included,integer,False,False,
+plans,valid_days,Valid days,integer,False,False,
+plans,list_price_npr,Price (NPR),money,False,False,
+plans,status,Status,choice,True,False,
+customers,customer_id,Client ID,id,True,True,
+customers,display_name,Client name,text,True,False,
+customers,location_id,Location ID,id,True,False,locations.location_id
+customers,enquiry_date,Enquiry date,date,True,False,
+customers,source,Heard about us,choice,False,False,
+customers,stage,Stage,choice,True,False,
+customers,assigned_staff_id,Assigned staff ID,id,False,False,team.staff_id
+customers,contact_reference,Contact reference,text,False,False,
+sessions,session_id,Class ID,id,True,True,
+sessions,local_date,Date,date,True,False,
+sessions,start_time,Start time,time,True,False,
+sessions,location_id,Location ID,id,True,False,locations.location_id
+sessions,staff_id,Trainer ID,id,True,False,team.staff_id
+sessions,class_name,Class name,text,True,False,
+sessions,capacity,Places,integer,True,False,
+sessions,status,Status,choice,True,False,
+attendance,visit_id,Attendance ID,id,True,True,
+attendance,session_id,Class ID,id,True,False,sessions.session_id
+attendance,customer_id,Client ID,id,True,False,customers.customer_id
+attendance,status,Attendance,choice,True,False,
+attendance,membership_id,Membership ID,id,False,False,memberships.membership_id
+attendance,source_reference,Source reference,text,False,False,
+memberships,membership_id,Membership ID,id,True,True,
+memberships,customer_id,Client ID,id,True,False,customers.customer_id
+memberships,plan_id,Plan ID,id,True,False,plans.plan_id
+memberships,location_id,Location ID,id,True,False,locations.location_id
+memberships,start_date,Start date,date,True,False,
+memberships,end_date,End date,date,False,False,
+memberships,status,Status,choice,True,False,
+memberships,terms_reference,Terms reference,text,False,False,
+payments,payment_id,Payment ID,id,True,True,
+payments,local_date,Date,date,True,False,
+payments,customer_id,Client ID,id,True,False,customers.customer_id
+payments,location_id,Location ID,id,True,False,locations.location_id
+payments,amount_npr,Amount (NPR),money,True,False,
+payments,kind,Kind,choice,True,False,
+payments,method,Method,choice,True,False,
+payments,membership_id,Membership ID,id,False,False,memberships.membership_id
+payments,refund_of_payment_id,Original payment ID,id,False,False,payments.payment_id
+payments,source_reference,Receipt reference,text,True,False,
+expenses,expense_id,Expense ID,id,True,True,
+expenses,local_date,Date,date,True,False,
+expenses,location_id,Location ID,id,True,False,locations.location_id
+expenses,category,Category,choice,True,False,
+expenses,amount_npr,Amount (NPR),money,True,False,
+expenses,method,Method,choice,True,False,
+expenses,supplier_reference,Supplier reference,text,False,False,
+expenses,source_reference,Receipt reference,text,True,False,
+expenses,entered_by_staff_id,Staff ID,id,True,False,team.staff_id
+daily_close,day_id,Day ID,id,True,True,
+daily_close,local_date,Date,date,True,False,
+daily_close,location_id,Location ID,id,True,False,locations.location_id
+daily_close,opening_cash_npr,Opening cash (NPR),money,False,False,
+daily_close,counted_closing_cash_npr,Counted cash (NPR),money,False,False,
+daily_close,opening_done,Opening done,choice,True,False,
+daily_close,cleaning_done,Cleaning done,choice,True,False,
+daily_close,closing_done,Closing done,choice,True,False,
+daily_close,reviewed_by_staff_id,Manager ID,id,True,False,team.staff_id
+daily_close,source_reference,Source reference,text,False,False,
+followups,followup_id,Follow-up ID,id,True,True,
+followups,customer_id,Client ID,id,True,False,customers.customer_id
+followups,assigned_staff_id,Staff ID,id,True,False,team.staff_id
+followups,due_date,Due date,date,True,False,
+followups,reason,Reason,choice,True,False,
+followups,status,Status,choice,True,False,
+followups,completed_date,Completed date,date,False,False,
+followups,source_reference,Source reference,text,False,False,
+equipment,equipment_id,Equipment ID,id,True,True,
+equipment,location_id,Location ID,id,True,False,locations.location_id
+equipment,name,Item name,text,True,False,
+equipment,status,Status,choice,True,False,
+equipment,last_check_date,Last checked,date,False,False,
+equipment,next_check_date,Next check,date,False,False,
+equipment,checked_by_staff_id,Checked by ID,id,False,False,team.staff_id
+equipment,source_reference,Inspection reference,text,False,False,

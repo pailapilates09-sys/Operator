@@ -1,0 +1,273 @@
+{
+  "schema_version": "1.0",
+  "updated": "2026-11-03",
+  "timezone": "Asia/Kathmandu",
+  "source_folder": "https://drive.google.com/drive/folders/1gH6NpFQXdBNjmVJAvR1Ckd_Uw2Vh0Chm",
+  "connection": {
+    "sheet_links": "VERIFIED",
+    "automatic_reports": "INCOMPLETE",
+    "note": "Input files are created and linked. No private fetch scheduler or authenticated report service is configured."
+  },
+  "sources": [
+    {
+      "key": "setup",
+      "number": 1,
+      "title": "Studio setup",
+      "tables": [
+        {
+          "key": "locations",
+          "sheet_name": "Locations",
+          "sheet_id": 953559145,
+          "header_row": 4,
+          "first_data_row": 5,
+          "last_allocated_row": 104,
+          "range": "'Locations'!A4:D104",
+          "url": "https://docs.google.com/spreadsheets/d/1b-BKl5vFMkpiOAbfjaxFl-kad4jqAO89yGLir3qk0qE/edit#gid=953559145"
+        },
+        {
+          "key": "team",
+          "sheet_name": "Team",
+          "sheet_id": 198810319,
+          "header_row": 4,
+          "first_data_row": 5,
+          "last_allocated_row": 104,
+          "range": "'Team'!A4:F104",
+          "url": "https://docs.google.com/spreadsheets/d/1b-BKl5vFMkpiOAbfjaxFl-kad4jqAO89yGLir3qk0qE/edit#gid=198810319"
+        },
+        {
+          "key": "plans",
+          "sheet_name": "Plans",
+          "sheet_id": 347870256,
+          "header_row": 4,
+          "first_data_row": 5,
+          "last_allocated_row": 104,
+          "range": "'Plans'!A4:G104",
+          "url": "https://docs.google.com/spreadsheets/d/1b-BKl5vFMkpiOAbfjaxFl-kad4jqAO89yGLir3qk0qE/edit#gid=347870256"
+        }
+      ],
+      "group": "setup",
+      "owner": "Manager",
+      "when": "Before staff start entering records",
+      "summary": "Add locations, staff and plans once.",
+      "spreadsheet_id": "1b-BKl5vFMkpiOAbfjaxFl-kad4jqAO89yGLir3qk0qE",
+      "url": "https://docs.google.com/spreadsheets/d/1b-BKl5vFMkpiOAbfjaxFl-kad4jqAO89yGLir3qk0qE/edit?usp=drivesdk",
+      "help_url": "https://docs.google.com/spreadsheets/d/1b-BKl5vFMkpiOAbfjaxFl-kad4jqAO89yGLir3qk0qE/edit#gid=1496239686"
+    },
+    {
+      "key": "customers",
+      "number": 2,
+      "title": "Clients",
+      "tables": [
+        {
+          "key": "customers",
+          "sheet_name": "Clients",
+          "sheet_id": 356522473,
+          "header_row": 4,
+          "first_data_row": 5,
+          "last_allocated_row": 304,
+          "range": "'Clients'!A4:I304",
+          "url": "https://docs.google.com/spreadsheets/d/1KzlXZaYAEvIm3ipegKW7xKbnLW5AWUlGOsY2GdLC208/edit#gid=356522473"
+        }
+      ],
+      "group": "clients",
+      "owner": "Manager",
+      "when": "At the first enquiry, then update the same row",
+      "summary": "Keep one record for each client.",
+      "spreadsheet_id": "1KzlXZaYAEvIm3ipegKW7xKbnLW5AWUlGOsY2GdLC208",
+      "url": "https://docs.google.com/spreadsheets/d/1KzlXZaYAEvIm3ipegKW7xKbnLW5AWUlGOsY2GdLC208/edit?usp=drivesdk",
+      "help_url": "https://docs.google.com/spreadsheets/d/1KzlXZaYAEvIm3ipegKW7xKbnLW5AWUlGOsY2GdLC208/edit#gid=1203006501"
+    },
+    {
+      "key": "sessions",
+      "number": 3,
+      "title": "Classes",
+      "tables": [
+        {
+          "key": "sessions",
+          "sheet_name": "Classes",
+          "sheet_id": 692082389,
+          "header_row": 4,
+          "first_data_row": 5,
+          "last_allocated_row": 304,
+          "range": "'Classes'!A4:I304",
+          "url": "https://docs.google.com/spreadsheets/d/1UHneGkhpTEUXDcO4MHiRqDZ2tcgjoWL0oKFo7b70Hi0/edit#gid=692082389"
+        }
+      ],
+      "group": "classes",
+      "owner": "Trainer / Manager",
+      "when": "When a class is scheduled or changed",
+      "summary": "Record the time, trainer and available places.",
+      "spreadsheet_id": "1UHneGkhpTEUXDcO4MHiRqDZ2tcgjoWL0oKFo7b70Hi0",
+      "url": "https://docs.google.com/spreadsheets/d/1UHneGkhpTEUXDcO4MHiRqDZ2tcgjoWL0oKFo7b70Hi0/edit?usp=drivesdk",
+      "help_url": "https://docs.google.com/spreadsheets/d/1UHneGkhpTEUXDcO4MHiRqDZ2tcgjoWL0oKFo7b70Hi0/edit#gid=1102153668"
+    },
+    {
+      "key": "attendance",
+      "number": 4,
+      "title": "Attendance",
+      "tables": [
+        {
+          "key": "attendance",
+          "sheet_name": "Attendance",
+          "sheet_id": 617519681,
+          "header_row": 4,
+          "first_data_row": 5,
+          "last_allocated_row": 504,
+          "range": "'Attendance'!A4:G504",
+          "url": "https://docs.google.com/spreadsheets/d/1nrRQEtsV4nULFyqCYoomYGMMVwuNhycl-XTQAeoPlBk/edit#gid=617519681"
+        }
+      ],
+      "group": "classes",
+      "owner": "Trainer",
+      "when": "Before and after each class",
+      "summary": "Mark bookings, attendance and no-shows.",
+      "spreadsheet_id": "1nrRQEtsV4nULFyqCYoomYGMMVwuNhycl-XTQAeoPlBk",
+      "url": "https://docs.google.com/spreadsheets/d/1nrRQEtsV4nULFyqCYoomYGMMVwuNhycl-XTQAeoPlBk/edit?usp=drivesdk",
+      "help_url": "https://docs.google.com/spreadsheets/d/1nrRQEtsV4nULFyqCYoomYGMMVwuNhycl-XTQAeoPlBk/edit#gid=1248346730"
+    },
+    {
+      "key": "memberships",
+      "number": 5,
+      "title": "Memberships",
+      "tables": [
+        {
+          "key": "memberships",
+          "sheet_name": "Memberships",
+          "sheet_id": 639075965,
+          "header_row": 4,
+          "first_data_row": 5,
+          "last_allocated_row": 304,
+          "range": "'Memberships'!A4:I304",
+          "url": "https://docs.google.com/spreadsheets/d/1yzm14srh6OfkiyS7IADOPOnIiEm0ZffjK5g0adYbcIA/edit#gid=639075965"
+        }
+      ],
+      "group": "clients",
+      "owner": "Manager",
+      "when": "When a client buys, renews or changes a plan",
+      "summary": "Track each client's plan and dates.",
+      "spreadsheet_id": "1yzm14srh6OfkiyS7IADOPOnIiEm0ZffjK5g0adYbcIA",
+      "url": "https://docs.google.com/spreadsheets/d/1yzm14srh6OfkiyS7IADOPOnIiEm0ZffjK5g0adYbcIA/edit?usp=drivesdk",
+      "help_url": "https://docs.google.com/spreadsheets/d/1yzm14srh6OfkiyS7IADOPOnIiEm0ZffjK5g0adYbcIA/edit#gid=756138241"
+    },
+    {
+      "key": "payments",
+      "number": 6,
+      "title": "Payments",
+      "tables": [
+        {
+          "key": "payments",
+          "sheet_name": "Payments",
+          "sheet_id": 182053677,
+          "header_row": 4,
+          "first_data_row": 5,
+          "last_allocated_row": 504,
+          "range": "'Payments'!A4:K504",
+          "url": "https://docs.google.com/spreadsheets/d/1Yo0qhrvlPzO2SrU11i-C95Yo5I6zyGtSQiRNOjEOrpY/edit#gid=182053677"
+        }
+      ],
+      "group": "money",
+      "owner": "Manager",
+      "when": "When money is received or refunded",
+      "summary": "Record receipts and refunds in NPR.",
+      "spreadsheet_id": "1Yo0qhrvlPzO2SrU11i-C95Yo5I6zyGtSQiRNOjEOrpY",
+      "url": "https://docs.google.com/spreadsheets/d/1Yo0qhrvlPzO2SrU11i-C95Yo5I6zyGtSQiRNOjEOrpY/edit?usp=drivesdk",
+      "help_url": "https://docs.google.com/spreadsheets/d/1Yo0qhrvlPzO2SrU11i-C95Yo5I6zyGtSQiRNOjEOrpY/edit#gid=869287541"
+    },
+    {
+      "key": "expenses",
+      "number": 7,
+      "title": "Expenses",
+      "tables": [
+        {
+          "key": "expenses",
+          "sheet_name": "Expenses",
+          "sheet_id": 1793803874,
+          "header_row": 4,
+          "first_data_row": 5,
+          "last_allocated_row": 304,
+          "range": "'Expenses'!A4:J304",
+          "url": "https://docs.google.com/spreadsheets/d/1VqIsxjdUYY8jfiENxOd0DMZYcE3lWX55i5LiNwockYI/edit#gid=1793803874"
+        }
+      ],
+      "group": "money",
+      "owner": "Manager",
+      "when": "When an expense is paid",
+      "summary": "Record spending and its receipt reference.",
+      "spreadsheet_id": "1VqIsxjdUYY8jfiENxOd0DMZYcE3lWX55i5LiNwockYI",
+      "url": "https://docs.google.com/spreadsheets/d/1VqIsxjdUYY8jfiENxOd0DMZYcE3lWX55i5LiNwockYI/edit?usp=drivesdk",
+      "help_url": "https://docs.google.com/spreadsheets/d/1VqIsxjdUYY8jfiENxOd0DMZYcE3lWX55i5LiNwockYI/edit#gid=861540531"
+    },
+    {
+      "key": "daily_close",
+      "number": 8,
+      "title": "Daily close",
+      "tables": [
+        {
+          "key": "daily_close",
+          "sheet_name": "Daily Close",
+          "sheet_id": 71494361,
+          "header_row": 4,
+          "first_data_row": 5,
+          "last_allocated_row": 304,
+          "range": "'Daily Close'!A4:K304",
+          "url": "https://docs.google.com/spreadsheets/d/1CGJc3yP-VNHzuPnkKwqtdLg1jeEKYQ9X3d4TQWp_3Lw/edit#gid=71494361"
+        }
+      ],
+      "group": "daily",
+      "owner": "Manager",
+      "when": "At closing",
+      "summary": "Finish the daily checks and cash count.",
+      "spreadsheet_id": "1CGJc3yP-VNHzuPnkKwqtdLg1jeEKYQ9X3d4TQWp_3Lw",
+      "url": "https://docs.google.com/spreadsheets/d/1CGJc3yP-VNHzuPnkKwqtdLg1jeEKYQ9X3d4TQWp_3Lw/edit?usp=drivesdk",
+      "help_url": "https://docs.google.com/spreadsheets/d/1CGJc3yP-VNHzuPnkKwqtdLg1jeEKYQ9X3d4TQWp_3Lw/edit#gid=48704674"
+    },
+    {
+      "key": "followups",
+      "number": 9,
+      "title": "Follow-ups",
+      "tables": [
+        {
+          "key": "followups",
+          "sheet_name": "Follow-ups",
+          "sheet_id": 1826220222,
+          "header_row": 4,
+          "first_data_row": 5,
+          "last_allocated_row": 304,
+          "range": "'Follow-ups'!A4:I304",
+          "url": "https://docs.google.com/spreadsheets/d/1vRosUSTQuWY75uBg9z-CxhxeEM5yEqyflHkE0R-J7d8/edit#gid=1826220222"
+        }
+      ],
+      "group": "daily",
+      "owner": "Trainer / Manager",
+      "when": "When a task is assigned or completed",
+      "summary": "Record who needs a follow-up and when.",
+      "spreadsheet_id": "1vRosUSTQuWY75uBg9z-CxhxeEM5yEqyflHkE0R-J7d8",
+      "url": "https://docs.google.com/spreadsheets/d/1vRosUSTQuWY75uBg9z-CxhxeEM5yEqyflHkE0R-J7d8/edit?usp=drivesdk",
+      "help_url": "https://docs.google.com/spreadsheets/d/1vRosUSTQuWY75uBg9z-CxhxeEM5yEqyflHkE0R-J7d8/edit#gid=870066728"
+    },
+    {
+      "key": "equipment",
+      "number": 10,
+      "title": "Equipment",
+      "tables": [
+        {
+          "key": "equipment",
+          "sheet_name": "Equipment",
+          "sheet_id": 167894931,
+          "header_row": 4,
+          "first_data_row": 5,
+          "last_allocated_row": 104,
+          "range": "'Equipment'!A4:I104",
+          "url": "https://docs.google.com/spreadsheets/d/1um6XR2hHI4nRxPMwVKS6KhhYNz2sYDTL56nkt7hmCfk/edit#gid=167894931"
+        }
+      ],
+      "group": "daily",
+      "owner": "Trainer / Manager",
+      "when": "After an equipment check",
+      "summary": "Keep equipment checks and next dates together.",
+      "spreadsheet_id": "1um6XR2hHI4nRxPMwVKS6KhhYNz2sYDTL56nkt7hmCfk",
+      "url": "https://docs.google.com/spreadsheets/d/1um6XR2hHI4nRxPMwVKS6KhhYNz2sYDTL56nkt7hmCfk/edit?usp=drivesdk",
+      "help_url": "https://docs.google.com/spreadsheets/d/1um6XR2hHI4nRxPMwVKS6KhhYNz2sYDTL56nkt7hmCfk/edit#gid=631574181"
+    }
+  ]
+}

@@ -26,6 +26,8 @@ jobs:
           mkdir "$RUNNER_TEMP/site"
           git archive HEAD | tar -x -C "$RUNNER_TEMP/site"
           rm -rf "$RUNNER_TEMP/site/.github"
+          python3 "$RUNNER_TEMP/site/tools/build_staff_site.py"
+          python3 "$RUNNER_TEMP/site/tools/validate_staff_site.py"
           touch "$RUNNER_TEMP/site/.nojekyll"
       - uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
         with:

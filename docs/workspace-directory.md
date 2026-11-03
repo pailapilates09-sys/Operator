@@ -1,17 +1,15 @@
-# Paila Workspace directory
+# Staff pages and sheets
 
-Route: https://pailapilates09-sys.github.io/Operator/workspace/
+The old long directory is now a short category menu at `/workspace/`; the same menu is the website home. Existing entries in `workspace/links.json` remain preserved. Documents, tools and history are shown on separate resource pages.
 
-The directory is the owner-requested shareable navigation page. Its canonical entries are `workspace/links.json`; the browser reads the current file with no-store and constructs real HTML anchors. Search and category/status filters do not write source records. A generated HTML snapshot keeps all links available without JavaScript or if JSON loading fails.
+The ten native staff inputs are mapped in `data-model/collection/sources.json`. Each task page opens its owning Sheet and provides a field guide. The older aggregate daily workbook remains under Files & tools / Documents and is not migrated or overwritten.
 
-Update titles, URLs, purpose, instructions, audience and status in `workspace/links.json`. Keep stable IDs and update the directory date. Refresh the HTML fallback with `python3 tools/build_workspace.py` when publishing a bounded update. Validate JSON and JavaScript, preserve rollback, and independently read back GitHub and the public route. A JSON-only change updates the enhanced page after Pages deployment; refresh the fallback alongside it for no-JavaScript readers.
+Edit navigation, source links and field definitions in `data-model/collection/`. Run `python3 tools/build_staff_site.py`. The Pages workflow runs this builder and validates generated local links. The older `tools/build_workspace.py` command delegates to it.
 
-Source baseline: `1c33206627f82913039db8cedddf83737e7e12c0`. Live Drive project/A8 entry points and current repository module definitions were read on 2026-10-05 NPT. The user explicitly requested publishing the directory including internal document links and deferred privacy management. No document contents, operational rows or credentials are copied. Drive access settings are unchanged. The customer website receives no backlink.
+The source map's verified link state is separate from automatic reporting. Browser JavaScript reads Sheet URLs, not business rows. The private reader `tools/collect_studio_sheets.py` supports later authorized API reading or CSV imports, key validation and private JSON/CSV/SQL/JSONL outputs. The authenticated report service and scheduler are not connected.
 
-Neon/Vercel entries are provider-console shortcuts only. No Paila-specific private project binding or integration is asserted. The daily exporter/private adapter production status remains INCOMPLETE. The external A9 Main index is labelled legacy federation; A8 does not implicitly synchronize it.
+Sheets include frozen headers, issued IDs, dropdowns, date/money formats, a Check formula and Help. Studio setup has three input tabs; the other nine files each have one. Input rows are blank apart from issued IDs. Name changes do not change IDs. Import observations record source changes rather than reconstructing business events.
 
-This is a navigation addition to the shareholder-review build. It is not a formal Studio OS v0.7.0 product release.
+The user authorized resource links and deferred privacy management. No operational rows or credentials are committed, and sharing permissions are unchanged. Customer navigation remains one-way.
 
-## 09 recovery status
-
-The active directory now uses the native 09 recovery file IDs. Older governance references retain their original URLs and are marked BLOCKED because their original contents and registrar records were unavailable. See [the recovery closeout](CLOSEOUT_09_RECOVERY_20261009.md) for verified public A7 pointers, namespace separation and outstanding work. The historical 2026-10-05 source observation above is retained as lineage, not a current-access claim.
+Baseline: Operator `e2a050fd061e5c53eecdbf52089261fce1c5c086`. The live Drive profile is pailapilates09@gmail.com. The original Paila control returned provider 403; the recovered studio reference and 09 recovery closeout were read. No unavailable control text or central registrar state is reconstructed.

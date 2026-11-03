@@ -1,0 +1,1036 @@
+{
+  "schema_version": "1.0",
+  "artifact_id": "PAILA-STAFF-COLLECTION-20261103",
+  "created": "2026-11-03",
+  "timezone": "Asia/Kathmandu",
+  "currency": "NPR",
+  "header_row": 4,
+  "first_data_row": 5,
+  "id_policy": "Preallocated immutable values in column A. Do not copy a source workbook to create another input authority. IDs belong to the issued source table. Add a new allocated batch when slots run out.",
+  "blank_row_policy": "A preallocated ID alone is an unused slot, not a record. Data starts when any business column is entered.",
+  "mapping_scope": "New collection staging model; not a silent replacement of the existing private event/entity schemas. Ingestion validates these sources before admission.",
+  "integration_status": "SHEETS_LINKED__PRIVATE_FETCH_RUNNER_NOT_CONFIGURED",
+  "files": [
+    {
+      "key": "setup",
+      "number": 1,
+      "title": "Studio setup",
+      "tables": [
+        "locations",
+        "team",
+        "plans"
+      ],
+      "group": "setup",
+      "owner": "Manager",
+      "when": "Before staff start entering records",
+      "summary": "Add locations, staff and plans once."
+    },
+    {
+      "key": "customers",
+      "number": 2,
+      "title": "Clients",
+      "tables": [
+        "customers"
+      ],
+      "group": "clients",
+      "owner": "Manager",
+      "when": "At the first enquiry, then update the same row",
+      "summary": "Keep one record for each client."
+    },
+    {
+      "key": "sessions",
+      "number": 3,
+      "title": "Classes",
+      "tables": [
+        "sessions"
+      ],
+      "group": "classes",
+      "owner": "Trainer / Manager",
+      "when": "When a class is scheduled or changed",
+      "summary": "Record the time, trainer and available places."
+    },
+    {
+      "key": "attendance",
+      "number": 4,
+      "title": "Attendance",
+      "tables": [
+        "attendance"
+      ],
+      "group": "classes",
+      "owner": "Trainer",
+      "when": "Before and after each class",
+      "summary": "Mark bookings, attendance and no-shows."
+    },
+    {
+      "key": "memberships",
+      "number": 5,
+      "title": "Memberships",
+      "tables": [
+        "memberships"
+      ],
+      "group": "clients",
+      "owner": "Manager",
+      "when": "When a client buys, renews or changes a plan",
+      "summary": "Track each client's plan and dates."
+    },
+    {
+      "key": "payments",
+      "number": 6,
+      "title": "Payments",
+      "tables": [
+        "payments"
+      ],
+      "group": "money",
+      "owner": "Manager",
+      "when": "When money is received or refunded",
+      "summary": "Record receipts and refunds in NPR."
+    },
+    {
+      "key": "expenses",
+      "number": 7,
+      "title": "Expenses",
+      "tables": [
+        "expenses"
+      ],
+      "group": "money",
+      "owner": "Manager",
+      "when": "When an expense is paid",
+      "summary": "Record spending and its receipt reference."
+    },
+    {
+      "key": "daily_close",
+      "number": 8,
+      "title": "Daily close",
+      "tables": [
+        "daily_close"
+      ],
+      "group": "daily",
+      "owner": "Manager",
+      "when": "At closing",
+      "summary": "Finish the daily checks and cash count."
+    },
+    {
+      "key": "followups",
+      "number": 9,
+      "title": "Follow-ups",
+      "tables": [
+        "followups"
+      ],
+      "group": "daily",
+      "owner": "Trainer / Manager",
+      "when": "When a task is assigned or completed",
+      "summary": "Record who needs a follow-up and when."
+    },
+    {
+      "key": "equipment",
+      "number": 10,
+      "title": "Equipment",
+      "tables": [
+        "equipment"
+      ],
+      "group": "daily",
+      "owner": "Trainer / Manager",
+      "when": "After an equipment check",
+      "summary": "Keep equipment checks and next dates together."
+    }
+  ],
+  "tables": [
+    {
+      "key": "locations",
+      "tab": "Locations",
+      "prefix": "LOC",
+      "rows": 100,
+      "title": "Locations",
+      "owner": "Manager",
+      "grain": "One row per studio location.",
+      "fields": [
+        {
+          "key": "location_id",
+          "label": "Location ID",
+          "type": "id",
+          "required": true,
+          "help": "Location ID"
+        },
+        {
+          "key": "name",
+          "label": "Location name",
+          "type": "text",
+          "required": true,
+          "help": "Location name"
+        },
+        {
+          "key": "status",
+          "label": "Status",
+          "type": "choice",
+          "required": true,
+          "options": [
+            "Active",
+            "Inactive"
+          ],
+          "help": "Status"
+        }
+      ]
+    },
+    {
+      "key": "team",
+      "tab": "Team",
+      "prefix": "STF",
+      "rows": 100,
+      "title": "Team",
+      "owner": "Manager",
+      "grain": "One row per trainer or staff member.",
+      "fields": [
+        {
+          "key": "staff_id",
+          "label": "Staff ID",
+          "type": "id",
+          "required": true,
+          "help": "Staff ID"
+        },
+        {
+          "key": "display_name",
+          "label": "Name",
+          "type": "text",
+          "required": true,
+          "help": "Name"
+        },
+        {
+          "key": "role",
+          "label": "Role",
+          "type": "choice",
+          "required": true,
+          "options": [
+            "Trainer",
+            "Manager",
+            "Admin"
+          ],
+          "help": "Role"
+        },
+        {
+          "key": "location_id",
+          "label": "Location ID",
+          "type": "id",
+          "required": true,
+          "references": "locations.location_id",
+          "help": "Location ID"
+        },
+        {
+          "key": "status",
+          "label": "Status",
+          "type": "choice",
+          "required": true,
+          "options": [
+            "Active",
+            "Inactive"
+          ],
+          "help": "Status"
+        }
+      ]
+    },
+    {
+      "key": "plans",
+      "tab": "Plans",
+      "prefix": "PLN",
+      "rows": 100,
+      "title": "Plans",
+      "owner": "Owner",
+      "grain": "One row per offered plan. Add a new plan ID when terms or price change.",
+      "fields": [
+        {
+          "key": "plan_id",
+          "label": "Plan ID",
+          "type": "id",
+          "required": true,
+          "help": "Plan ID"
+        },
+        {
+          "key": "name",
+          "label": "Plan name",
+          "type": "text",
+          "required": true,
+          "help": "Plan name"
+        },
+        {
+          "key": "visits",
+          "label": "Visits included",
+          "type": "integer",
+          "required": false,
+          "help": "Visits included"
+        },
+        {
+          "key": "valid_days",
+          "label": "Valid days",
+          "type": "integer",
+          "required": false,
+          "help": "Valid days"
+        },
+        {
+          "key": "list_price_npr",
+          "label": "Price (NPR)",
+          "type": "money",
+          "required": false,
+          "help": "Price (NPR)"
+        },
+        {
+          "key": "status",
+          "label": "Status",
+          "type": "choice",
+          "required": true,
+          "options": [
+            "Draft",
+            "Active",
+            "Retired"
+          ],
+          "help": "Status"
+        }
+      ]
+    },
+    {
+      "key": "customers",
+      "tab": "Clients",
+      "prefix": "CLI",
+      "rows": 300,
+      "title": "Clients",
+      "owner": "Manager",
+      "grain": "One row per person, from first enquiry onward.",
+      "fields": [
+        {
+          "key": "customer_id",
+          "label": "Client ID",
+          "type": "id",
+          "required": true,
+          "help": "Client ID"
+        },
+        {
+          "key": "display_name",
+          "label": "Client name",
+          "type": "text",
+          "required": true,
+          "help": "Client name"
+        },
+        {
+          "key": "location_id",
+          "label": "Location ID",
+          "type": "id",
+          "required": true,
+          "references": "locations.location_id",
+          "help": "Location ID"
+        },
+        {
+          "key": "enquiry_date",
+          "label": "Enquiry date",
+          "type": "date",
+          "required": true,
+          "help": "Enquiry date"
+        },
+        {
+          "key": "source",
+          "label": "Heard about us",
+          "type": "choice",
+          "required": false,
+          "options": [
+            "Walk-in",
+            "Referral",
+            "Instagram",
+            "Website",
+            "Phone",
+            "Other"
+          ],
+          "help": "Heard about us"
+        },
+        {
+          "key": "stage",
+          "label": "Stage",
+          "type": "choice",
+          "required": true,
+          "options": [
+            "Enquiry",
+            "Trial booked",
+            "Active",
+            "Paused",
+            "Left"
+          ],
+          "help": "Stage"
+        },
+        {
+          "key": "assigned_staff_id",
+          "label": "Assigned staff ID",
+          "type": "id",
+          "required": false,
+          "references": "team.staff_id",
+          "help": "Assigned staff ID"
+        },
+        {
+          "key": "contact_reference",
+          "label": "Contact reference",
+          "type": "text",
+          "required": false,
+          "help": "Contact reference"
+        }
+      ]
+    },
+    {
+      "key": "sessions",
+      "tab": "Classes",
+      "prefix": "CLS",
+      "rows": 300,
+      "title": "Classes",
+      "owner": "Trainer / Manager",
+      "grain": "One row per scheduled class, including cancelled classes.",
+      "fields": [
+        {
+          "key": "session_id",
+          "label": "Class ID",
+          "type": "id",
+          "required": true,
+          "help": "Class ID"
+        },
+        {
+          "key": "local_date",
+          "label": "Date",
+          "type": "date",
+          "required": true,
+          "help": "Date"
+        },
+        {
+          "key": "start_time",
+          "label": "Start time",
+          "type": "time",
+          "required": true,
+          "help": "Start time"
+        },
+        {
+          "key": "location_id",
+          "label": "Location ID",
+          "type": "id",
+          "required": true,
+          "references": "locations.location_id",
+          "help": "Location ID"
+        },
+        {
+          "key": "staff_id",
+          "label": "Trainer ID",
+          "type": "id",
+          "required": true,
+          "references": "team.staff_id",
+          "help": "Trainer ID"
+        },
+        {
+          "key": "class_name",
+          "label": "Class name",
+          "type": "text",
+          "required": true,
+          "help": "Class name"
+        },
+        {
+          "key": "capacity",
+          "label": "Places",
+          "type": "integer",
+          "required": true,
+          "help": "Places"
+        },
+        {
+          "key": "status",
+          "label": "Status",
+          "type": "choice",
+          "required": true,
+          "options": [
+            "Scheduled",
+            "Completed",
+            "Cancelled"
+          ],
+          "help": "Status"
+        }
+      ]
+    },
+    {
+      "key": "attendance",
+      "tab": "Attendance",
+      "prefix": "ATT",
+      "rows": 500,
+      "title": "Attendance",
+      "owner": "Trainer",
+      "grain": "One row per client per class. Change the status on that row rather than adding a second row.",
+      "unique": [
+        [
+          "session_id",
+          "customer_id"
+        ]
+      ],
+      "fields": [
+        {
+          "key": "visit_id",
+          "label": "Attendance ID",
+          "type": "id",
+          "required": true,
+          "help": "Attendance ID"
+        },
+        {
+          "key": "session_id",
+          "label": "Class ID",
+          "type": "id",
+          "required": true,
+          "references": "sessions.session_id",
+          "help": "Class ID"
+        },
+        {
+          "key": "customer_id",
+          "label": "Client ID",
+          "type": "id",
+          "required": true,
+          "references": "customers.customer_id",
+          "help": "Client ID"
+        },
+        {
+          "key": "status",
+          "label": "Attendance",
+          "type": "choice",
+          "required": true,
+          "options": [
+            "Booked",
+            "Checked in",
+            "Attended",
+            "No show",
+            "Cancelled"
+          ],
+          "help": "Attendance"
+        },
+        {
+          "key": "membership_id",
+          "label": "Membership ID",
+          "type": "id",
+          "required": false,
+          "references": "memberships.membership_id",
+          "help": "Membership ID"
+        },
+        {
+          "key": "source_reference",
+          "label": "Source reference",
+          "type": "text",
+          "required": false,
+          "help": "Source reference"
+        }
+      ]
+    },
+    {
+      "key": "memberships",
+      "tab": "Memberships",
+      "prefix": "MEM",
+      "rows": 300,
+      "title": "Memberships",
+      "owner": "Manager",
+      "grain": "One row per client's plan purchase or renewal. A renewal gets a new membership ID.",
+      "fields": [
+        {
+          "key": "membership_id",
+          "label": "Membership ID",
+          "type": "id",
+          "required": true,
+          "help": "Membership ID"
+        },
+        {
+          "key": "customer_id",
+          "label": "Client ID",
+          "type": "id",
+          "required": true,
+          "references": "customers.customer_id",
+          "help": "Client ID"
+        },
+        {
+          "key": "plan_id",
+          "label": "Plan ID",
+          "type": "id",
+          "required": true,
+          "references": "plans.plan_id",
+          "help": "Plan ID"
+        },
+        {
+          "key": "location_id",
+          "label": "Location ID",
+          "type": "id",
+          "required": true,
+          "references": "locations.location_id",
+          "help": "Location ID"
+        },
+        {
+          "key": "start_date",
+          "label": "Start date",
+          "type": "date",
+          "required": true,
+          "help": "Start date"
+        },
+        {
+          "key": "end_date",
+          "label": "End date",
+          "type": "date",
+          "required": false,
+          "help": "End date"
+        },
+        {
+          "key": "status",
+          "label": "Status",
+          "type": "choice",
+          "required": true,
+          "options": [
+            "Pending",
+            "Active",
+            "Paused",
+            "Ended",
+            "Cancelled"
+          ],
+          "help": "Status"
+        },
+        {
+          "key": "terms_reference",
+          "label": "Terms reference",
+          "type": "text",
+          "required": false,
+          "help": "Terms reference"
+        }
+      ]
+    },
+    {
+      "key": "payments",
+      "tab": "Payments",
+      "prefix": "PAY",
+      "rows": 500,
+      "title": "Payments",
+      "owner": "Manager",
+      "grain": "One row per actual receipt or refund. Amounts are positive; the kind determines the direction.",
+      "fields": [
+        {
+          "key": "payment_id",
+          "label": "Payment ID",
+          "type": "id",
+          "required": true,
+          "help": "Payment ID"
+        },
+        {
+          "key": "local_date",
+          "label": "Date",
+          "type": "date",
+          "required": true,
+          "help": "Date"
+        },
+        {
+          "key": "customer_id",
+          "label": "Client ID",
+          "type": "id",
+          "required": true,
+          "references": "customers.customer_id",
+          "help": "Client ID"
+        },
+        {
+          "key": "location_id",
+          "label": "Location ID",
+          "type": "id",
+          "required": true,
+          "references": "locations.location_id",
+          "help": "Location ID"
+        },
+        {
+          "key": "amount_npr",
+          "label": "Amount (NPR)",
+          "type": "money",
+          "required": true,
+          "help": "Amount (NPR)"
+        },
+        {
+          "key": "kind",
+          "label": "Kind",
+          "type": "choice",
+          "required": true,
+          "options": [
+            "Receipt",
+            "Refund"
+          ],
+          "help": "Kind"
+        },
+        {
+          "key": "method",
+          "label": "Method",
+          "type": "choice",
+          "required": true,
+          "options": [
+            "Cash",
+            "Digital",
+            "Bank",
+            "Other"
+          ],
+          "help": "Method"
+        },
+        {
+          "key": "membership_id",
+          "label": "Membership ID",
+          "type": "id",
+          "required": false,
+          "references": "memberships.membership_id",
+          "help": "Membership ID"
+        },
+        {
+          "key": "refund_of_payment_id",
+          "label": "Original payment ID",
+          "type": "id",
+          "required": false,
+          "references": "payments.payment_id",
+          "help": "Original payment ID"
+        },
+        {
+          "key": "source_reference",
+          "label": "Receipt reference",
+          "type": "text",
+          "required": true,
+          "help": "Receipt reference"
+        }
+      ]
+    },
+    {
+      "key": "expenses",
+      "tab": "Expenses",
+      "prefix": "EXP",
+      "rows": 300,
+      "title": "Expenses",
+      "owner": "Manager",
+      "grain": "One row per expense payment. Record a mixed payment as separate rows, with the same receipt reference.",
+      "fields": [
+        {
+          "key": "expense_id",
+          "label": "Expense ID",
+          "type": "id",
+          "required": true,
+          "help": "Expense ID"
+        },
+        {
+          "key": "local_date",
+          "label": "Date",
+          "type": "date",
+          "required": true,
+          "help": "Date"
+        },
+        {
+          "key": "location_id",
+          "label": "Location ID",
+          "type": "id",
+          "required": true,
+          "references": "locations.location_id",
+          "help": "Location ID"
+        },
+        {
+          "key": "category",
+          "label": "Category",
+          "type": "choice",
+          "required": true,
+          "options": [
+            "Rent",
+            "Wages",
+            "Utilities",
+            "Equipment",
+            "Cleaning",
+            "Marketing",
+            "Other"
+          ],
+          "help": "Category"
+        },
+        {
+          "key": "amount_npr",
+          "label": "Amount (NPR)",
+          "type": "money",
+          "required": true,
+          "help": "Amount (NPR)"
+        },
+        {
+          "key": "method",
+          "label": "Method",
+          "type": "choice",
+          "required": true,
+          "options": [
+            "Cash",
+            "Digital",
+            "Bank",
+            "Other"
+          ],
+          "help": "Method"
+        },
+        {
+          "key": "supplier_reference",
+          "label": "Supplier reference",
+          "type": "text",
+          "required": false,
+          "help": "Supplier reference"
+        },
+        {
+          "key": "source_reference",
+          "label": "Receipt reference",
+          "type": "text",
+          "required": true,
+          "help": "Receipt reference"
+        },
+        {
+          "key": "entered_by_staff_id",
+          "label": "Staff ID",
+          "type": "id",
+          "required": true,
+          "references": "team.staff_id",
+          "help": "Staff ID"
+        }
+      ]
+    },
+    {
+      "key": "daily_close",
+      "tab": "Daily Close",
+      "prefix": "DAY",
+      "rows": 300,
+      "title": "Daily close",
+      "owner": "Manager",
+      "grain": "One row per location per date.",
+      "unique": [
+        [
+          "location_id",
+          "local_date"
+        ]
+      ],
+      "fields": [
+        {
+          "key": "day_id",
+          "label": "Day ID",
+          "type": "id",
+          "required": true,
+          "help": "Day ID"
+        },
+        {
+          "key": "local_date",
+          "label": "Date",
+          "type": "date",
+          "required": true,
+          "help": "Date"
+        },
+        {
+          "key": "location_id",
+          "label": "Location ID",
+          "type": "id",
+          "required": true,
+          "references": "locations.location_id",
+          "help": "Location ID"
+        },
+        {
+          "key": "opening_cash_npr",
+          "label": "Opening cash (NPR)",
+          "type": "money",
+          "required": false,
+          "help": "Opening cash (NPR)"
+        },
+        {
+          "key": "counted_closing_cash_npr",
+          "label": "Counted cash (NPR)",
+          "type": "money",
+          "required": false,
+          "help": "Counted cash (NPR)"
+        },
+        {
+          "key": "opening_done",
+          "label": "Opening done",
+          "type": "choice",
+          "required": true,
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "help": "Opening done"
+        },
+        {
+          "key": "cleaning_done",
+          "label": "Cleaning done",
+          "type": "choice",
+          "required": true,
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "help": "Cleaning done"
+        },
+        {
+          "key": "closing_done",
+          "label": "Closing done",
+          "type": "choice",
+          "required": true,
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "help": "Closing done"
+        },
+        {
+          "key": "reviewed_by_staff_id",
+          "label": "Manager ID",
+          "type": "id",
+          "required": true,
+          "references": "team.staff_id",
+          "help": "Manager ID"
+        },
+        {
+          "key": "source_reference",
+          "label": "Source reference",
+          "type": "text",
+          "required": false,
+          "help": "Source reference"
+        }
+      ]
+    },
+    {
+      "key": "followups",
+      "tab": "Follow-ups",
+      "prefix": "FUP",
+      "rows": 300,
+      "title": "Follow-ups",
+      "owner": "Trainer / Manager",
+      "grain": "One row per follow-up task; keep the row after completion.",
+      "fields": [
+        {
+          "key": "followup_id",
+          "label": "Follow-up ID",
+          "type": "id",
+          "required": true,
+          "help": "Follow-up ID"
+        },
+        {
+          "key": "customer_id",
+          "label": "Client ID",
+          "type": "id",
+          "required": true,
+          "references": "customers.customer_id",
+          "help": "Client ID"
+        },
+        {
+          "key": "assigned_staff_id",
+          "label": "Staff ID",
+          "type": "id",
+          "required": true,
+          "references": "team.staff_id",
+          "help": "Staff ID"
+        },
+        {
+          "key": "due_date",
+          "label": "Due date",
+          "type": "date",
+          "required": true,
+          "help": "Due date"
+        },
+        {
+          "key": "reason",
+          "label": "Reason",
+          "type": "choice",
+          "required": true,
+          "options": [
+            "Enquiry",
+            "First visit",
+            "Renewal",
+            "Feedback",
+            "Return visit",
+            "Other"
+          ],
+          "help": "Reason"
+        },
+        {
+          "key": "status",
+          "label": "Status",
+          "type": "choice",
+          "required": true,
+          "options": [
+            "Open",
+            "Done",
+            "Cancelled"
+          ],
+          "help": "Status"
+        },
+        {
+          "key": "completed_date",
+          "label": "Completed date",
+          "type": "date",
+          "required": false,
+          "help": "Completed date"
+        },
+        {
+          "key": "source_reference",
+          "label": "Source reference",
+          "type": "text",
+          "required": false,
+          "help": "Source reference"
+        }
+      ]
+    },
+    {
+      "key": "equipment",
+      "tab": "Equipment",
+      "prefix": "EQP",
+      "rows": 100,
+      "title": "Equipment",
+      "owner": "Trainer / Manager",
+      "grain": "One row per equipment item, showing its latest inspection status.",
+      "fields": [
+        {
+          "key": "equipment_id",
+          "label": "Equipment ID",
+          "type": "id",
+          "required": true,
+          "help": "Equipment ID"
+        },
+        {
+          "key": "location_id",
+          "label": "Location ID",
+          "type": "id",
+          "required": true,
+          "references": "locations.location_id",
+          "help": "Location ID"
+        },
+        {
+          "key": "name",
+          "label": "Item name",
+          "type": "text",
+          "required": true,
+          "help": "Item name"
+        },
+        {
+          "key": "status",
+          "label": "Status",
+          "type": "choice",
+          "required": true,
+          "options": [
+            "Ready",
+            "Check needed",
+            "Out of service"
+          ],
+          "help": "Status"
+        },
+        {
+          "key": "last_check_date",
+          "label": "Last checked",
+          "type": "date",
+          "required": false,
+          "help": "Last checked"
+        },
+        {
+          "key": "next_check_date",
+          "label": "Next check",
+          "type": "date",
+          "required": false,
+          "help": "Next check"
+        },
+        {
+          "key": "checked_by_staff_id",
+          "label": "Checked by ID",
+          "type": "id",
+          "required": false,
+          "references": "team.staff_id",
+          "help": "Checked by ID"
+        },
+        {
+          "key": "source_reference",
+          "label": "Inspection reference",
+          "type": "text",
+          "required": false,
+          "help": "Inspection reference"
+        }
+      ]
+    }
+  ]
+}

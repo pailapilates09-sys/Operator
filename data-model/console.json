@@ -6,7 +6,7 @@
       "key": "today",
       "title": "Today",
       "description": "What happened, what needs attention, and what to review.",
-      "path": ""
+      "path": "today/"
     },
     {
       "key": "sales",

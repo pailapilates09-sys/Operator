@@ -57,21 +57,16 @@ try{
   const displayVersion='review-2026-10-03';
 
   const sidebar=h('aside',{class:'sidebar',id:'navigation'},link(h('span',{class:'brand-mark'},'PP'),'',{class:'brand'}));
-  sidebar.firstChild.append(h('span',{},h('strong',{},'Paila Studio OS'),h('small',{},'SHAREHOLDER REVIEW')));
-  const nav=h('nav',{'aria-label':'Workspace'},link([h('span',{class:'nav-dot'}),'Paila Workspace · all links'],'workspace/',{class:'nav-link'}),link([h('span',{class:'nav-dot'}),'Start here / How to use'],'guide/',{class:'nav-link'}),h('p',{class:'nav-label'},'Daily workspace'));
-  for(const m of cfg.modules){
-    if(m.key==='sales') nav.append(h('p',{class:'nav-label'},'Growth & client journey'));
-    if(m.key==='classes') nav.append(h('p',{class:'nav-label'},'Service & membership'));
-    if(m.key==='staff') nav.append(h('p',{class:'nav-label'},'People & operations'));
-    if(m.key==='management') nav.append(h('p',{class:'nav-label'},'Management & improvement'));
-    if(m.key==='sops') nav.append(h('p',{class:'nav-label'},'Procedures & systems'));
-    if(m.key==='system'){
-      nav.append(link([h('span',{class:'nav-dot'}),'Studio Layout'],'studio/',{class:'nav-link'}));
-      nav.append(link([h('span',{class:'nav-dot'}),'Benchmark model'],'benchmark/',{class:'nav-link'}));
-    }
-    nav.append(link([h('span',{class:'nav-dot'}),m.title],m.path,{class:'nav-link'+(m.key===moduleKey?' active':''),...(m.key===moduleKey?{'aria-current':'page'}:{})}));
-  }
-  sidebar.append(nav,h('div',{class:'sidebar-footer'},h('strong',{},displayVersion),h('p',{},'Pre-release review · approved release v0.6.0')));
+  sidebar.firstChild.append(h('span',{},h('strong',{},'Paila'),h('small',{},'EXAMPLE SCREENS')));
+  const nav=h('nav',{'aria-label':'Workspace'},link('Home','',{class:'nav-link'}));
+  const areas=[['Daily work','work/daily/'],['Classes','work/classes/'],['Clients','work/clients/'],['Money','work/money/'],['Setup','work/setup/'],['Help','work/help/']];
+  for(const [title,path] of areas)nav.append(link(title,path,{class:'nav-link'}));
+  const groups={today:'daily',operations:'daily',staff:'daily',classes:'classes',sales:'clients',journey:'clients',customers:'clients',memberships:'clients',retention:'clients',management:'money',reports:'money',readiness:'setup',automations:'help',system:'help',sops:'help',model:'help'};
+  const examples=h('details',{class:'nav-examples'},h('summary',{},'Related examples'));
+  examples.open=true;
+  for(const m of cfg.modules.filter(m=>groups[m.key]===groups[moduleKey]))examples.append(link(m.title,m.path,{class:'nav-link'+(m.key===moduleKey?' active':''),...(m.key===moduleKey?{'aria-current':'page'}:{})}));
+  nav.append(examples);
+  sidebar.append(nav,h('div',{class:'sidebar-footer'},h('p',{},'Example figures only. Real records are entered in Google Sheets.')));
 
   const toggle=h('button',{class:'nav-toggle','aria-controls':'navigation','aria-expanded':'false'},'Menu');
   toggle.addEventListener('click',()=>{
@@ -83,29 +78,26 @@ try{
     toggle,
     h('span',{class:'topbar-context'},'Paila Pilates / ',h('strong',{},current.title)),
     h('div',{class:'topbar-links'},
-      pill('FICTIONAL / PROTOTYPE / NOT APPROVED','prototype'),
-      link('Workspace','workspace/'),
-      link('How to use','guide/'),
-      link('Benchmark','benchmark/'),
-      link('Handbook','sop/'),
-      h('a',{href:'https://pailapilates09-sys.github.io/Customer/',target:'_blank',rel:'noopener noreferrer'},'Customer Portal')
+      pill('EXAMPLE FIGURES','prototype'),
+      link('Home',''),
+      link('Sheets','work/sheets/'),
+      link('Help','work/help/')
     )
   );
 
   const main=h('main',{id:'main'},
     h('div',{class:'page-head'},
-      h('div',{},h('div',{class:'eyebrow'},'Owner / shareholder review'),h('h1',{},current.title),h('p',{class:'lede'},current.description)),
-      pill('PRE-RELEASE / REVIEW','prototype')
+      h('div',{},h('div',{class:'eyebrow'},'Example screen'),h('h1',{},current.title),h('p',{class:'lede'},current.description))
     )
   );
 
   main.append(note(
-    'PRE-RELEASE / SHAREHOLDER REVIEW',
-    seed.disclaimer,
+    'These figures are examples',
+    'Use the Sheets menu to enter real records. These screens do not read the new sheets yet.',
     'prototype-notice'
   ));
 
-  if(moduleKey==='today') main.append(card('New here? Start with one useful loop','A short guide explains what to click first, then offers deeper walkthroughs.',h('div',{class:'module-links'},link('1-page quick start','guide/'),link('3-page walkthrough','guide/3-pages/'),link('7-page daily / weekly guide','guide/7-pages/'),link('15-page reference','guide/15-pages/'))));
+  if(moduleKey==='today') main.append(card('Start with your task','Enter records in the new staff sheets or learn how to fill them in.',h('div',{class:'module-links'},link('Daily work','work/daily/'),link('Entry guide','work/help/entry/'))));
 
   const benchmarkStrip=()=>h('div',{class:'benchmark-strip'},
     h('div',{},h('span',{class:'eyebrow'},'Selected operating model'),h('strong',{},prototype.selection.primary_operating_system+' backbone')),
@@ -373,11 +365,11 @@ try{
   }
 
   main.append(h('footer',{class:'footer'},
-    h('span',{},'Paila Studio OS · '+displayVersion+' · approved release v0.6.0'),
-    link('Version / rollback','version.json'),
-    link('Benchmark model','benchmark/'),
-    link('Architecture','https://github.com/pailapilates09-sys/Operator/blob/main/docs/studio-os.md'),
-    h('span',{},'FICTIONAL / PROTOTYPE / NOT APPROVED · private backend disconnected')
+    h('span',{},'Paila · Example screen'),
+    link('Home',''),
+    link('Sheets','work/sheets/'),
+    link('Help','work/help/'),
+    h('span',{},'Example figures. Real sheet reports are not connected yet.')
   ));
 
   app.replaceChildren(h('div',{class:'shell'},sidebar,h('div',{class:'workspace'},topbar,main)));

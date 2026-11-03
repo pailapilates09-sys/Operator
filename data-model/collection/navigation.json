@@ -1,0 +1,109 @@
+{
+  "updated": "2026-11-03",
+  "title": "Paila",
+  "categories": [
+    {
+      "key": "daily",
+      "title": "Daily work",
+      "summary": "Close the day, follow up and check equipment.",
+      "sheets": [
+        "daily_close",
+        "followups",
+        "equipment"
+      ],
+      "examples": [
+        [
+          "Today",
+          "today/"
+        ],
+        [
+          "Opening and closing",
+          "operations/"
+        ],
+        [
+          "Team",
+          "staff/"
+        ]
+      ]
+    },
+    {
+      "key": "classes",
+      "title": "Classes",
+      "summary": "Set the schedule and mark attendance.",
+      "sheets": [
+        "sessions",
+        "attendance"
+      ],
+      "examples": [
+        [
+          "Class desk",
+          "classes/"
+        ]
+      ]
+    },
+    {
+      "key": "clients",
+      "title": "Clients",
+      "summary": "Keep client details and memberships together.",
+      "sheets": [
+        "customers",
+        "memberships"
+      ],
+      "examples": [
+        [
+          "Client list",
+          "customers/"
+        ],
+        [
+          "Client journey",
+          "journey/"
+        ],
+        [
+          "Enquiries",
+          "sales/"
+        ],
+        [
+          "Memberships",
+          "memberships/"
+        ],
+        [
+          "Follow-up ideas",
+          "retention/"
+        ]
+      ]
+    },
+    {
+      "key": "money",
+      "title": "Money",
+      "summary": "Record money received and money spent.",
+      "sheets": [
+        "payments",
+        "expenses"
+      ],
+      "examples": [
+        [
+          "Sample reports",
+          "reports/"
+        ],
+        [
+          "Planning example",
+          "management/"
+        ]
+      ]
+    },
+    {
+      "key": "setup",
+      "title": "Setup",
+      "summary": "Add locations, staff and plans before starting.",
+      "sheets": [
+        "setup"
+      ],
+      "examples": [
+        [
+          "Opening plan",
+          "readiness/"
+        ]
+      ]
+    }
+  ]
+}

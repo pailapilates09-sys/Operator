@@ -1,89 +1,48 @@
-# Paila Studio OS / Client Portal
+# Paila studio work
 
-Live owner / management framework: https://pailapilates09-sys.github.io/Operator/
+[Open the website](https://pailapilates09-sys.github.io/Operator/) · [Find a sheet](https://pailapilates09-sys.github.io/Operator/work/sheets/) · [Entry guide](https://pailapilates09-sys.github.io/Operator/work/help/entry/)
 
-Live build: **review-2026-10-03 — PRE-RELEASE / SHAREHOLDER REVIEW**. Approved frozen release: **v0.6.0**. Real operational sources are **not connected**. No private customer, payment, staff or incident records belong in this public repository. All automation candidates are inactive.
+Choose Daily work, Classes, Clients, Money, Setup or Help. Each area opens a small page with its owning Google Sheet and short instructions. Ten native files contain twelve related input tables. The old management screens are labelled examples; the former Today home is preserved at `/today/`.
 
-See [architecture and integration contract](docs/studio-os.md), [version and rollback](version.json), [public data dictionary](data-model/dictionary.json) and [changelog](CHANGELOG.md). Existing `/sop/` and `/studio/` are preserved. GitHub Pages continues to publish from `main` at the repository root.
+## Maintain
 
+- `data-model/collection/navigation.json`: categories and examples.
+- `data-model/collection/sources.json`: verified Sheet IDs and tab links.
+- `data-model/collection/contract.json`: fields, stable IDs and relationships.
+- `tools/build_staff_site.py`: generated staff pages.
+- `tools/build_collection_contract.py`: SQL DDL and CSV field map.
+- `work/work.js`: Sheet-link refresh, sharing and search.
 
-The working review adds a client conversion board (`/journey/`), accountable decision board (`/management/`), optional launch lens (`/readiness/`) and connected fictional management views. All demo records, amounts and operating assumptions are **FICTIONAL / PROTOTYPE / NOT APPROVED**. Demo interactions use only known synthetic identifiers and allowlisted status values in browser-session storage. The reset control clears that demo state. No real messaging, payment, equipment release, policy approval or private record writing occurs.
+The Pages workflow rebuilds and validates the staff pages. Existing SOP and spatial-viewer assets are preserved. The Customer website remains a separate outward link.
 
-The research application map is `data-model/research-model.json`. Shared event projections in `data-model/prototype-engine.js` reconcile metrics across pages. The seed schema is a demonstration model, separate from the future private production entity/event contracts. Rollback is `ade69b1073468c913e25b1a486cb417e54016adb` on `rollback/before-shareholder-review-2026-10-03`. No v0.7.0 formal release is authorised.
+## Data collection
 
-Minimum verification: `python tools/validate_studio_os.py` (requires `jsonschema[format]`), `node tools/verify_review.mjs`, ES module syntax checks and provider-read Pages success for the exact published main SHA. Owner visual review follows publication.
+Staff edit the native Sheets. Keep column A's issued ID, reuse related IDs, and keep completed rows. Unused ID-only rows are not records. Add another unique ID batch when needed; do not copy a file to create a competing input source.
 
-Use [How to use / Start here](guide/) for 1-, 3-, 7- and 15-page progressive web guides. Browser printing supports a Save PDF option; pagination depends on print settings. Tutorial v1.0 teaches the implemented fictional controls and their boundaries.
+The private reader validates required fields, primary and foreign keys, dates, refunds, cross-client memberships, attendance capacity and source deletions. It writes private JSON/CSV/SQL and append-only JSONL observations.
 
-## Earlier portal documentation (preserved history)
+```sh
+python3 tools/collect_studio_sheets.py --csv-dir /private/studio-csv --out /private/studio-data
+python3 tools/collect_studio_sheets.py --live --out /private/studio-data
+```
 
-# Paila Pilates — Client Portal & SOP Handbook
+Live reading requires a short-lived `GOOGLE_SHEETS_ACCESS_TOKEN` in the private runner environment. Keep credentials out of source and chat. Public pages fetch the directory of Sheet links; they do not fetch private business rows.
 
-This repository is the public-safe presentation layer for the Paila Pilates owner/client-facing digital gateway.
+**Automatic reports are INCOMPLETE.** No private scheduler, authenticated reporting endpoint or live website data feed is configured. Existing dashboard numbers remain fictional. The new collection staging model does not replace the older nineteen private entity/event schemas. No live SQL migration or formal Studio OS v0.7 release is claimed; the frozen v0.6.0 reference is preserved.
 
-## Live architecture
+## Checks
 
-- `/` — Client Portal home
-- `/sop/` — SOP / Operations Handbook
-- Customer Portal — linked externally to the separate `pailapilates10-cmd/Paila-Pilates.com` repository and GitHub Pages site
-- Business Systems — operational source reconciliation pending; no public owner-facing presentation is published here yet
-- Reports — no approved portal published yet
-- Future Systems — added only when a real, approved system exists
+```sh
+python3 tools/build_collection_contract.py
+python3 tools/build_staff_site.py
+python3 tools/validate_staff_site.py
+python3 tools/verify_collection.py
+node tools/verify_review.mjs
+node --check os.js
+node --check review.js
+node --check work/work.js
+```
 
-## Repository files
+Rollback: `rollback/before-simple-staff-site-20261103` at `e2a050fd061e5c53eecdbf52089261fce1c5c086`. Preserve history and use a reviewed revert or fix-forward commit. Candidate: `publication/simple-staff-site-20261103`.
 
-- `index.html` — Client Portal home
-- `portal.css` — Client Portal visual system
-- `portal.js` — Client Portal lightweight runtime
-- `version.json` — current visible version and fallback lineage
-- `CHANGELOG.md` — milestone and version history
-- `sop/index.html` — searchable SOP directory; individual SOP and topic pages live alongside it
-- `styles.css` — SOP Handbook styling
-- `sop/handbook.js` — search, filters, navigation and legacy fragment handling
-- `sop/handbook.css` — responsive handbook layout
-- `sop/catalog.json` — public procedure metadata and preserved presentation-source reference
-
-## Versioning and rollback
-
-GitHub Pages stays on `main` → `/(root)`.
-
-Branches are **not** used as website navigation. They are behind-the-scenes development or fallback references. The pre-portal SOP milestone is preserved at:
-
-- commit `b22cf439a3d3457b66c8174f27a97744ab283f99`
-- branch `milestone/sop-handbook-v0.1.0`
-
-Every commit remains part of Git history, so individual changes can be inspected or restored. Named milestones provide an easier rollback pointer.
-
-## Authority model
-
-- Google Drive / approved business sources: business and operational source authority
-- GitHub: version-controlled public/client-safe presentation code
-- GitHub Pages: public-safe presentation layer
-- Restricted operational material remains in approved private systems
-
-## Public repository rule
-
-Never commit passwords, API keys, private customer/member information, health information, payment records, staff personal information, confidential security procedures, private operational workbooks, or internal credentials.
-
-## Current version
-
-See `version.json` and `CHANGELOG.md`.
-
-
-## Review boundary
-
-The four SOP records retain their existing Draft/Planned status. Missing owners, approvers, scope and effective/review dates are explicit. Publishing this interface does not approve its procedures.
-
-## Studio layout preview
-
-`/studio/` contains the interactive 2D plan and lazy-loaded 3D cutaway. Both portals consume the same geometry version and canonical SHA-256, recorded in `studio/manifest.json`. The view remains a source-derived preview; height is illustrative and dimensional conflicts remain unresolved. Original plan/video and private lineage stay in restricted project storage. Three.js 0.170.0 is vendored with its MIT license. No build or runtime CDN is needed.
-
-Tutorial v1.1 adds 26 illustrated infographic pages, optional text, full-size image/download links and original PNG links in Google Drive. Same guide URLs; no formal product release.
-
-## Paila Workspace
-
-[Open the tools, links and guides directory](https://pailapilates09-sys.github.io/Operator/workspace/). Entries live in `workspace/links.json`; see [editing and source notes](docs/workspace-directory.md). The daily Sheet-to-website integration remains INCOMPLETE.
-
-## 09 recovery links
-
-[Recovery files, live pages and ownership](docs/DRIVE_RECOVERY_09.md) records the native 09 Docs and Sheets. [Open this repository](https://github.com/pailapilates09-sys/Operator).
+The [09 recovery record](docs/DRIVE_RECOVERY_09.md) retains earlier lineage. Original private control/registrar contents are unavailable to the 09 connection. This bounded update uses live 09 Drive/repository sources; no central sequence or Main ACK is invented. Owner visual review remains with the owner.
