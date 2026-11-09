@@ -9,11 +9,14 @@ Choose Daily work, Classes, Clients, Money, Setup or Help. Each area opens a sma
 - `data-model/collection/navigation.json`: categories and examples.
 - `data-model/collection/sources.json`: verified Sheet IDs and tab links.
 - `data-model/collection/contract.json`: fields, stable IDs and relationships.
+- `data-model/construction-progress.json`: reviewed construction updates and evidence counts used by the Construction progress report.
 - `tools/build_staff_site.py`: generated staff pages.
 - `tools/build_collection_contract.py`: SQL DDL and CSV field map.
 - `work/work.js`: Sheet-link refresh, sharing and search.
 
 The Pages workflow rebuilds and validates the staff pages. Existing SOP and spatial-viewer assets are preserved. The Customer website remains a separate outward link.
+
+To refresh Construction progress, reconcile the Progress and Summary tabs with the dated Drive notes, then update the reviewed snapshot. Keep the issued Progress IDs and use `null` for an unmeasured installed quantity. The Pages workflow renders the snapshot on each deploy.
 
 ## Data collection
 

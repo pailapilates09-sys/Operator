@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Build the staff website from its navigation, field definitions and verified sheet links."""
 import json
+from collections import Counter
+from datetime import date
 from pathlib import Path
 from html import escape
 from urllib.parse import urlparse
@@ -9,6 +11,8 @@ contract=json.loads((ROOT/'data-model/collection/contract.json').read_text())
 catalog=json.loads((ROOT/'data-model/collection/sources.json').read_text())
 navigation=json.loads((ROOT/'data-model/collection/navigation.json').read_text())
 old=json.loads((ROOT/'workspace/links.json').read_text())
+construction=json.loads((ROOT/'data-model/construction-progress.json').read_text())
+construction_route='work/construction-progress/'
 sources={s['key']:s for s in catalog['sources']}
 tables={t['key']:t for t in contract['tables']}
 E=lambda s:escape(str(s),quote=True)
@@ -17,12 +21,13 @@ def rel(route,prefix):return prefix+route
 def header(prefix,current=''):
     links=[('Home',''),('Daily work','work/daily/'),('Help','work/help/')]
     return '<header class="top"><div class="wrap"><a class="brand" href="'+prefix+'">Paila<small>Studio work</small></a><nav aria-label="Main">'+''.join('<a href="'+rel(p,prefix)+'"'+(' aria-current="page"' if n==current else '')+'>'+n+'</a>' for n,p in links)+'</nav></div></header>'
-def shell(route,title,description,body,crumbs=(),current=''):
+def shell(route,title,description,body,crumbs=(),current='',stylesheet='',updated='3 November 2026'):
     file='index.html' if not route else route+'index.html'
     depth=len(Path(file).parts)-1
     prefix='../'*depth if depth else './'
     breadcrumb='<nav class="crumbs" aria-label="Breadcrumb"><a href="'+prefix+'">Home</a>'+''.join(' / <a href="'+rel(p,prefix)+'">'+E(n)+'</a>' for n,p in crumbs)+'</nav>' if crumbs else ''
-    markup='<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="description" content="'+E(description)+'"><title>'+E(title)+' · Paila</title><link rel="stylesheet" href="'+prefix+'work/work.css?v=20261103"></head><body data-root="'+prefix+'"><a class="skip" href="#main">Skip to content</a>'+header(prefix,current)+'<main class="wrap" id="main">'+breadcrumb+'<header class="hero"><p class="eyebrow">Paila Pilates</p><h1>'+E(title)+'</h1><p class="intro">'+E(description)+'</p></header>'+body.replace('@@ROOT@@',prefix)+'</main><footer class="footer"><div class="wrap"><span>Paila · Updated 3 November 2026</span><span><a href="'+prefix+'work/sheets/">Sheets</a> · <a href="'+prefix+'work/resources/">Files & tools</a> · <a href="https://pailapilates09-sys.github.io/Customer/">Customer website</a></span></div></footer><script src="'+prefix+'work/work.js?v=20261103" defer></script></body></html>\n'
+    extra_style='<link rel="stylesheet" href="'+E(prefix+stylesheet)+'">' if stylesheet else ''
+    markup='<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="description" content="'+E(description)+'"><title>'+E(title)+' · Paila</title><link rel="stylesheet" href="'+prefix+'work/work.css?v=20261103">'+extra_style+'</head><body data-root="'+prefix+'"><a class="skip" href="#main">Skip to content</a>'+header(prefix,current)+'<main class="wrap" id="main">'+breadcrumb+'<header class="hero"><p class="eyebrow">Paila Pilates</p><h1>'+E(title)+'</h1><p class="intro">'+E(description)+'</p></header>'+body.replace('@@ROOT@@',prefix)+'</main><footer class="footer"><div class="wrap"><span>Paila · Updated '+E(updated)+'</span><span><a href="'+prefix+'work/sheets/">Sheets</a> · <a href="'+prefix+'work/resources/">Files & tools</a> · <a href="https://pailapilates09-sys.github.io/Customer/">Customer website</a></span></div></footer><script src="'+prefix+'work/work.js?v=20261103" defer></script></body></html>\n'
     target=ROOT/file;target.parent.mkdir(parents=True,exist_ok=True);target.write_text(markup);pages.append(file)
 def button(title,url,key=None,tab=None,secondary=False):
     return '<a class="button'+(' secondary' if secondary else '')+'" href="'+E(url)+'"'+(' data-sheet-key="'+E(key)+'"' if key else '')+(' data-sheet-tab="'+E(tab)+'"' if tab else '')+'>'+E(title)+'</a>'
@@ -34,7 +39,7 @@ def sheetcard(key):
 home='<div class="cards">'+''.join(tile(g['title'],g['summary'],'@@ROOT@@work/'+g['key']+'/', '<span class="number">'+str(i+1).zfill(2)+'</span>') for i,g in enumerate(navigation['categories']))+tile('Help','Learn the steps, find a procedure or open the studio plan.','@@ROOT@@work/help/','<span class="number">06</span>')+'</div>'
 home+='<section class="soft"><h2>First time here?</h2><p>The manager adds locations, staff and plans in Setup. Trainers then use Classes and Attendance.</p><a href="@@ROOT@@work/setup/">Start with Setup →</a></section>'
 home+='<div class="share"><button class="button secondary" type="button" data-copy-link hidden>Copy page link</button><p class="small" id="copy-status" role="status"></p><input id="share-url" aria-label="Link to copy" readonly hidden></div>'
-home+='<p class="small">Records are edited in Google Sheets. <a href="@@ROOT@@work/reports/">Combined reports come next.</a></p>'
+home+='<p class="small">Records are edited in Google Sheets. <a href="@@ROOT@@work/reports/">Reports</a> · <a href="@@ROOT@@'+construction_route+'">Construction progress</a></p>'
 shell('','Studio work','Choose a task. Open its sheet. Keep the records up to date.',home,current='Home')
 shell('workspace/','Tools & sheets','Choose an area to find its sheets, instructions and examples.',home,crumbs=[('Tools & sheets','workspace/')])
 for group in navigation['categories']:
@@ -51,6 +56,8 @@ for group in navigation['categories']:
         body+='<section class="soft"><h2>Record the transaction</h2><p>Enter the amount in NPR and keep the receipt reference. For a refund, choose Refund and copy the original Payment ID. Money received is not the same as profit.</p></section><p><a href="@@ROOT@@work/reports/">About the future reports →</a></p>'
     else:
         body+='<section class="soft"><h2>At the end of the day</h2><p>Update follow-ups and equipment checks, then finish Daily close. Keep unknown amounts blank.</p></section>'
+    if key=='daily':
+        body+='<section class="section"><h2>Construction</h2><p><a href="@@ROOT@@'+construction_route+'">View construction progress →</a></p></section>'
     body+='<details class="details"><summary>See an example</summary><div><p class="small">These older screens use example figures.</p><ul class="line-list">'+''.join('<li><a href="@@ROOT@@'+p+'">'+E(n)+'</a></li>' for n,p in group['examples'])+'</ul></div></details>'
     shell('work/'+key+'/',group['title'],group['summary'],body,crumbs=[(group['title'],'work/'+key+'/')],current='Daily work' if key=='daily' else '')
 sheet_intro='<section class="soft"><h2>Choose your task</h2><p>Share the relevant sheet with each trainer or manager. Use these same files for ongoing records.</p><a href="'+E(catalog['source_folder'])+'">Open the folder containing all 10 sheets →</a></section><div class="search" hidden><label for="find-sheet">Find a sheet</label><input id="find-sheet" type="search" placeholder="Try attendance or manager"></div>'
@@ -105,7 +112,110 @@ for label,source,used in [
 ids+='</tbody></table></div><p>Keep the issued IDs in column A. Copy an ID from an existing row only when that row has been filled in. An ID beside an empty row is still unused.</p><p><a href="@@ROOT@@work/sheets/">Open the sheet directory →</a></p>'
 shell('work/help/ids/','How IDs work','IDs let us match records across the sheets.',ids,crumbs=[('Help','work/help/'),('How IDs work','work/help/ids/')])
 reports='<section class="soft"><h2>Collect the records first</h2><p>The 10 input files are linked and ready for entry. There is no automatic combined report yet.</p></section><section class="section"><h2>Once the sheets are in use</h2><ul class="line-list"><li>Classes and Attendance show bookings, completed visits and no-shows.</li><li>Clients and Memberships show enquiries, purchases and renewal dates.</li><li>Payments and Expenses show cash received, refunds and spending.</li><li>Follow-ups and Daily close show unfinished tasks.</li></ul></section><p>We will check the IDs and missing values before combining the records. The technical setup is on the <a href="@@ROOT@@work/resources/tools/">tools page</a>.</p><details class="details"><summary>View the old report example</summary><div><p>Its figures are fictional.</p><a href="@@ROOT@@reports/">Open the report example →</a></div></details>'
-shell('work/reports/','Reports','Combined reports will follow the data collection.',reports,crumbs=[('Reports','work/reports/')])
+reports='<div class="section">'+tile('Construction progress','Daily site updates, status counts and measured work.','@@ROOT@@'+construction_route)+'</div>'+reports
+shell('work/reports/','Reports','Construction progress and planned studio reports.',reports,crumbs=[('Reports','work/reports/')])
+
+def date_label(value):
+    day = date.fromisoformat(value)
+    return f'{day.day} {day:%B %Y}'
+
+def quantity(value):
+    return f'{value:,.3f}'.rstrip('0').rstrip('.')
+
+def construction_report(snapshot):
+    status_styles = {'Done': 'done', 'In progress': 'active', 'Blocked': 'blocked'}
+    days = sorted(snapshot['days'], key=lambda day: day['date'], reverse=True)
+    if not days or len({day['date'] for day in days}) != len(days):
+        raise ValueError('Construction progress needs unique report dates.')
+    entries = [entry for day in days for entry in day['entries']]
+    if len({entry['id'] for entry in entries}) != len(entries):
+        raise ValueError('Construction progress contains duplicate Progress IDs.')
+    scale = max(1, max(len(day['entries']) for day in days))
+    bars = []
+    details = []
+    for day in days:
+        report_date = day['date']
+        label = date_label(report_date)
+        counts = Counter(entry['status'] for entry in day['entries'])
+        if counts.keys() - status_styles.keys():
+            raise ValueError(f'Unknown construction status on {report_date}.')
+        segments = ''.join(
+            f'<span class="progress-{style}" style="flex-grow:{counts[status]}"></span>'
+            for status, style in status_styles.items() if counts[status]
+        )
+        remainder = scale - len(day['entries'])
+        if remainder:
+            segments += f'<span style="flex-grow:{remainder}"></span>'
+        legend = ''.join(
+            f'<span class="progress-key progress-{style}">{counts[status]} {status.lower()}</span>'
+            for status, style in status_styles.items()
+        )
+        bars.append(
+            f'<li><time datetime="{E(report_date)}">{E(label)}</time>'
+            f'<div class="progress-track" aria-hidden="true">{segments}</div>'
+            f'<div class="progress-counts">{legend}</div></li>'
+        )
+        activity = []
+        for entry in day['entries']:
+            status = entry['status']
+            area = f'<small>{E(entry["area"])}</small>' if entry.get('area') else ''
+            scope = ''
+            if estimate := entry.get('scope_estimate'):
+                area_change = quantity(estimate['additional_sq_ft'])
+                rate = quantity(estimate['rate_npr_per_sq_ft'])
+                cost = quantity(estimate['additional_npr'])
+                scope = f'<small>Estimated scope increase of {area_change} sq ft at NPR {rate} per sq ft, about NPR {cost}.</small>'
+            activity.append(
+                f'<li id="{E(entry["id"])}"><div class="progress-entry">'
+                f'<strong>{E(entry["work"])}</strong>'
+                f'<span class="progress-key progress-{status_styles[status]}">{E(status)}</span></div>'
+                f'{area}<p>{E(entry["update"])}</p>{scope}</li>'
+            )
+        evidence = day['evidence']
+        evidence_counts = ' · '.join(
+            f'{evidence[key]} {label if evidence[key] == 1 else key}'
+            for key, label in [('notes', 'note'), ('images', 'image'), ('videos', 'video')]
+        )
+        opened = ' open' if day is days[0] else ''
+        details.append(
+            f'<details class="details"{opened}><summary>{E(label)} · {len(activity)} updates</summary>'
+            f'<div><p class="small">Drive evidence · {E(evidence_counts)}</p>'
+            f'<ul class="line-list">{"".join(activity)}</ul></div></details>'
+        )
+    measurements = []
+    for item in snapshot['measurements']:
+        planned = item['planned_sq_ft']
+        installed = item['installed_sq_ft']
+        if planned <= 0 or (installed is not None and installed < 0):
+            raise ValueError(f'Invalid installed-area values for {item["work"]}.')
+        if installed is None:
+            reading = '<p>Awaiting measurement</p>'
+        else:
+            percent = 100 * installed / planned
+            reading = (
+                f'<p>{quantity(installed)} sq ft installed · {percent:.1f}% of planned area</p>'
+                f'<progress aria-label="{E(item["work"])} installed area" max="100" value="{min(100, percent):.2f}"></progress>'
+            )
+        measurements.append(
+            f'<article class="card progress-measure"><h3>{E(item["work"])}</h3>'
+            f'<p>{quantity(planned)} sq ft planned</p>{reading}</article>'
+        )
+    latest = date_label(days[0]['date'])
+    return (
+        f'<p class="small progress-dates">Latest report {E(latest)} · Snapshot reviewed {E(date_label(snapshot["reviewed_on"]))}</p>'
+        '<section class="section" aria-labelledby="daily-status"><h2 id="daily-status">Daily update counts</h2>'
+        '<p class="small">Bars share a scale. Each segment counts logged updates in that status.</p>'
+        f'<div class="card"><ul class="progress-chart">{"".join(bars)}</ul></div></section>'
+        '<section class="section" aria-labelledby="daily-log"><h2 id="daily-log">Site updates</h2>'
+        f'{"".join(details)}</section>'
+        '<section class="section" aria-labelledby="measured-work"><h2 id="measured-work">Measured work</h2>'
+        f'{"".join(measurements)}</section>'
+        '<p class="small">This snapshot combines the Construction Daily Progress sheet and the dated Drive site reports.</p>'
+    )
+
+shell(construction_route,'Construction progress','Daily site updates, scope changes and measured installation.',
+      construction_report(construction),crumbs=[('Reports','work/reports/'),('Construction progress',construction_route)],
+      stylesheet=construction_route+'progress.css',updated=date_label(construction['reviewed_on']))
 resource_groups=[
  ('documents','Documents','Source references and editable files.',['recovered-studio_reference','drive','website-sources','business-sources','sop-sources','daily-sheet','guide-originals']),
  ('tools','Technical tools','For the person maintaining the system.',['client-repo','customer-repo','export-runbook','export-code','adapter','architecture','neon','vercel','model','system','automations']),
@@ -128,6 +238,6 @@ for key,title,desc,entry_ids in resource_groups:
     shell('work/resources/'+key+'/',title,desc,body,crumbs=[('Help','work/help/'),('Files & tools','work/resources/'),(title,'work/resources/'+key+'/')])
 changes='<div class="table-wrap"><table><thead><tr><th>Before</th><th>Now</th></tr></thead><tbody><tr><td>Dozens of links on one long page</td><td>Six choices on the home page, with smaller pages below</td></tr><tr><td>Every management screen in the main menu</td><td>Short navigation and examples inside their relevant categories</td></tr><tr><td>Repeated technical notes</td><td>Short instructions, with technical details under Files & tools</td></tr><tr><td>One aggregate daily workbook</td><td>Ten focused input files with matching IDs</td></tr><tr><td>Unclear real versus sample figures</td><td>Staff sheets are the input files; older screens are marked as examples</td></tr></tbody></table></div><p class="small">Combined reporting remains the next connection step.</p>'
 shell('work/help/changes/','What changed','A shorter route from a task to the right sheet.',changes,crumbs=[('Help','work/help/'),('What changed','work/help/changes/')])
-(ROOT/'data-model/collection/generated-pages.json').write_text(json.dumps({'generated_from':['contract.json','sources.json','navigation.json','workspace/links.json'],'pages':pages},indent=2)+'\n')
+(ROOT/'data-model/collection/generated-pages.json').write_text(json.dumps({'generated_from':['contract.json','sources.json','navigation.json','workspace/links.json','data-model/construction-progress.json'],'pages':pages},indent=2)+'\n')
 print(f'Built {len(pages)} pages from {len(sources)} sheet sources.')
 

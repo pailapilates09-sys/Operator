@@ -1,0 +1,71 @@
+{
+  "reviewed_on": "2026-11-09",
+  "days": [
+    {
+      "date": "2026-11-07",
+      "evidence": {
+        "notes": 1,
+        "images": 4,
+        "videos": 1
+      },
+      "entries": [
+        {
+          "id": "PRG-000001",
+          "work": "Opening pooja",
+          "status": "Done",
+          "update": "Opening pooja completed at the studio entrance.",
+          "area": "Entrance"
+        },
+        {
+          "id": "PRG-000002",
+          "work": "Partition material unloading",
+          "status": "Done",
+          "update": "Materials for the reception partition were unloaded on site.",
+          "area": "Reception"
+        },
+        {
+          "id": "PRG-000003",
+          "work": "Reception gypsum partition",
+          "status": "In progress",
+          "update": "Work 05 started. Metal studs and ceiling track were being fitted.",
+          "area": "Reception"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "evidence": {
+        "notes": 1,
+        "images": 3,
+        "videos": 1
+      },
+      "entries": [
+        {
+          "id": "PRG-000004",
+          "work": "Reception gypsum partition",
+          "status": "In progress",
+          "update": "Work 05 framing installed.",
+          "area": "Reception"
+        },
+        {
+          "id": "PRG-000005",
+          "work": "Work 12 gypsum partition",
+          "status": "In progress",
+          "update": "Framing installed.",
+          "scope_estimate": {
+            "additional_sq_ft": 110.5,
+            "rate_npr_per_sq_ft": 500,
+            "additional_npr": 55250
+          }
+        }
+      ]
+    }
+  ],
+  "measurements": [
+    {
+      "work": "Reception gypsum partition",
+      "planned_sq_ft": 62.253,
+      "installed_sq_ft": null
+    }
+  ]
+}

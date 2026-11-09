@@ -3,7 +3,8 @@
     "contract.json",
     "sources.json",
     "navigation.json",
-    "workspace/links.json"
+    "workspace/links.json",
+    "data-model/construction-progress.json"
   ],
   "pages": [
     "index.html",
@@ -28,6 +29,7 @@
     "work/help/entry/index.html",
     "work/help/ids/index.html",
     "work/reports/index.html",
+    "work/construction-progress/index.html",
     "work/resources/index.html",
     "work/resources/documents/index.html",
     "work/resources/tools/index.html",
