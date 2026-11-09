@@ -115,12 +115,74 @@ reports='<section class="soft"><h2>Collect the records first</h2><p>The 10 input
 reports='<div class="section">'+tile('Construction progress','Daily site updates, status counts and measured work.','@@ROOT@@'+construction_route)+'</div>'+reports
 shell('work/reports/','Reports','Construction progress and planned studio reports.',reports,crumbs=[('Reports','work/reports/')])
 
-def date_label(value):
+def date_label(value, short=False):
     day = date.fromisoformat(value)
-    return f'{day.day} {day:%B %Y}'
+    return f'{day.day} {day:%b}' if short else f'{day.day} {day:%B %Y}'
 
 def quantity(value):
     return f'{value:,.3f}'.rstrip('0').rstrip('.')
+
+def construction_gallery(days):
+    tiles = []
+    for day in reversed(days):
+        report_date = day['date']
+        label = date_label(report_date)
+        for photo in day.get('photos', []):
+            url = '@@ROOT@@' + construction_route + 'media/' + photo['file']
+            focus = ' data-focus="lower"' if photo.get('focus') == 'lower' else ''
+            tiles.append(
+                f'<figure class="card progress-photo"{focus}>'
+                f'<a href="{E(url)}" aria-label="{E("View larger image of " + photo["title"])}">'
+                f'<img src="{E(url)}" alt="{E(photo["alt"])}" width="{int(photo["width"])}" '
+                f'height="{int(photo["height"])}" loading="lazy" decoding="async"></a>'
+                f'<figcaption><p class="meta"><time datetime="{E(report_date)}">{E(label)}</time>'
+                f' · {E(photo["kind"])}</p><h3>{E(photo["title"])}</h3><p>{E(photo["caption"])}</p></figcaption></figure>'
+            )
+    if not tiles:
+        return ''
+    return (
+        '<section class="section" aria-labelledby="site-photos"><h2 id="site-photos">Site photos</h2>'
+        '<p class="small">Views from the dated site reports. Open a photo for a larger view.</p>'
+        f'<div class="progress-gallery">{"".join(tiles)}</div></section>'
+    )
+
+def construction_stages(days):
+    dates = [day['date'] for day in reversed(days)]
+    tracks = {}
+    for day in days:
+        for entry in day['entries']:
+            if not entry.get('stage'):
+                continue
+            code = entry['work_code']
+            track = tracks.setdefault(code, {'work': entry['work'], 'stages': {}})
+            if day['date'] in track['stages']:
+                raise ValueError(f'Multiple stages for Work {code} on {day["date"]}.')
+            track['stages'][day['date']] = entry['stage']
+    if not tracks:
+        return ''
+    columns = ''.join(
+        f'<th scope="col"><time datetime="{E(day)}">{E(date_label(day, short=True))}</time></th>'
+        for day in dates
+    )
+    rows = []
+    for code, track in sorted(tracks.items()):
+        title = track['work'].removeprefix(f'Work {code} ')
+        cells = []
+        for day in dates:
+            stage = track['stages'].get(day)
+            cells.append(
+                f'<td><span class="progress-stage">{E(stage)}</span></td>' if stage
+                else '<td><span class="small">No stage recorded</span></td>'
+            )
+        rows.append(
+            f'<tr><th scope="row">Work {E(code)}<small>{E(title)}</small></th>{"".join(cells)}</tr>'
+        )
+    return (
+        '<section class="section" aria-labelledby="work-stages"><h2 id="work-stages">Work stages by day</h2>'
+        '<p class="small">Each cell shows the stage recorded for that work item on that date.</p>'
+        '<div class="table-wrap"><table class="progress-stage-table"><thead><tr>'
+        f'<th scope="col">Work item</th>{columns}</tr></thead><tbody>{"".join(rows)}</tbody></table></div></section>'
+    )
 
 def construction_report(snapshot):
     status_styles = {'Done': 'done', 'In progress': 'active', 'Blocked': 'blocked'}
@@ -164,7 +226,7 @@ def construction_report(snapshot):
                 area_change = quantity(estimate['additional_sq_ft'])
                 rate = quantity(estimate['rate_npr_per_sq_ft'])
                 cost = quantity(estimate['additional_npr'])
-                scope = f'<small>Estimated scope increase of {area_change} sq ft at NPR {rate} per sq ft, about NPR {cost}.</small>'
+                scope = f'<small class="progress-scope">Estimated scope increase of {area_change} sq ft at NPR {rate} per sq ft, about NPR {cost}.</small>'
             activity.append(
                 f'<li id="{E(entry["id"])}"><div class="progress-entry">'
                 f'<strong>{E(entry["work"])}</strong>'
@@ -188,34 +250,51 @@ def construction_report(snapshot):
         installed = item['installed_sq_ft']
         if planned <= 0 or (installed is not None and installed < 0):
             raise ValueError(f'Invalid installed-area values for {item["work"]}.')
+        area_scale = max(planned, installed if installed is not None else 0)
+        planned_bar = (
+            '<div class="progress-track" aria-hidden="true">'
+            f'<span class="progress-planned" style="flex-basis:{100 * planned / area_scale:.2f}%"></span></div>'
+        )
         if installed is None:
-            reading = '<p>Awaiting measurement</p>'
+            installed_label = 'Awaiting measurement'
+            installed_bar = '<div class="progress-track progress-track-unknown" aria-hidden="true"></div>'
         else:
-            percent = 100 * installed / planned
-            reading = (
-                f'<p>{quantity(installed)} sq ft installed · {percent:.1f}% of planned area</p>'
-                f'<progress aria-label="{E(item["work"])} installed area" max="100" value="{min(100, percent):.2f}"></progress>'
+            installed_label = f'{quantity(installed)} sq ft · {100 * installed / planned:.1f}% of planned'
+            installed_bar = (
+                '<div class="progress-track" aria-hidden="true">'
+                f'<span class="progress-done" style="flex-basis:{100 * installed / area_scale:.2f}%"></span></div>'
             )
         measurements.append(
-            f'<article class="card progress-measure"><h3>{E(item["work"])}</h3>'
-            f'<p>{quantity(planned)} sq ft planned</p>{reading}</article>'
+            f'<article class="card progress-measure"><h3>{E(item["work"])}</h3><dl class="progress-quantities">'
+            f'<div><dt>Planned area</dt><dd><strong>{quantity(planned)} sq ft</strong>{planned_bar}</dd></div>'
+            f'<div><dt>Installed area</dt><dd><strong>{E(installed_label)}</strong>{installed_bar}</dd></div>'
+            '</dl></article>'
         )
     latest = date_label(days[0]['date'])
+    gallery = construction_gallery(days)
+    stages = construction_stages(days)
+    jump_links = (
+        ('<a href="#site-photos">Photos</a>' if gallery else '')
+        + ('<a href="#work-stages">Work stages</a>' if stages else '')
+        + '<a href="#daily-status">Daily counts</a><a href="#measured-work">Measured area</a>'
+    )
     return (
         f'<p class="small progress-dates">Latest report {E(latest)} · Snapshot reviewed {E(date_label(snapshot["reviewed_on"]))}</p>'
+        f'<nav class="progress-jumps" aria-label="Report sections">{jump_links}</nav>'
+        f'{gallery}{stages}'
         '<section class="section" aria-labelledby="daily-status"><h2 id="daily-status">Daily update counts</h2>'
-        '<p class="small">Bars share a scale. Each segment counts logged updates in that status.</p>'
+        '<p class="small">Each segment counts logged updates in that status.</p>'
         f'<div class="card"><ul class="progress-chart">{"".join(bars)}</ul></div></section>'
+        '<section class="section" aria-labelledby="measured-work"><h2 id="measured-work">Planned and installed area</h2>'
+        f'{"".join(measurements)}</section>'
         '<section class="section" aria-labelledby="daily-log"><h2 id="daily-log">Site updates</h2>'
         f'{"".join(details)}</section>'
-        '<section class="section" aria-labelledby="measured-work"><h2 id="measured-work">Measured work</h2>'
-        f'{"".join(measurements)}</section>'
         '<p class="small">This snapshot combines the Construction Daily Progress sheet and the dated Drive site reports.</p>'
     )
 
-shell(construction_route,'Construction progress','Daily site updates, scope changes and measured installation.',
+shell(construction_route,'Construction progress','Site photos, daily work stages and measured installation.',
       construction_report(construction),crumbs=[('Reports','work/reports/'),('Construction progress',construction_route)],
-      stylesheet=construction_route+'progress.css',updated=date_label(construction['reviewed_on']))
+      stylesheet=construction_route+'progress.css?v=20261109-photos',updated=date_label(construction['reviewed_on']))
 resource_groups=[
  ('documents','Documents','Source references and editable files.',['recovered-studio_reference','drive','website-sources','business-sources','sop-sources','daily-sheet','guide-originals']),
  ('tools','Technical tools','For the person maintaining the system.',['client-repo','customer-repo','export-runbook','export-code','adapter','architecture','neon','vercel','model','system','automations']),

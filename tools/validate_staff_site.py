@@ -26,9 +26,11 @@ class Links(HTMLParser):
     def __init__(self):super().__init__();self.links=[];self.titles=0;self.h1=0;self.headings=[]
     def handle_starttag(self,tag,attrs):
         a=dict(attrs)
-        if tag in ('a','link','script'):
+        if tag in ('a','link','script','img'):
             v=a.get('href',a.get('src'))
             if v:self.links.append(v)
+        if tag=='img':
+            assert a.get('src') and a.get('alt','').strip(), a
         if tag=='title':self.titles+=1
         if tag=='h1':self.h1+=1
 generated=read('data-model/collection/generated-pages.json')['pages']

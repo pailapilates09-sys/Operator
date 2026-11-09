@@ -8,6 +8,27 @@
         "images": 4,
         "videos": 1
       },
+      "photos": [
+        {
+          "file": "tracks-07-nov.webp",
+          "title": "Tracks on site",
+          "alt": "Metal tracks resting on the tiled studio floor",
+          "caption": "Partition materials were unloaded on the first day.",
+          "kind": "Site photo",
+          "width": 900,
+          "height": 1200,
+          "focus": "lower"
+        },
+        {
+          "file": "framing-detail-07-nov.webp",
+          "title": "Reception framing",
+          "alt": "Metal ceiling track joining a vertical partition stud",
+          "caption": "Work 05 framing being fitted at ceiling level.",
+          "kind": "Photo detail",
+          "width": 600,
+          "height": 320
+        }
+      ],
       "entries": [
         {
           "id": "PRG-000001",
@@ -26,6 +47,8 @@
         {
           "id": "PRG-000003",
           "work": "Reception gypsum partition",
+          "work_code": "05",
+          "stage": "Framing started",
           "status": "In progress",
           "update": "Work 05 started. Metal studs and ceiling track were being fitted.",
           "area": "Reception"
@@ -39,10 +62,32 @@
         "images": 3,
         "videos": 1
       },
+      "photos": [
+        {
+          "file": "boards-08-nov.webp",
+          "title": "Boarded partition faces",
+          "alt": "Two gypsum board walls with visible screws and seams",
+          "caption": "Gypsum boards are fixed to the visible faces.",
+          "kind": "Site photo",
+          "width": 900,
+          "height": 1200
+        },
+        {
+          "file": "walkthrough-08-nov.webp",
+          "title": "Partition beside an opening",
+          "alt": "A boarded wall beside an open passage at the studio site",
+          "caption": "A second view of the boarding from the site walkthrough.",
+          "kind": "Walkthrough still",
+          "width": 576,
+          "height": 1024
+        }
+      ],
       "entries": [
         {
           "id": "PRG-000004",
           "work": "Reception gypsum partition",
+          "work_code": "05",
+          "stage": "Frame installed",
           "status": "In progress",
           "update": "Work 05 framing installed.",
           "area": "Reception"
@@ -50,6 +95,8 @@
         {
           "id": "PRG-000005",
           "work": "Work 12 gypsum partition",
+          "work_code": "12",
+          "stage": "Frame installed",
           "status": "In progress",
           "update": "Framing installed.",
           "scope_estimate": {
