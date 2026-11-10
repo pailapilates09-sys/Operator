@@ -1,5 +1,5 @@
 {
-  "reviewed_on": "2026-11-09",
+  "reviewed_on": "2026-11-10",
   "days": [
     {
       "date": "2026-11-07",
@@ -16,8 +16,7 @@
           "caption": "Partition materials were unloaded on the first day.",
           "kind": "Site photo",
           "width": 900,
-          "height": 1200,
-          "focus": "lower"
+          "height": 1200
         },
         {
           "file": "framing-detail-07-nov.webp",
@@ -106,6 +105,57 @@
           }
         }
       ]
+    },
+    {
+      "date": "2026-11-09",
+      "source": "drive",
+      "evidence": {
+        "notes": 1,
+        "images": 9,
+        "videos": 1
+      },
+      "photos": [
+        {
+          "file": "joint-treatment-09-nov.webp",
+          "title": "Joint treatment",
+          "alt": "Gypsum board walls with pale compound along seams and screw heads",
+          "caption": "Shows compound along board joints and screw heads.",
+          "kind": "Site photo",
+          "width": 900,
+          "height": 1200
+        },
+        {
+          "file": "surface-coat-09-nov.webp",
+          "title": "Surface coating",
+          "alt": "A pale-coated partition face in a wide view of the studio floor",
+          "caption": "Shows the coating on one partition face in its room context.",
+          "kind": "Site photo",
+          "width": 900,
+          "height": 1200
+        }
+      ],
+      "entries": [
+        {
+          "id": "DRIVE-20261109-001",
+          "work": "Gypsum partition finishing",
+          "status": "In progress",
+          "update": "The site note reports that work continued. Photos and video show compound along board joints and on some wall faces."
+        }
+      ]
+    }
+  ],
+  "next_actions": [
+    {
+      "title": "Identify and log the 9 November work",
+      "detail": "Confirm which views belong to Works 05 and 12, then enter the dated stage and evidence link in the Progress sheet."
+    },
+    {
+      "title": "Measure installed area for Work 05",
+      "detail": "Check boarded faces and record installed square feet against the 62.253 sq ft plan. Note any finishing still to do."
+    },
+    {
+      "title": "Confirm the Work 12 scope change",
+      "detail": "Verify the estimated 110.5 sq ft addition and NPR 55,250 cost. Record the owner’s decision and the agreed scope."
     }
   ],
   "measurements": [

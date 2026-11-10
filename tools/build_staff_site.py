@@ -123,27 +123,38 @@ def quantity(value):
     return f'{value:,.3f}'.rstrip('0').rstrip('.')
 
 def construction_gallery(days):
-    tiles = []
-    for day in reversed(days):
+    groups = []
+    for day in days:
+        photos = day.get('photos', [])
+        if not photos:
+            continue
         report_date = day['date']
-        label = date_label(report_date)
-        for photo in day.get('photos', []):
+        tiles = []
+        for photo in photos:
             url = '@@ROOT@@' + construction_route + 'media/' + photo['file']
-            focus = ' data-focus="lower"' if photo.get('focus') == 'lower' else ''
             tiles.append(
-                f'<figure class="card progress-photo"{focus}>'
+                '<figure class="progress-photo">'
                 f'<a href="{E(url)}" aria-label="{E("View larger image of " + photo["title"])}">'
                 f'<img src="{E(url)}" alt="{E(photo["alt"])}" width="{int(photo["width"])}" '
                 f'height="{int(photo["height"])}" loading="lazy" decoding="async"></a>'
-                f'<figcaption><p class="meta"><time datetime="{E(report_date)}">{E(label)}</time>'
-                f' · {E(photo["kind"])}</p><h3>{E(photo["title"])}</h3><p>{E(photo["caption"])}</p></figcaption></figure>'
+                f'<figcaption><p class="meta">{E(photo["kind"])}</p><strong>{E(photo["title"])}</strong>'
+                f'<p>{E(photo["caption"])}</p></figcaption></figure>'
             )
-    if not tiles:
+        groups.append(
+            f'<div class="progress-evidence-day" id="evidence-{E(report_date)}">'
+            f'<h3><time datetime="{E(report_date)}">{E(date_label(report_date))}</time></h3>'
+            f'<div class="progress-gallery">{"".join(tiles)}</div></div>'
+        )
+    if not groups:
         return ''
+    earlier = (
+        f'<details class="details"><summary>Earlier photos</summary><div>{"".join(groups[1:])}</div></details>'
+        if len(groups) > 1 else ''
+    )
     return (
-        '<section class="section" aria-labelledby="site-photos"><h2 id="site-photos">Site photos</h2>'
-        '<p class="small">Views from the dated site reports. Open a photo for a larger view.</p>'
-        f'<div class="progress-gallery">{"".join(tiles)}</div></section>'
+        '<section class="section" aria-labelledby="site-photos"><h2 id="site-photos">Photo evidence</h2>'
+        '<p class="small">Each caption explains what the image shows. Open a thumbnail for a larger view.</p>'
+        f'{groups[0]}{earlier}</section>'
     )
 
 def construction_stages(days):
@@ -192,15 +203,15 @@ def construction_report(snapshot):
     entries = [entry for day in days for entry in day['entries']]
     if len({entry['id'] for entry in entries}) != len(entries):
         raise ValueError('Construction progress contains duplicate Progress IDs.')
-    scale = max(1, max(len(day['entries']) for day in days))
+    if unknown := {entry['status'] for entry in entries} - status_styles.keys():
+        raise ValueError(f'Unknown construction statuses: {unknown}.')
+    sheet_days = [day for day in days if day.get('source', 'sheet') == 'sheet']
+    scale = max(1, max((len(day['entries']) for day in sheet_days), default=0))
     bars = []
-    details = []
-    for day in days:
+    for day in sheet_days:
         report_date = day['date']
         label = date_label(report_date)
         counts = Counter(entry['status'] for entry in day['entries'])
-        if counts.keys() - status_styles.keys():
-            raise ValueError(f'Unknown construction status on {report_date}.')
         segments = ''.join(
             f'<span class="progress-{style}" style="flex-grow:{counts[status]}"></span>'
             for status, style in status_styles.items() if counts[status]
@@ -217,6 +228,13 @@ def construction_report(snapshot):
             f'<div class="progress-track" aria-hidden="true">{segments}</div>'
             f'<div class="progress-counts">{legend}</div></li>'
         )
+    latest = days[0]
+    latest_activity = ''
+    details = []
+    for day in days:
+        report_date = day['date']
+        label = date_label(report_date)
+        source = 'Drive site report' if day.get('source') == 'drive' else 'Progress sheet'
         activity = []
         for entry in day['entries']:
             status = entry['status']
@@ -238,12 +256,22 @@ def construction_report(snapshot):
             f'{evidence[key]} {label if evidence[key] == 1 else key}'
             for key, label in [('notes', 'note'), ('images', 'image'), ('videos', 'video')]
         )
-        opened = ' open' if day is days[0] else ''
-        details.append(
-            f'<details class="details"{opened}><summary>{E(label)} · {len(activity)} updates</summary>'
-            f'<div><p class="small">Drive evidence · {E(evidence_counts)}</p>'
-            f'<ul class="line-list">{"".join(activity)}</ul></div></details>'
+        evidence_link = (
+            f'<p class="small"><a href="#evidence-{E(report_date)}">View {E(date_label(report_date, short=True))} evidence</a></p>'
+            if day.get('photos') else ''
         )
+        report_content = (
+            f'<p class="small progress-source">{E(source)}</p>'
+            f'<ul class="line-list">{"".join(activity)}</ul>'
+            f'<p class="small">Drive evidence · {E(evidence_counts)}</p>{evidence_link}'
+        )
+        if day is latest:
+            latest_activity = report_content
+        else:
+            details.append(
+                f'<details class="details"><summary>{E(label)} · {len(activity)} updates</summary>'
+                f'<div>{report_content}</div></details>'
+            )
     measurements = []
     for item in snapshot['measurements']:
         planned = item['planned_sq_ft']
@@ -270,31 +298,58 @@ def construction_report(snapshot):
             f'<div><dt>Installed area</dt><dd><strong>{E(installed_label)}</strong>{installed_bar}</dd></div>'
             '</dl></article>'
         )
-    latest = date_label(days[0]['date'])
     gallery = construction_gallery(days)
     stages = construction_stages(days)
+    actions = ''.join(
+        f'<li><strong>{E(action["title"])}</strong><p>{E(action["detail"])}</p></li>'
+        for action in snapshot.get('next_actions', [])
+    )
+    plan = (
+        '<p class="small">Suggested for the next site check</p>'
+        f'<ol class="progress-plan">{actions}</ol>'
+        '<p class="small progress-plan-fields">Assign an owner and target date to each action. Record blockers and decisions in the Progress sheet.</p>'
+        if actions else '<p>Add the next action, owner and target date in the Progress sheet.</p>'
+    )
+    date_context = f'Latest site report {E(date_label(latest["date"]))}'
+    if sheet_days and latest is not sheet_days[0]:
+        date_context += f' · Progress sheet through {E(date_label(sheet_days[0]["date"]))}'
     jump_links = (
-        ('<a href="#site-photos">Photos</a>' if gallery else '')
-        + ('<a href="#work-stages">Work stages</a>' if stages else '')
-        + '<a href="#daily-status">Daily counts</a><a href="#measured-work">Measured area</a>'
+        '<a href="#latest-report">What happened</a><a href="#next-plan">Next plan</a>'
+        + ('<a href="#work-stages">Work tracker</a>' if stages else '')
+        + ('<a href="#site-photos">Evidence</a>' if gallery else '')
+    )
+    history = (
+        '<section class="section" aria-labelledby="daily-log"><h2 id="daily-log">Earlier site reports</h2>'
+        f'{"".join(details)}</section>' if details else ''
+    )
+    references = (
+        '<details class="details progress-method"><summary>Report method and references</summary><div><ul>'
+        '<li>Lead with the dated work record and keep observed quantities and estimated changes distinct. '
+        '<a href="https://dot.ca.gov/programs/construction/construction-manual/section-5-1-project-records-and-reports">Caltrans Construction Manual, Project Records and Reports</a></li>'
+        '<li>Follow each update with a short plan, then confirm ownership, dates and constraints. '
+        '<a href="https://leanconstruction.org/lean-topics/last-planner-system/">Lean Construction Institute, Last Planner System</a></li>'
+        '<li>Place photos alongside explanatory captions and let readers open the details they need. '
+        '<a href="https://www.nngroup.com/articles/photos-as-web-content/">Nielsen Norman Group, Photos as Web Content</a></li>'
+        '</ul></div></details>'
     )
     return (
-        f'<p class="small progress-dates">Latest report {E(latest)} · Snapshot reviewed {E(date_label(snapshot["reviewed_on"]))}</p>'
+        f'<p class="small progress-dates">{date_context}</p>'
         f'<nav class="progress-jumps" aria-label="Report sections">{jump_links}</nav>'
-        f'{gallery}{stages}'
-        '<section class="section" aria-labelledby="daily-status"><h2 id="daily-status">Daily update counts</h2>'
-        '<p class="small">Each segment counts logged updates in that status.</p>'
-        f'<div class="card"><ul class="progress-chart">{"".join(bars)}</ul></div></section>'
-        '<section class="section" aria-labelledby="measured-work"><h2 id="measured-work">Planned and installed area</h2>'
-        f'{"".join(measurements)}</section>'
-        '<section class="section" aria-labelledby="daily-log"><h2 id="daily-log">Site updates</h2>'
-        f'{"".join(details)}</section>'
-        '<p class="small">This snapshot combines the Construction Daily Progress sheet and the dated Drive site reports.</p>'
+        '<div class="section progress-brief">'
+        f'<section class="card" aria-labelledby="latest-report"><h2 id="latest-report">What happened</h2>{latest_activity}</section>'
+        f'<section class="card" aria-labelledby="next-plan"><h2 id="next-plan">Next plan</h2>{plan}</section></div>'
+        f'{stages}'
+        '<details class="details"><summary id="measured-work">Planned and installed area</summary>'
+        f'<div>{"".join(measurements)}</div></details>'
+        '<details class="details"><summary id="daily-status">Daily counts from the Progress sheet</summary>'
+        '<div><p class="small">The bars count entries by status for each date recorded in the sheet.</p>'
+        f'<ul class="progress-chart">{"".join(bars)}</ul></div></details>'
+        f'{gallery}{history}{references}'
     )
 
-shell(construction_route,'Construction progress','Site photos, daily work stages and measured installation.',
+shell(construction_route,'Construction progress','The latest site report, next actions and work tracker.',
       construction_report(construction),crumbs=[('Reports','work/reports/'),('Construction progress',construction_route)],
-      stylesheet=construction_route+'progress.css?v=20261109-photos',updated=date_label(construction['reviewed_on']))
+      stylesheet=construction_route+'progress.css?v=20261110-brief',updated=date_label(construction['reviewed_on']))
 resource_groups=[
  ('documents','Documents','Source references and editable files.',['recovered-studio_reference','drive','website-sources','business-sources','sop-sources','daily-sheet','guide-originals']),
  ('tools','Technical tools','For the person maintaining the system.',['client-repo','customer-repo','export-runbook','export-code','adapter','architecture','neon','vercel','model','system','automations']),

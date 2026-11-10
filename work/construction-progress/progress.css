@@ -1,14 +1,40 @@
+.hero { padding-top: 22px; padding-bottom: 14px; }
+.hero h1 { font-size: clamp(33px, 4vw, 52px); margin-bottom: 8px; }
 .progress-dates { margin: 0; }
 .progress-jumps { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 12px; font-size: 14px; }
-.progress-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.progress-photo { margin: 0; padding: 0; overflow: hidden; }
-.progress-photo a { display: block; background: var(--soft); }
-.progress-photo a:focus-visible { outline-offset: -5px; }
-.progress-photo img { display: block; width: 100%; height: auto; aspect-ratio: 8 / 5; object-fit: cover; }
-.progress-photo[data-focus="lower"] img { object-position: 50% 78%; }
-.progress-photo figcaption { padding: 16px 20px 18px; }
-.progress-photo figcaption .meta { font-size: 12px; margin-bottom: 6px; }
-.progress-photo figcaption p:last-child { margin: 0; }
+.progress-brief { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); gap: 16px; align-items: start; }
+.progress-brief .card { padding: 20px; }
+.progress-brief .card h2 { margin-bottom: 8px; }
+.progress-brief .card p { margin-bottom: 8px; }
+.progress-brief .card .small { font-size: 13px; }
+.progress-brief .line-list li:first-child { padding-top: 6px; }
+.progress-brief .line-list li:last-child { padding-bottom: 6px; }
+.progress-brief .progress-source { font-size: 13px; }
+.progress-plan { margin: 2px 0 12px; padding-left: 22px; }
+.progress-plan li + li { margin-top: 10px; }
+.progress-plan li p { margin: 2px 0 0; }
+.progress-plan-fields { border-top: 1px solid var(--line); padding-top: 9px; }
+.progress-evidence-day { margin: 14px 0; }
+.progress-evidence-day h3 { font-size: 16px; }
+.progress-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+.progress-photo {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  margin: 0;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--white);
+}
+.progress-photo a { display: block; border-radius: 4px; background: var(--soft); }
+.progress-photo a:focus-visible { outline-offset: 2px; }
+.progress-photo img { display: block; width: 96px; height: 72px; object-fit: contain; }
+.progress-photo figcaption { min-width: 0; overflow-wrap: anywhere; font-size: 14px; }
+.progress-photo figcaption p { margin: 2px 0 0; font-size: 13px; }
+.progress-photo figcaption .meta { margin: 0 0 2px; font-size: 12px; }
+.progress-method li + li { margin-top: 8px; }
 .progress-stage-table { background: var(--white); }
 .progress-stage-table th, .progress-stage-table td { min-width: 0; }
 .progress-stage-table tbody th { background: transparent; }
@@ -65,7 +91,10 @@
 .progress-quantities .progress-track { margin-top: 5px; }
 .progress-track-unknown { border: 1px dashed #8fa396; background: transparent; }
 @media (max-width: 650px) {
-  .progress-gallery { grid-template-columns: 1fr; }
+  .progress-brief, .progress-gallery { grid-template-columns: 1fr; }
+  .progress-brief .card { padding: 16px; }
+  .progress-photo { grid-template-columns: 84px minmax(0, 1fr); gap: 10px; }
+  .progress-photo img { width: 84px; height: 66px; }
   .progress-stage-table th, .progress-stage-table td { padding: 9px 8px; }
   .progress-stage { padding: 2px 5px; }
   .progress-quantities > div { grid-template-columns: 1fr; }
